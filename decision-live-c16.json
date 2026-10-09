@@ -1,0 +1,5694 @@
+{
+  "build": "bf168605-user-rebuilt",
+  "started_unix": 1791584002.522187,
+  "endpoint": "http://alien.local:8000",
+  "contracts": [],
+  "stages": [
+    {
+      "rate": 0,
+      "concurrency": 1,
+      "received": 16,
+      "completed": 16,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 16,
+      "elapsed_s": 1.179302899981849,
+      "completed_per_s": 13.567337110971458,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.1689000055193901,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.609218,
+            "scoring_ms": 2.072099999999999,
+            "total_ms": 40.681318,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.681318
+          },
+          "request_ms": 76.12159999553114,
+          "e2e_ms": 76.29050000105053
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 76.30499999504536,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.200447,
+            "scoring_ms": 2.199333000000003,
+            "total_ms": 41.39978,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.39978
+          },
+          "request_ms": 81.69630006887019,
+          "e2e_ms": 158.00130006391555
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 158.01290003582835,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.300909,
+            "scoring_ms": 2.317275000000002,
+            "total_ms": 41.618184,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.618184
+          },
+          "request_ms": 59.512299951165915,
+          "e2e_ms": 217.52519998699427
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 217.5340000540018,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.291977,
+            "scoring_ms": 2.054703999999994,
+            "total_ms": 40.346681,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.346681
+          },
+          "request_ms": 57.80930002219975,
+          "e2e_ms": 275.34330007620156
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 275.3556000534445,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.560998,
+            "scoring_ms": 2.3461479999999995,
+            "total_ms": 41.907146,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.907146
+          },
+          "request_ms": 86.75309992395341,
+          "e2e_ms": 362.1086999773979
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 362.11870005354285,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.003434,
+            "scoring_ms": 2.2256520000000037,
+            "total_ms": 41.229086,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.229086
+          },
+          "request_ms": 60.47699996270239,
+          "e2e_ms": 422.59570001624525
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 422.6011000573635,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.443078,
+            "scoring_ms": 2.158776000000003,
+            "total_ms": 42.601854,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 42.601854
+          },
+          "request_ms": 57.82129999715835,
+          "e2e_ms": 480.42240005452186
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 480.42989999521524,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.652057,
+            "scoring_ms": 2.1437000000000026,
+            "total_ms": 41.795757,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.795757
+          },
+          "request_ms": 61.87079998198897,
+          "e2e_ms": 542.3006999772042
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 542.3090000404045,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.737464,
+            "scoring_ms": 2.147673999999995,
+            "total_ms": 42.885138,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 42.885138
+          },
+          "request_ms": 88.99159997235984,
+          "e2e_ms": 631.3006000127643
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 631.3099000835791,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.266838,
+            "scoring_ms": 2.1843239999999966,
+            "total_ms": 41.451162,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.451162
+          },
+          "request_ms": 66.10659998841584,
+          "e2e_ms": 697.416500071995
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 697.4256000248715,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.111044,
+            "scoring_ms": 2.1416499999999985,
+            "total_ms": 41.252694,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.252694
+          },
+          "request_ms": 67.26180005352944,
+          "e2e_ms": 764.687400078401
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 764.6965000312775,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 302,
+            "cached_tokens": 280,
+            "computed_tokens": 22,
+            "context_tokens": 22,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.620995,
+            "scoring_ms": 2.114689999999996,
+            "total_ms": 41.735685,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.735685
+          },
+          "request_ms": 80.90109995100647,
+          "e2e_ms": 845.597599982284
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 845.6081000622362,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.818282,
+            "scoring_ms": 2.3890129999999985,
+            "total_ms": 41.207295,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.207295
+          },
+          "request_ms": 150.3220999147743,
+          "e2e_ms": 995.9301999770105
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 995.9424000699073,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.030637,
+            "scoring_ms": 2.162185000000001,
+            "total_ms": 41.192822,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.192822
+          },
+          "request_ms": 58.445699978619814,
+          "e2e_ms": 1054.3881000485271
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 1054.3978000059724,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.998751,
+            "scoring_ms": 2.1027010000000033,
+            "total_ms": 41.101452,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.101452
+          },
+          "request_ms": 64.37829998321831,
+          "e2e_ms": 1118.7760999891907
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 1118.7859000638127,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 41.122118,
+            "scoring_ms": 2.1483160000000012,
+            "total_ms": 43.270434,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 43.270434
+          },
+          "request_ms": 60.380199924111366,
+          "e2e_ms": 1179.166099987924
+        }
+      ],
+      "route": "decision",
+      "name": "serial"
+    },
+    {
+      "rate": 0.0,
+      "concurrency": 16,
+      "received": 128,
+      "completed": 128,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 128,
+      "elapsed_s": 5.07320250000339,
+      "completed_per_s": 25.230611236179605,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.17889996524900198,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.961865,
+            "scoring_ms": 2.1122549999999976,
+            "total_ms": 42.07412,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 42.07412
+          },
+          "request_ms": 62.51660000998527,
+          "e2e_ms": 62.69549997523427
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 0.6475000409409404,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.014571,
+            "scoring_ms": 75.280292,
+            "total_ms": 115.294863,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 115.294863
+          },
+          "request_ms": 141.88629994168878,
+          "e2e_ms": 142.53379998262972
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 1.014100038446486,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.363734,
+            "scoring_ms": 35.75202099999999,
+            "total_ms": 75.115755,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 75.115755
+          },
+          "request_ms": 103.55260001961142,
+          "e2e_ms": 104.5667000580579
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 1.387599972076714,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.93349,
+            "scoring_ms": 166.27675299999999,
+            "total_ms": 205.210243,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 205.210243
+          },
+          "request_ms": 257.53800000529736,
+          "e2e_ms": 258.9255999773741
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 1.684500020928681,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.185103,
+            "scoring_ms": 401.15430000000003,
+            "total_ms": 441.339403,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 441.339403
+          },
+          "request_ms": 495.3807999845594,
+          "e2e_ms": 497.0653000054881
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 2.015499980188906,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.124152,
+            "scoring_ms": 441.152213,
+            "total_ms": 481.276365,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 481.276365
+          },
+          "request_ms": 534.682200057432,
+          "e2e_ms": 536.697700037621
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 2.434800029732287,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.654218,
+            "scoring_ms": 205.235587,
+            "total_ms": 243.889805,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 243.889805
+          },
+          "request_ms": 295.4217999940738,
+          "e2e_ms": 297.8566000238061
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 2.8034000424668193,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.091324,
+            "scoring_ms": 88.838924,
+            "total_ms": 127.930248,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 127.930248
+          },
+          "request_ms": 179.16249996051192,
+          "e2e_ms": 181.96590000297874
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 3.4052999690175056,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.440102,
+            "scoring_ms": 243.85928900000002,
+            "total_ms": 283.299391,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 283.299391
+          },
+          "request_ms": 333.9185999939218,
+          "e2e_ms": 337.3238999629393
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 3.790799994021654,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.412478,
+            "scoring_ms": 283.66741399999995,
+            "total_ms": 323.079892,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 323.079892
+          },
+          "request_ms": 372.81790003180504,
+          "e2e_ms": 376.6087000258267
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 4.206400015391409,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.285986,
+            "scoring_ms": 520.417515,
+            "total_ms": 558.703501,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 558.703501
+          },
+          "request_ms": 609.2479999642819,
+          "e2e_ms": 613.4543999796733
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 4.660799982957542,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 302,
+            "cached_tokens": 280,
+            "computed_tokens": 22,
+            "context_tokens": 22,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.701586,
+            "scoring_ms": 127.599377,
+            "total_ms": 166.300963,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 166.300963
+          },
+          "request_ms": 215.74540005531162,
+          "e2e_ms": 220.40620003826916
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 5.1386000122874975,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.325082,
+            "scoring_ms": 361.617238,
+            "total_ms": 400.94232,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 400.94232
+          },
+          "request_ms": 449.91820002906024,
+          "e2e_ms": 455.05680004134774
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 5.591899971477687,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.819617,
+            "scoring_ms": 558.447613,
+            "total_ms": 597.26723,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 597.26723
+          },
+          "request_ms": 645.5478999996558,
+          "e2e_ms": 651.1397999711335
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 6.029200041666627,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.811814,
+            "scoring_ms": 322.858257,
+            "total_ms": 361.670071,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 361.670071
+          },
+          "request_ms": 409.74119992461056,
+          "e2e_ms": 415.7703999662772
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 6.511499988846481,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.933787,
+            "scoring_ms": 481.253855,
+            "total_ms": 520.187642,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 520.187642
+          },
+          "request_ms": 567.3624000046402,
+          "e2e_ms": 573.8738999934867
+        },
+        {
+          "event": 16,
+          "ok": true,
+          "queue_ms": 62.70290003158152,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.143039,
+            "scoring_ms": 544.593938,
+            "total_ms": 583.736977,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 583.736977
+          },
+          "request_ms": 628.0258999904618,
+          "e2e_ms": 690.7288000220433
+        },
+        {
+          "event": 17,
+          "ok": true,
+          "queue_ms": 104.57329999189824,
+          "category": "INSIGHT",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.274738,
+            "scoring_ms": 569.8740200000001,
+            "total_ms": 609.148758,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 609.148758
+          },
+          "request_ms": 624.7812999645248,
+          "e2e_ms": 729.354599956423
+        },
+        {
+          "event": 18,
+          "ok": true,
+          "queue_ms": 142.54180004354566,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.78292,
+            "scoring_ms": 547.6626200000001,
+            "total_ms": 586.44554,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 586.44554
+          },
+          "request_ms": 626.4131999341771,
+          "e2e_ms": 768.9549999777228
+        },
+        {
+          "event": 19,
+          "ok": true,
+          "queue_ms": 181.97769997641444,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.792389,
+            "scoring_ms": 567.6859320000001,
+            "total_ms": 607.478321,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 607.478321
+          },
+          "request_ms": 626.6953999875113,
+          "e2e_ms": 808.6730999639258
+        },
+        {
+          "event": 20,
+          "ok": true,
+          "queue_ms": 220.41269997134805,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.051212,
+            "scoring_ms": 559.5221290000001,
+            "total_ms": 598.573341,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 598.573341
+          },
+          "request_ms": 627.6205000467598,
+          "e2e_ms": 848.0332000181079
+        },
+        {
+          "event": 21,
+          "ok": true,
+          "queue_ms": 258.93260003067553,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.969277,
+            "scoring_ms": 548.297656,
+            "total_ms": 587.266933,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 587.266933
+          },
+          "request_ms": 628.6456999368966,
+          "e2e_ms": 887.5782999675721
+        },
+        {
+          "event": 22,
+          "ok": true,
+          "queue_ms": 297.8737000375986,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.562444,
+            "scoring_ms": 572.160276,
+            "total_ms": 611.72272,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 611.72272
+          },
+          "request_ms": 629.2895999504253,
+          "e2e_ms": 927.1632999880239
+        },
+        {
+          "event": 23,
+          "ok": true,
+          "queue_ms": 337.3340000398457,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.649491,
+            "scoring_ms": 560.677705,
+            "total_ms": 600.327196,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 600.327196
+          },
+          "request_ms": 629.3515999568626,
+          "e2e_ms": 966.6855999967083
+        },
+        {
+          "event": 24,
+          "ok": true,
+          "queue_ms": 376.61759997718036,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.17555,
+            "scoring_ms": 562.184397,
+            "total_ms": 601.359947,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 601.359947
+          },
+          "request_ms": 632.5283000478521,
+          "e2e_ms": 1009.1459000250325
+        },
+        {
+          "event": 25,
+          "ok": true,
+          "queue_ms": 415.78230005688965,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.834825,
+            "scoring_ms": 557.9345069999999,
+            "total_ms": 596.769332,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.769332
+          },
+          "request_ms": 630.0310000078753,
+          "e2e_ms": 1045.813300064765
+        },
+        {
+          "event": 26,
+          "ok": true,
+          "queue_ms": 455.0691000185907,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.508426,
+            "scoring_ms": 549.711801,
+            "total_ms": 589.220227,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 589.220227
+          },
+          "request_ms": 629.5740000205114,
+          "e2e_ms": 1084.6431000391021
+        },
+        {
+          "event": 27,
+          "ok": true,
+          "queue_ms": 497.07519996445626,
+          "category": "FEEDBACK",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.674584,
+            "scoring_ms": 566.222205,
+            "total_ms": 604.896789,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 604.896789
+          },
+          "request_ms": 624.9881000258029,
+          "e2e_ms": 1122.063299990259
+        },
+        {
+          "event": 28,
+          "ok": true,
+          "queue_ms": 536.7044999729842,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 310,
+            "cached_tokens": 280,
+            "computed_tokens": 30,
+            "context_tokens": 30,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.164357,
+            "scoring_ms": 571.18035,
+            "total_ms": 610.344707,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.344707
+          },
+          "request_ms": 624.2825000081211,
+          "e2e_ms": 1160.9869999811053
+        },
+        {
+          "event": 29,
+          "ok": true,
+          "queue_ms": 573.881300049834,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.059848,
+            "scoring_ms": 571.472743,
+            "total_ms": 610.532591,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.532591
+          },
+          "request_ms": 625.9570999536663,
+          "e2e_ms": 1199.8384000035003
+        },
+        {
+          "event": 30,
+          "ok": true,
+          "queue_ms": 613.4662000695243,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.838815,
+            "scoring_ms": 569.73365,
+            "total_ms": 608.572465,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 608.572465
+          },
+          "request_ms": 626.9257999956608,
+          "e2e_ms": 1240.3920000651851
+        },
+        {
+          "event": 31,
+          "ok": true,
+          "queue_ms": 651.148600038141,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.554908,
+            "scoring_ms": 557.8673070000001,
+            "total_ms": 596.422215,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.422215
+          },
+          "request_ms": 626.1330000124872,
+          "e2e_ms": 1277.2816000506282
+        },
+        {
+          "event": 32,
+          "ok": true,
+          "queue_ms": 690.7375999726355,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 313,
+            "cached_tokens": 280,
+            "computed_tokens": 33,
+            "context_tokens": 33,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 56.782428,
+            "scoring_ms": 560.223033,
+            "total_ms": 617.005461,
+            "rounds": 1,
+            "forward_batches": 3,
+            "largest_batch": 1,
+            "per_decision_ms": 617.005461
+          },
+          "request_ms": 644.5995999965817,
+          "e2e_ms": 1335.3371999692172
+        },
+        {
+          "event": 33,
+          "ok": true,
+          "queue_ms": 729.3628000188619,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.770057,
+            "scoring_ms": 588.555693,
+            "total_ms": 627.32575,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 627.32575
+          },
+          "request_ms": 643.9332000445575,
+          "e2e_ms": 1373.2960000634193
+        },
+        {
+          "event": 34,
+          "ok": true,
+          "queue_ms": 768.9661000622436,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.384849,
+            "scoring_ms": 574.562421,
+            "total_ms": 613.94727,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 613.94727
+          },
+          "request_ms": 645.0811999384314,
+          "e2e_ms": 1414.047300000675
+        },
+        {
+          "event": 35,
+          "ok": true,
+          "queue_ms": 808.6811000248417,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.426388,
+            "scoring_ms": 587.994065,
+            "total_ms": 627.420453,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 627.420453
+          },
+          "request_ms": 644.7092000162229,
+          "e2e_ms": 1453.3903000410646
+        },
+        {
+          "event": 36,
+          "ok": true,
+          "queue_ms": 848.0451999930665,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.738081,
+            "scoring_ms": 572.55965,
+            "total_ms": 611.297731,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 611.297731
+          },
+          "request_ms": 643.0915000382811,
+          "e2e_ms": 1491.1367000313476
+        },
+        {
+          "event": 37,
+          "ok": true,
+          "queue_ms": 887.5890000490472,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.355177,
+            "scoring_ms": 574.805167,
+            "total_ms": 613.160344,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 613.160344
+          },
+          "request_ms": 641.3725999882445,
+          "e2e_ms": 1528.9616000372916
+        },
+        {
+          "event": 38,
+          "ok": true,
+          "queue_ms": 927.1745999576524,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.690997,
+            "scoring_ms": 564.477269,
+            "total_ms": 603.168266,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 603.168266
+          },
+          "request_ms": 640.6720000086352,
+          "e2e_ms": 1567.8465999662876
+        },
+        {
+          "event": 39,
+          "ok": true,
+          "queue_ms": 966.6972999693826,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.807045,
+            "scoring_ms": 584.502762,
+            "total_ms": 625.309807,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 625.309807
+          },
+          "request_ms": 642.1223999932408,
+          "e2e_ms": 1608.8196999626234
+        },
+        {
+          "event": 40,
+          "ok": true,
+          "queue_ms": 1009.1588000068441,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.632628,
+            "scoring_ms": 580.408571,
+            "total_ms": 619.041199,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 619.041199
+          },
+          "request_ms": 638.2467000512406,
+          "e2e_ms": 1647.4055000580847
+        },
+        {
+          "event": 41,
+          "ok": true,
+          "queue_ms": 1045.8249000366777,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.292326,
+            "scoring_ms": 581.18137,
+            "total_ms": 620.473696,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 620.473696
+          },
+          "request_ms": 641.6708999313414,
+          "e2e_ms": 1687.4957999680191
+        },
+        {
+          "event": 42,
+          "ok": true,
+          "queue_ms": 1084.655600017868,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.906795,
+            "scoring_ms": 585.894138,
+            "total_ms": 625.800933,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 625.800933
+          },
+          "request_ms": 646.8422999605536,
+          "e2e_ms": 1731.4978999784216
+        },
+        {
+          "event": 43,
+          "ok": true,
+          "queue_ms": 1122.0747999614105,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.674477,
+            "scoring_ms": 561.176398,
+            "total_ms": 599.850875,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.850875
+          },
+          "request_ms": 643.7298000091687,
+          "e2e_ms": 1765.8045999705791
+        },
+        {
+          "event": 44,
+          "ok": true,
+          "queue_ms": 1160.9962000511587,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.966115,
+            "scoring_ms": 589.0060100000001,
+            "total_ms": 627.972125,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 627.972125
+          },
+          "request_ms": 645.1033999910578,
+          "e2e_ms": 1806.0996000422165
+        },
+        {
+          "event": 45,
+          "ok": true,
+          "queue_ms": 1199.8466000659391,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.174229,
+            "scoring_ms": 581.505564,
+            "total_ms": 620.679793,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 620.679793
+          },
+          "request_ms": 644.0004999749362,
+          "e2e_ms": 1843.8471000408754
+        },
+        {
+          "event": 46,
+          "ok": true,
+          "queue_ms": 1240.4029000317678,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.533028,
+            "scoring_ms": 586.8167920000001,
+            "total_ms": 626.34982,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 626.34982
+          },
+          "request_ms": 642.4454000080004,
+          "e2e_ms": 1882.8483000397682
+        },
+        {
+          "event": 47,
+          "ok": true,
+          "queue_ms": 1277.291400008835,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.562806,
+            "scoring_ms": 584.4286609999999,
+            "total_ms": 623.991467,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 623.991467
+          },
+          "request_ms": 645.2432000078261,
+          "e2e_ms": 1922.534600016661
+        },
+        {
+          "event": 48,
+          "ok": true,
+          "queue_ms": 1335.3495000628754,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.928208,
+            "scoring_ms": 556.548185,
+            "total_ms": 595.476393,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 595.476393
+          },
+          "request_ms": 626.0557000059634,
+          "e2e_ms": 1961.405200068839
+        },
+        {
+          "event": 49,
+          "ok": true,
+          "queue_ms": 1373.3084000414237,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.721567,
+            "scoring_ms": 562.3526039999999,
+            "total_ms": 602.074171,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 602.074171
+          },
+          "request_ms": 628.2181999413297,
+          "e2e_ms": 2001.5265999827534
+        },
+        {
+          "event": 50,
+          "ok": true,
+          "queue_ms": 1414.0590999741107,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.072427,
+            "scoring_ms": 552.8511870000001,
+            "total_ms": 592.923614,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 592.923614
+          },
+          "request_ms": 627.3542999988422,
+          "e2e_ms": 2041.413399972953
+        },
+        {
+          "event": 51,
+          "ok": true,
+          "queue_ms": 1453.399599995464,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.307212,
+            "scoring_ms": 570.932334,
+            "total_ms": 610.239546,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.239546
+          },
+          "request_ms": 627.5799999712035,
+          "e2e_ms": 2080.9795999666676
+        },
+        {
+          "event": 52,
+          "ok": true,
+          "queue_ms": 1491.1460999865085,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.902653,
+            "scoring_ms": 547.619232,
+            "total_ms": 586.521885,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 586.521885
+          },
+          "request_ms": 631.5387000795454,
+          "e2e_ms": 2122.684800066054
+        },
+        {
+          "event": 53,
+          "ok": true,
+          "queue_ms": 1528.970199986361,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.31142,
+            "scoring_ms": 575.404399,
+            "total_ms": 614.715819,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.715819
+          },
+          "request_ms": 629.8954000230879,
+          "e2e_ms": 2158.865600009449
+        },
+        {
+          "event": 54,
+          "ok": true,
+          "queue_ms": 1567.85780005157,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.213876,
+            "scoring_ms": 560.533328,
+            "total_ms": 599.747204,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.747204
+          },
+          "request_ms": 629.8888999735937,
+          "e2e_ms": 2197.7467000251636
+        },
+        {
+          "event": 55,
+          "ok": true,
+          "queue_ms": 1608.8330000638962,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.133734,
+            "scoring_ms": 565.681281,
+            "total_ms": 604.815015,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 604.815015
+          },
+          "request_ms": 634.6084999386221,
+          "e2e_ms": 2243.4415000025183
+        },
+        {
+          "event": 56,
+          "ok": true,
+          "queue_ms": 1647.4171000299975,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.38779,
+            "scoring_ms": 556.607851,
+            "total_ms": 596.995641,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.995641
+          },
+          "request_ms": 629.7985999844968,
+          "e2e_ms": 2277.2157000144944
+        },
+        {
+          "event": 57,
+          "ok": true,
+          "queue_ms": 1687.50690005254,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.549238,
+            "scoring_ms": 568.088671,
+            "total_ms": 607.637909,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 607.637909
+          },
+          "request_ms": 629.9035999691114,
+          "e2e_ms": 2317.4105000216514
+        },
+        {
+          "event": 58,
+          "ok": true,
+          "queue_ms": 1731.5081000560895,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.054109,
+            "scoring_ms": 568.410403,
+            "total_ms": 607.464512,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 607.464512
+          },
+          "request_ms": 625.2737999893725,
+          "e2e_ms": 2356.781900045462
+        },
+        {
+          "event": 59,
+          "ok": true,
+          "queue_ms": 1765.8120000269264,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.405869,
+            "scoring_ms": 557.9030839999999,
+            "total_ms": 596.308953,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.308953
+          },
+          "request_ms": 628.6876000231132,
+          "e2e_ms": 2394.4996000500396
+        },
+        {
+          "event": 60,
+          "ok": true,
+          "queue_ms": 1806.1067999806255,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.608034,
+            "scoring_ms": 557.8395,
+            "total_ms": 597.447534,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 597.447534
+          },
+          "request_ms": 627.6946000289172,
+          "e2e_ms": 2433.8014000095427
+        },
+        {
+          "event": 61,
+          "ok": true,
+          "queue_ms": 1843.8588000135496,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.984514,
+            "scoring_ms": 569.89996,
+            "total_ms": 608.884474,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 608.884474
+          },
+          "request_ms": 629.6491000102833,
+          "e2e_ms": 2473.507900023833
+        },
+        {
+          "event": 62,
+          "ok": true,
+          "queue_ms": 1882.8593000071123,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.424653,
+            "scoring_ms": 558.867897,
+            "total_ms": 598.29255,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 598.29255
+          },
+          "request_ms": 630.5560000473633,
+          "e2e_ms": 2513.4153000544757
+        },
+        {
+          "event": 63,
+          "ok": true,
+          "queue_ms": 1922.5454999832436,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 301,
+            "cached_tokens": 280,
+            "computed_tokens": 21,
+            "context_tokens": 21,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.847483,
+            "scoring_ms": 547.727451,
+            "total_ms": 586.574934,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 586.574934
+          },
+          "request_ms": 629.4362000189722,
+          "e2e_ms": 2551.981700002216
+        },
+        {
+          "event": 64,
+          "ok": true,
+          "queue_ms": 1961.4125000080094,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.951579,
+            "scoring_ms": 553.202852,
+            "total_ms": 593.154431,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 593.154431
+          },
+          "request_ms": 629.7898000339046,
+          "e2e_ms": 2591.202300041914
+        },
+        {
+          "event": 65,
+          "ok": true,
+          "queue_ms": 2001.5377000672743,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.263239,
+            "scoring_ms": 562.305025,
+            "total_ms": 601.568264,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 601.568264
+          },
+          "request_ms": 630.0906999967992,
+          "e2e_ms": 2631.6284000640735
+        },
+        {
+          "event": 66,
+          "ok": true,
+          "queue_ms": 2041.422100039199,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.992285,
+            "scoring_ms": 573.293648,
+            "total_ms": 614.285933,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.285933
+          },
+          "request_ms": 629.8673999262974,
+          "e2e_ms": 2671.2894999654964
+        },
+        {
+          "event": 67,
+          "ok": true,
+          "queue_ms": 2080.9918000595644,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.371518,
+            "scoring_ms": 575.393345,
+            "total_ms": 613.764863,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 613.764863
+          },
+          "request_ms": 629.0622999658808,
+          "e2e_ms": 2710.054100025445
+        },
+        {
+          "event": 68,
+          "ok": true,
+          "queue_ms": 2122.6933000143617,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.782889,
+            "scoring_ms": 561.0155040000001,
+            "total_ms": 599.798393,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.798393
+          },
+          "request_ms": 627.6991999475285,
+          "e2e_ms": 2750.3924999618903
+        },
+        {
+          "event": 69,
+          "ok": true,
+          "queue_ms": 2158.8700000429526,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.670359,
+            "scoring_ms": 560.8517320000001,
+            "total_ms": 600.522091,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 600.522091
+          },
+          "request_ms": 630.4721999913454,
+          "e2e_ms": 2789.342200034298
+        },
+        {
+          "event": 70,
+          "ok": true,
+          "queue_ms": 2197.7513000601903,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.71506,
+            "scoring_ms": 556.176654,
+            "total_ms": 594.891714,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 594.891714
+          },
+          "request_ms": 629.2790999868885,
+          "e2e_ms": 2827.0304000470787
+        },
+        {
+          "event": 71,
+          "ok": true,
+          "queue_ms": 2243.4511999599636,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.602851,
+            "scoring_ms": 561.038561,
+            "total_ms": 599.641412,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.641412
+          },
+          "request_ms": 624.2391000268981,
+          "e2e_ms": 2867.6902999868616
+        },
+        {
+          "event": 72,
+          "ok": true,
+          "queue_ms": 2277.2213000571355,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.148877,
+            "scoring_ms": 567.56141,
+            "total_ms": 606.710287,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 606.710287
+          },
+          "request_ms": 628.1017999863252,
+          "e2e_ms": 2905.3231000434607
+        },
+        {
+          "event": 73,
+          "ok": true,
+          "queue_ms": 2317.4207999836653,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.369758,
+            "scoring_ms": 572.969158,
+            "total_ms": 612.338916,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 612.338916
+          },
+          "request_ms": 627.6634000241756,
+          "e2e_ms": 2945.084200007841
+        },
+        {
+          "event": 74,
+          "ok": true,
+          "queue_ms": 2356.7914000013843,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.403479,
+            "scoring_ms": 571.704951,
+            "total_ms": 610.10843,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.10843
+          },
+          "request_ms": 626.0598000371829,
+          "e2e_ms": 2982.851200038567
+        },
+        {
+          "event": 75,
+          "ok": true,
+          "queue_ms": 2394.5071999914944,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 302,
+            "cached_tokens": 280,
+            "computed_tokens": 22,
+            "context_tokens": 22,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.478069,
+            "scoring_ms": 550.434488,
+            "total_ms": 588.912557,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 588.912557
+          },
+          "request_ms": 626.4966999879107,
+          "e2e_ms": 3021.003899979405
+        },
+        {
+          "event": 76,
+          "ok": true,
+          "queue_ms": 2433.807900059037,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.405203,
+            "scoring_ms": 557.589983,
+            "total_ms": 596.995186,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.995186
+          },
+          "request_ms": 629.225599928759,
+          "e2e_ms": 3063.033499987796
+        },
+        {
+          "event": 77,
+          "ok": true,
+          "queue_ms": 2473.515999969095,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.432089,
+            "scoring_ms": 570.733239,
+            "total_ms": 610.165328,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.165328
+          },
+          "request_ms": 626.2287000427023,
+          "e2e_ms": 3099.7447000117972
+        },
+        {
+          "event": 78,
+          "ok": true,
+          "queue_ms": 2513.424800010398,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.116958,
+            "scoring_ms": 568.8890650000001,
+            "total_ms": 608.006023,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 608.006023
+          },
+          "request_ms": 626.0699999984354,
+          "e2e_ms": 3139.4948000088334
+        },
+        {
+          "event": 79,
+          "ok": true,
+          "queue_ms": 2551.9888000562787,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.602245,
+            "scoring_ms": 571.8606719999999,
+            "total_ms": 611.462917,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 611.462917
+          },
+          "request_ms": 626.4044999843463,
+          "e2e_ms": 3178.393300040625
+        },
+        {
+          "event": 80,
+          "ok": true,
+          "queue_ms": 2591.207699966617,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.78949,
+            "scoring_ms": 563.784504,
+            "total_ms": 604.573994,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 604.573994
+          },
+          "request_ms": 628.1170001020655,
+          "e2e_ms": 3219.3247000686824
+        },
+        {
+          "event": 81,
+          "ok": true,
+          "queue_ms": 2631.638600025326,
+          "category": "INSIGHT",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.768703,
+            "scoring_ms": 563.9113520000001,
+            "total_ms": 603.680055,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 603.680055
+          },
+          "request_ms": 636.3457000115886,
+          "e2e_ms": 3267.9843000369146
+        },
+        {
+          "event": 82,
+          "ok": true,
+          "queue_ms": 2671.294800005853,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.158189,
+            "scoring_ms": 575.951576,
+            "total_ms": 614.109765,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.109765
+          },
+          "request_ms": 626.939499983564,
+          "e2e_ms": 3298.234299989417
+        },
+        {
+          "event": 83,
+          "ok": true,
+          "queue_ms": 2710.0606999592856,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.848559,
+            "scoring_ms": 565.772846,
+            "total_ms": 605.621405,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 605.621405
+          },
+          "request_ms": 628.4144000383094,
+          "e2e_ms": 3338.475099997595
+        },
+        {
+          "event": 84,
+          "ok": true,
+          "queue_ms": 2750.4012000281364,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.663341,
+            "scoring_ms": 570.290037,
+            "total_ms": 608.953378,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 608.953378
+          },
+          "request_ms": 625.995900016278,
+          "e2e_ms": 3376.3971000444144
+        },
+        {
+          "event": 85,
+          "ok": true,
+          "queue_ms": 2789.35099998489,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.113378,
+            "scoring_ms": 560.828941,
+            "total_ms": 599.942319,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.942319
+          },
+          "request_ms": 627.2743999725208,
+          "e2e_ms": 3416.625399957411
+        },
+        {
+          "event": 86,
+          "ok": true,
+          "queue_ms": 2827.0366999786347,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.64342,
+            "scoring_ms": 566.3534970000001,
+            "total_ms": 604.996917,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 604.996917
+          },
+          "request_ms": 626.7690000822768,
+          "e2e_ms": 3453.8057000609115
+        },
+        {
+          "event": 87,
+          "ok": true,
+          "queue_ms": 2867.6992000546306,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.154171,
+            "scoring_ms": 556.200933,
+            "total_ms": 595.355104,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 595.355104
+          },
+          "request_ms": 626.2573999119923,
+          "e2e_ms": 3493.956599966623
+        },
+        {
+          "event": 88,
+          "ok": true,
+          "queue_ms": 2905.3309999872,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.588252,
+            "scoring_ms": 561.367615,
+            "total_ms": 599.955867,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 599.955867
+          },
+          "request_ms": 652.4474000325426,
+          "e2e_ms": 3557.7784000197425
+        },
+        {
+          "event": 89,
+          "ok": true,
+          "queue_ms": 2945.090900058858,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.795781,
+            "scoring_ms": 550.045185,
+            "total_ms": 588.840966,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 588.840966
+          },
+          "request_ms": 630.6955999461934,
+          "e2e_ms": 3575.7865000050515
+        },
+        {
+          "event": 90,
+          "ok": true,
+          "queue_ms": 2982.859499985352,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.906198,
+            "scoring_ms": 556.486039,
+            "total_ms": 595.392237,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 595.392237
+          },
+          "request_ms": 626.2234000023454,
+          "e2e_ms": 3609.0828999876976
+        },
+        {
+          "event": 91,
+          "ok": true,
+          "queue_ms": 3021.0096000228077,
+          "category": "FEEDBACK",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.520765,
+            "scoring_ms": 560.352711,
+            "total_ms": 598.873476,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 598.873476
+          },
+          "request_ms": 627.3775999434292,
+          "e2e_ms": 3648.387199966237
+        },
+        {
+          "event": 92,
+          "ok": true,
+          "queue_ms": 3063.0439000669867,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 310,
+            "cached_tokens": 280,
+            "computed_tokens": 30,
+            "context_tokens": 30,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.980455,
+            "scoring_ms": 549.158224,
+            "total_ms": 588.138679,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 588.138679
+          },
+          "request_ms": 624.7593999141827,
+          "e2e_ms": 3687.8032999811694
+        },
+        {
+          "event": 93,
+          "ok": true,
+          "queue_ms": 3099.7527999570593,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 44.137732,
+            "scoring_ms": 572.074647,
+            "total_ms": 616.212379,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 616.212379
+          },
+          "request_ms": 632.3403000133112,
+          "e2e_ms": 3732.0930999703705
+        },
+        {
+          "event": 94,
+          "ok": true,
+          "queue_ms": 3139.5050999708474,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.425111,
+            "scoring_ms": 572.5215039999999,
+            "total_ms": 610.946615,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 610.946615
+          },
+          "request_ms": 634.6579000819474,
+          "e2e_ms": 3774.163000052795
+        },
+        {
+          "event": 95,
+          "ok": true,
+          "queue_ms": 3178.3998999744654,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.858764,
+            "scoring_ms": 563.884897,
+            "total_ms": 602.743661,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 602.743661
+          },
+          "request_ms": 629.8764999955893,
+          "e2e_ms": 3808.2763999700546
+        },
+        {
+          "event": 96,
+          "ok": true,
+          "queue_ms": 3219.3291999865323,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 313,
+            "cached_tokens": 280,
+            "computed_tokens": 33,
+            "context_tokens": 33,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 55.647462,
+            "scoring_ms": 575.799666,
+            "total_ms": 631.447128,
+            "rounds": 1,
+            "forward_batches": 3,
+            "largest_batch": 1,
+            "per_decision_ms": 631.447128
+          },
+          "request_ms": 644.9542000191286,
+          "e2e_ms": 3864.283400005661
+        },
+        {
+          "event": 97,
+          "ok": true,
+          "queue_ms": 3267.99469999969,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.111458,
+            "scoring_ms": 565.731116,
+            "total_ms": 603.842574,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 603.842574
+          },
+          "request_ms": 634.1483000433072,
+          "e2e_ms": 3902.1430000429973
+        },
+        {
+          "event": 98,
+          "ok": true,
+          "queue_ms": 3298.244000063278,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.814425,
+            "scoring_ms": 586.596062,
+            "total_ms": 625.410487,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 625.410487
+          },
+          "request_ms": 642.7881999406964,
+          "e2e_ms": 3941.032200003974
+        },
+        {
+          "event": 99,
+          "ok": true,
+          "queue_ms": 3338.483100058511,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.061453,
+            "scoring_ms": 586.910228,
+            "total_ms": 625.971681,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 625.971681
+          },
+          "request_ms": 645.4416000051424,
+          "e2e_ms": 3983.9247000636533
+        },
+        {
+          "event": 100,
+          "ok": true,
+          "queue_ms": 3376.4064999995753,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.901248,
+            "scoring_ms": 581.877227,
+            "total_ms": 620.778475,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 620.778475
+          },
+          "request_ms": 642.4450000049546,
+          "e2e_ms": 4018.85150000453
+        },
+        {
+          "event": 101,
+          "ok": true,
+          "queue_ms": 3416.6333000175655,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.045974,
+            "scoring_ms": 571.1942,
+            "total_ms": 609.240174,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 609.240174
+          },
+          "request_ms": 640.8633999526501,
+          "e2e_ms": 4057.4966999702156
+        },
+        {
+          "event": 102,
+          "ok": true,
+          "queue_ms": 3453.8131000008434,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.760992,
+            "scoring_ms": 575.577399,
+            "total_ms": 614.338391,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.338391
+          },
+          "request_ms": 642.05739996396,
+          "e2e_ms": 4095.8704999648035
+        },
+        {
+          "event": 103,
+          "ok": true,
+          "queue_ms": 3493.9641000237316,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.746954,
+            "scoring_ms": 585.224641,
+            "total_ms": 624.971595,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 624.971595
+          },
+          "request_ms": 643.4946999652311,
+          "e2e_ms": 4137.458799988963
+        },
+        {
+          "event": 104,
+          "ok": true,
+          "queue_ms": 3557.7864999650046,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.226864,
+            "scoring_ms": 548.956817,
+            "total_ms": 587.183681,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 587.183681
+          },
+          "request_ms": 615.7713000429794,
+          "e2e_ms": 4173.557800007984
+        },
+        {
+          "event": 105,
+          "ok": true,
+          "queue_ms": 3575.793500058353,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.675937,
+            "scoring_ms": 574.75206,
+            "total_ms": 613.427997,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 613.427997
+          },
+          "request_ms": 636.2656999845058,
+          "e2e_ms": 4212.059200042859
+        },
+        {
+          "event": 106,
+          "ok": true,
+          "queue_ms": 3609.0887000318617,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.381856,
+            "scoring_ms": 580.799936,
+            "total_ms": 620.181792,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 620.181792
+          },
+          "request_ms": 642.6795999286696,
+          "e2e_ms": 4251.768299960531
+        },
+        {
+          "event": 107,
+          "ok": true,
+          "queue_ms": 3648.396300035529,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.808605,
+            "scoring_ms": 587.493534,
+            "total_ms": 626.302139,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 626.302139
+          },
+          "request_ms": 642.8271000040695,
+          "e2e_ms": 4291.223400039598
+        },
+        {
+          "event": 108,
+          "ok": true,
+          "queue_ms": 3687.813200056553,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.740879,
+            "scoring_ms": 586.5644130000001,
+            "total_ms": 625.305292,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 625.305292
+          },
+          "request_ms": 643.3757999911904,
+          "e2e_ms": 4331.189000047743
+        },
+        {
+          "event": 109,
+          "ok": true,
+          "queue_ms": 3732.099900022149,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.73343,
+            "scoring_ms": 564.856709,
+            "total_ms": 603.590139,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 603.590139
+          },
+          "request_ms": 636.042800033465,
+          "e2e_ms": 4368.142700055614
+        },
+        {
+          "event": 110,
+          "ok": true,
+          "queue_ms": 3774.172500008717,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.087761,
+            "scoring_ms": 575.703957,
+            "total_ms": 614.791718,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.791718
+          },
+          "request_ms": 634.0208000037819,
+          "e2e_ms": 4408.193300012499
+        },
+        {
+          "event": 111,
+          "ok": true,
+          "queue_ms": 3808.283400023356,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.804928,
+            "scoring_ms": 575.463811,
+            "total_ms": 614.268739,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 614.268739
+          },
+          "request_ms": 637.3981999931857,
+          "e2e_ms": 4445.681600016542
+        },
+        {
+          "event": 112,
+          "ok": true,
+          "queue_ms": 3864.293099963106,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.134263,
+            "scoring_ms": 532.070115,
+            "total_ms": 570.204378,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 570.204378
+          },
+          "request_ms": 620.7950999960303,
+          "e2e_ms": 4485.088199959137
+        },
+        {
+          "event": 113,
+          "ok": true,
+          "queue_ms": 3902.1510999882594,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.776474,
+            "scoring_ms": 551.881715,
+            "total_ms": 590.658189,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 590.658189
+          },
+          "request_ms": 621.854400029406,
+          "e2e_ms": 4524.005500017665
+        },
+        {
+          "event": 114,
+          "ok": true,
+          "queue_ms": 3941.04020006489,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.761669,
+            "scoring_ms": 556.768403,
+            "total_ms": 596.530072,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 596.530072
+          },
+          "request_ms": 622.6294999942183,
+          "e2e_ms": 4563.669700059108
+        },
+        {
+          "event": 115,
+          "ok": true,
+          "queue_ms": 3983.9342000195757,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.955856,
+            "scoring_ms": 561.46886,
+            "total_ms": 600.424716,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 600.424716
+          },
+          "request_ms": 619.3520999513566,
+          "e2e_ms": 4603.286299970932
+        },
+        {
+          "event": 116,
+          "ok": true,
+          "queue_ms": 4018.8567000441253,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.918,
+            "scoring_ms": 556.630906,
+            "total_ms": 595.548906,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 595.548906
+          },
+          "request_ms": 621.9001999124885,
+          "e2e_ms": 4640.756899956614
+        },
+        {
+          "event": 117,
+          "ok": true,
+          "queue_ms": 4057.5036000227556,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.689899,
+            "scoring_ms": 568.1355110000001,
+            "total_ms": 606.82541,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 606.82541
+          },
+          "request_ms": 623.9017000189051,
+          "e2e_ms": 4681.405300041661
+        },
+        {
+          "event": 118,
+          "ok": true,
+          "queue_ms": 4095.874799997546,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.983421,
+            "scoring_ms": 547.8611989999999,
+            "total_ms": 586.84462,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 586.84462
+          },
+          "request_ms": 623.2020000461489,
+          "e2e_ms": 4719.076800043695
+        },
+        {
+          "event": 119,
+          "ok": true,
+          "queue_ms": 4137.467400054447,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.464982,
+            "scoring_ms": 564.22325,
+            "total_ms": 603.688232,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 603.688232
+          },
+          "request_ms": 620.5738999415189,
+          "e2e_ms": 4758.041299995966
+        },
+        {
+          "event": 120,
+          "ok": true,
+          "queue_ms": 4173.562700045295,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.624181,
+            "scoring_ms": 543.368565,
+            "total_ms": 583.992746,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 583.992746
+          },
+          "request_ms": 628.2702999887988,
+          "e2e_ms": 4801.833000034094
+        },
+        {
+          "event": 121,
+          "ok": true,
+          "queue_ms": 4212.0638999622315,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.009095,
+            "scoring_ms": 567.462142,
+            "total_ms": 606.471237,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 606.471237
+          },
+          "request_ms": 625.8517000824213,
+          "e2e_ms": 4837.915600044653
+        },
+        {
+          "event": 122,
+          "ok": true,
+          "queue_ms": 4251.774900010787,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.895669,
+            "scoring_ms": 555.356867,
+            "total_ms": 594.252536,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 594.252536
+          },
+          "request_ms": 625.0149999978021,
+          "e2e_ms": 4876.789900008589
+        },
+        {
+          "event": 123,
+          "ok": true,
+          "queue_ms": 4291.228799964301,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.066042,
+            "scoring_ms": 542.994797,
+            "total_ms": 582.060839,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 582.060839
+          },
+          "request_ms": 624.7557000024244,
+          "e2e_ms": 4915.984499966726
+        },
+        {
+          "event": 124,
+          "ok": true,
+          "queue_ms": 4331.1998000135645,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.001167,
+            "scoring_ms": 550.831195,
+            "total_ms": 589.832362,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 589.832362
+          },
+          "request_ms": 623.8593000452965,
+          "e2e_ms": 4955.059100058861
+        },
+        {
+          "event": 125,
+          "ok": true,
+          "queue_ms": 4368.148699984886,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.01737,
+            "scoring_ms": 555.637211,
+            "total_ms": 594.654581,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 594.654581
+          },
+          "request_ms": 626.1416000779718,
+          "e2e_ms": 4994.290300062858
+        },
+        {
+          "event": 126,
+          "ok": true,
+          "queue_ms": 4408.202899969183,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.082832,
+            "scoring_ms": 544.7274189999999,
+            "total_ms": 584.810251,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 584.810251
+          },
+          "request_ms": 626.5394000802189,
+          "e2e_ms": 5034.742300049402
+        },
+        {
+          "event": 127,
+          "ok": true,
+          "queue_ms": 4445.686500053853,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 301,
+            "cached_tokens": 280,
+            "computed_tokens": 21,
+            "context_tokens": 21,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.632817,
+            "scoring_ms": 569.2605229999999,
+            "total_ms": 607.89334,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 607.89334
+          },
+          "request_ms": 627.2132999729365,
+          "e2e_ms": 5072.899800026789
+        }
+      ],
+      "route": "decision",
+      "name": "saturation"
+    },
+    {
+      "rate": 0,
+      "concurrency": 1,
+      "received": 16,
+      "completed": 16,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 16,
+      "elapsed_s": 1.0638861000770703,
+      "completed_per_s": 15.039203913690502,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.10840001050382853,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 66.50279997847974,
+          "e2e_ms": 66.61119998898357
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 66.61980005446821,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 65.82180003169924,
+          "e2e_ms": 132.44160008616745
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 132.45050003752112,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 67.62280000839382,
+          "e2e_ms": 200.07330004591495
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 200.0832000048831,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 62.050400068983436,
+          "e2e_ms": 262.13360007386655
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 262.1425000252202,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 62.1883999556303,
+          "e2e_ms": 324.3308999808505
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 324.34290007222444,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 74.93819994851947,
+          "e2e_ms": 399.2811000207439
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 399.2903999751434,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 59.017700026743114,
+          "e2e_ms": 458.3081000018865
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 458.3166000666097,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 58.25329991057515,
+          "e2e_ms": 516.5698999771848
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 516.5789000457153,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 85.71369992569089,
+          "e2e_ms": 602.2925999714062
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 602.3047000635415,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 63.124299980700016,
+          "e2e_ms": 665.4290000442415
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 665.4392000054941,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 67.50330002978444,
+          "e2e_ms": 732.9425000352785
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 732.9512999858707,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 66.66290003340691,
+          "e2e_ms": 799.6142000192776
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 799.6230000862852,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 68.63729993347079,
+          "e2e_ms": 868.260300019756
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 868.2725999969989,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 64.77499997708946,
+          "e2e_ms": 933.0475999740884
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 933.0518000060692,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 71.12670002970845,
+          "e2e_ms": 1004.1785000357777
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 1004.1869999840856,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 59.5848000375554,
+          "e2e_ms": 1063.771800021641
+        }
+      ],
+      "route": "systemone",
+      "name": "serial"
+    },
+    {
+      "rate": 0.0,
+      "concurrency": 16,
+      "received": 128,
+      "completed": 128,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 128,
+      "elapsed_s": 5.139343500020914,
+      "completed_per_s": 24.90590481050335,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.12940005399286747,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 92.21719997003675,
+          "e2e_ms": 92.34660002402961
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 0.5682000191882253,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 122.69670004025102,
+          "e2e_ms": 123.26490005943924
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 0.9231000440195203,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 242.09009995684028,
+          "e2e_ms": 243.0132000008598
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 1.276400056667626,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 161.29249997902662,
+          "e2e_ms": 162.56890003569424
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 1.6923999646678567,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 319.4486000575125,
+          "e2e_ms": 321.1410000221804
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 2.166799968108535,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 399.133300059475,
+          "e2e_ms": 401.30010002758354
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 2.776899957098067,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 281.533700064756,
+          "e2e_ms": 284.31060002185404
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 3.3901999704539776,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 475.2355000237003,
+          "e2e_ms": 478.6256999941543
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 3.9488000329583883,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 197.97199999447912,
+          "e2e_ms": 201.9208000274375
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 4.701100056990981,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 355.9308999683708,
+          "e2e_ms": 360.6320000253618
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 5.167399998754263,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 550.9810000658035,
+          "e2e_ms": 556.1484000645578
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 5.6810000678524375,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.7377999396995,
+          "e2e_ms": 634.4188000075519
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 6.261100061237812,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 593.4756000060588,
+          "e2e_ms": 599.7367000672966
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 6.700600031763315,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 433.29529999755323,
+          "e2e_ms": 439.99590002931654
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 7.154399994760752,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 510.11979999020696,
+          "e2e_ms": 517.2741999849677
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 7.611399982124567,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 667.1005000825971,
+          "e2e_ms": 674.7119000647217
+        },
+        {
+          "event": 16,
+          "ok": true,
+          "queue_ms": 92.3526999540627,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 621.4419000316411,
+          "e2e_ms": 713.7945999857038
+        },
+        {
+          "event": 17,
+          "ok": true,
+          "queue_ms": 123.27159999404103,
+          "category": "FEEDBACK",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.801300005056,
+          "e2e_ms": 753.072899999097
+        },
+        {
+          "event": 18,
+          "ok": true,
+          "queue_ms": 162.5738999573514,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 633.9262000983581,
+          "e2e_ms": 796.5001000557095
+        },
+        {
+          "event": 19,
+          "ok": true,
+          "queue_ms": 201.9272999605164,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.4333999976516,
+          "e2e_ms": 831.360699958168
+        },
+        {
+          "event": 20,
+          "ok": true,
+          "queue_ms": 243.02040005568415,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 627.8571999864653,
+          "e2e_ms": 870.8776000421494
+        },
+        {
+          "event": 21,
+          "ok": true,
+          "queue_ms": 284.3190999701619,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 626.5118999872357,
+          "e2e_ms": 910.8309999573976
+        },
+        {
+          "event": 22,
+          "ok": true,
+          "queue_ms": 321.1481999605894,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.7671000463888,
+          "e2e_ms": 949.9153000069782
+        },
+        {
+          "event": 23,
+          "ok": true,
+          "queue_ms": 360.6371000641957,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.3267000000924,
+          "e2e_ms": 989.9638000642881
+        },
+        {
+          "event": 24,
+          "ok": true,
+          "queue_ms": 401.3105999911204,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 626.6276000533253,
+          "e2e_ms": 1027.9382000444457
+        },
+        {
+          "event": 25,
+          "ok": true,
+          "queue_ms": 440.00469997990876,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 626.0132000315934,
+          "e2e_ms": 1066.0179000115022
+        },
+        {
+          "event": 26,
+          "ok": true,
+          "queue_ms": 478.63130003679544,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 627.0369000267237,
+          "e2e_ms": 1105.6682000635192
+        },
+        {
+          "event": 27,
+          "ok": true,
+          "queue_ms": 517.2811000375077,
+          "category": "FEEDBACK",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.058600006625,
+          "e2e_ms": 1145.3397000441328
+        },
+        {
+          "event": 28,
+          "ok": true,
+          "queue_ms": 556.1553000006825,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 429,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.8134000496939,
+          "e2e_ms": 1184.9687000503764
+        },
+        {
+          "event": 29,
+          "ok": true,
+          "queue_ms": 599.7427999973297,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 625.0587999820709,
+          "e2e_ms": 1224.8015999794006
+        },
+        {
+          "event": 30,
+          "ok": true,
+          "queue_ms": 634.4256000593305,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.0844999020919,
+          "e2e_ms": 1263.5100999614224
+        },
+        {
+          "event": 31,
+          "ok": true,
+          "queue_ms": 674.7187000000849,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.7276000520214,
+          "e2e_ms": 1307.4463000521064
+        },
+        {
+          "event": 32,
+          "ok": true,
+          "queue_ms": 713.8013000367209,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 432,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 650.4235999891534,
+          "e2e_ms": 1364.2249000258744
+        },
+        {
+          "event": 33,
+          "ok": true,
+          "queue_ms": 753.082099952735,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 648.2858000090346,
+          "e2e_ms": 1401.3678999617696
+        },
+        {
+          "event": 34,
+          "ok": true,
+          "queue_ms": 796.5065999887884,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 644.6782000130042,
+          "e2e_ms": 1441.1848000017926
+        },
+        {
+          "event": 35,
+          "ok": true,
+          "queue_ms": 831.365599995479,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 648.5023000277579,
+          "e2e_ms": 1479.8679000232369
+        },
+        {
+          "event": 36,
+          "ok": true,
+          "queue_ms": 870.8848999813199,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 648.4871000284329,
+          "e2e_ms": 1519.3720000097528
+        },
+        {
+          "event": 37,
+          "ok": true,
+          "queue_ms": 910.8402000274509,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 646.446599974297,
+          "e2e_ms": 1557.286800001748
+        },
+        {
+          "event": 38,
+          "ok": true,
+          "queue_ms": 949.9222000595182,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 646.6825999086723,
+          "e2e_ms": 1596.6047999681905
+        },
+        {
+          "event": 39,
+          "ok": true,
+          "queue_ms": 989.9722000118345,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 646.199099952355,
+          "e2e_ms": 1636.1712999641895
+        },
+        {
+          "event": 40,
+          "ok": true,
+          "queue_ms": 1027.946799993515,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 647.7654000045732,
+          "e2e_ms": 1675.7121999980882
+        },
+        {
+          "event": 41,
+          "ok": true,
+          "queue_ms": 1066.0245000617579,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.444199891761,
+          "e2e_ms": 1718.4686999535188
+        },
+        {
+          "event": 42,
+          "ok": true,
+          "queue_ms": 1105.6764000095427,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 649.5763000566512,
+          "e2e_ms": 1755.252700066194
+        },
+        {
+          "event": 43,
+          "ok": true,
+          "queue_ms": 1145.346299977973,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.2936000255868,
+          "e2e_ms": 1797.63990000356
+        },
+        {
+          "event": 44,
+          "ok": true,
+          "queue_ms": 1184.9749999819323,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 649.4501000270247,
+          "e2e_ms": 1834.425100008957
+        },
+        {
+          "event": 45,
+          "ok": true,
+          "queue_ms": 1224.808600032702,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 648.3228999422863,
+          "e2e_ms": 1873.1314999749884
+        },
+        {
+          "event": 46,
+          "ok": true,
+          "queue_ms": 1263.5149999987334,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 649.562899954617,
+          "e2e_ms": 1913.0778999533504
+        },
+        {
+          "event": 47,
+          "ok": true,
+          "queue_ms": 1307.4515999760479,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 644.7956000920385,
+          "e2e_ms": 1952.2472000680864
+        },
+        {
+          "event": 48,
+          "ok": true,
+          "queue_ms": 1364.2342999810353,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.4377000089735,
+          "e2e_ms": 1995.6719999900088
+        },
+        {
+          "event": 49,
+          "ok": true,
+          "queue_ms": 1401.3776000356302,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.0265999743715,
+          "e2e_ms": 2031.4042000100017
+        },
+        {
+          "event": 50,
+          "ok": true,
+          "queue_ms": 1441.1936999531463,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.7495000073686,
+          "e2e_ms": 2071.943199960515
+        },
+        {
+          "event": 51,
+          "ok": true,
+          "queue_ms": 1479.8739000689238,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.9863999010995,
+          "e2e_ms": 2109.8602999700233
+        },
+        {
+          "event": 52,
+          "ok": true,
+          "queue_ms": 1519.3815999664366,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.4613000936806,
+          "e2e_ms": 2148.8429000601172
+        },
+        {
+          "event": 53,
+          "ok": true,
+          "queue_ms": 1557.2914000367746,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.2716000247747,
+          "e2e_ms": 2188.5630000615492
+        },
+        {
+          "event": 54,
+          "ok": true,
+          "queue_ms": 1596.6093000024557,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 633.5777000058442,
+          "e2e_ms": 2230.1870000083
+        },
+        {
+          "event": 55,
+          "ok": true,
+          "queue_ms": 1636.1777000129223,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.3957999916747,
+          "e2e_ms": 2266.573500004597
+        },
+        {
+          "event": 56,
+          "ok": true,
+          "queue_ms": 1675.716600031592,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.3969999793917,
+          "e2e_ms": 2308.1136000109836
+        },
+        {
+          "event": 57,
+          "ok": true,
+          "queue_ms": 1718.4734999900684,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 627.455500070937,
+          "e2e_ms": 2345.9290000610054
+        },
+        {
+          "event": 58,
+          "ok": true,
+          "queue_ms": 1755.25970000308,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.4514999976382,
+          "e2e_ms": 2386.7112000007182
+        },
+        {
+          "event": 59,
+          "ok": true,
+          "queue_ms": 1797.6445000385866,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.8383000064641,
+          "e2e_ms": 2426.4828000450507
+        },
+        {
+          "event": 60,
+          "ok": true,
+          "queue_ms": 1834.4299000455067,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.8512999201193,
+          "e2e_ms": 2464.281199965626
+        },
+        {
+          "event": 61,
+          "ok": true,
+          "queue_ms": 1873.1358000077307,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.7150000249967,
+          "e2e_ms": 2504.8508000327274
+        },
+        {
+          "event": 62,
+          "ok": true,
+          "queue_ms": 1913.0823999876156,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.1533000553027,
+          "e2e_ms": 2544.2357000429183
+        },
+        {
+          "event": 63,
+          "ok": true,
+          "queue_ms": 1952.2516999859363,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 420,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.2922000652179,
+          "e2e_ms": 2583.543900051154
+        },
+        {
+          "event": 64,
+          "ok": true,
+          "queue_ms": 1995.6780000356957,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 627.9506999999285,
+          "e2e_ms": 2623.628700035624
+        },
+        {
+          "event": 65,
+          "ok": true,
+          "queue_ms": 2031.4117000671104,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.3395999129862,
+          "e2e_ms": 2661.7512999800965
+        },
+        {
+          "event": 66,
+          "ok": true,
+          "queue_ms": 2071.947499993257,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.953800002113,
+          "e2e_ms": 2701.90129999537
+        },
+        {
+          "event": 67,
+          "ok": true,
+          "queue_ms": 2109.865100006573,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.6131999483332,
+          "e2e_ms": 2741.478299954906
+        },
+        {
+          "event": 68,
+          "ok": true,
+          "queue_ms": 2148.8471999764442,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.3189000356942,
+          "e2e_ms": 2780.1661000121385
+        },
+        {
+          "event": 69,
+          "ok": true,
+          "queue_ms": 2188.568799989298,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.145400064066,
+          "e2e_ms": 2818.714200053364
+        },
+        {
+          "event": 70,
+          "ok": true,
+          "queue_ms": 2230.1962999626994,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.1966000096872,
+          "e2e_ms": 2858.3928999723867
+        },
+        {
+          "event": 71,
+          "ok": true,
+          "queue_ms": 2266.5789000457153,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.6291000004858,
+          "e2e_ms": 2899.208000046201
+        },
+        {
+          "event": 72,
+          "ok": true,
+          "queue_ms": 2308.1229999661446,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.8997000558302,
+          "e2e_ms": 2938.0227000219747
+        },
+        {
+          "event": 73,
+          "ok": true,
+          "queue_ms": 2345.934599987231,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.0302999811247,
+          "e2e_ms": 2977.964899968356
+        },
+        {
+          "event": 74,
+          "ok": true,
+          "queue_ms": 2386.7184000555426,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.0549999577925,
+          "e2e_ms": 3016.773400013335
+        },
+        {
+          "event": 75,
+          "ok": true,
+          "queue_ms": 2426.489199977368,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.07070007734,
+          "e2e_ms": 3056.559900054708
+        },
+        {
+          "event": 76,
+          "ok": true,
+          "queue_ms": 2464.2880000174046,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.978100001812,
+          "e2e_ms": 3095.2661000192165
+        },
+        {
+          "event": 77,
+          "ok": true,
+          "queue_ms": 2504.8608999932185,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.9581999881193,
+          "e2e_ms": 3133.819099981338
+        },
+        {
+          "event": 78,
+          "ok": true,
+          "queue_ms": 2544.242599979043,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.476700047031,
+          "e2e_ms": 3172.719300026074
+        },
+        {
+          "event": 79,
+          "ok": true,
+          "queue_ms": 2583.5493999766186,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.4327000612393,
+          "e2e_ms": 3211.982100037858
+        },
+        {
+          "event": 80,
+          "ok": true,
+          "queue_ms": 2623.637899989262,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.5295000784099,
+          "e2e_ms": 3254.167400067672
+        },
+        {
+          "event": 81,
+          "ok": true,
+          "queue_ms": 2661.7573000257835,
+          "category": "FEEDBACK",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.1909999456257,
+          "e2e_ms": 3291.948299971409
+        },
+        {
+          "event": 82,
+          "ok": true,
+          "queue_ms": 2701.9107000669464,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 628.5021998919547,
+          "e2e_ms": 3330.412899958901
+        },
+        {
+          "event": 83,
+          "ok": true,
+          "queue_ms": 2741.487600025721,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 629.2458999669179,
+          "e2e_ms": 3370.733499992639
+        },
+        {
+          "event": 84,
+          "ok": true,
+          "queue_ms": 2780.1759999711066,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.6344999941066,
+          "e2e_ms": 3411.8104999652132
+        },
+        {
+          "event": 85,
+          "ok": true,
+          "queue_ms": 2818.722500000149,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.2889999719337,
+          "e2e_ms": 3451.0114999720827
+        },
+        {
+          "event": 86,
+          "ok": true,
+          "queue_ms": 2858.398800017312,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.8595999618992,
+          "e2e_ms": 3490.2583999792114
+        },
+        {
+          "event": 87,
+          "ok": true,
+          "queue_ms": 2899.214999983087,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.0203999746591,
+          "e2e_ms": 3530.2353999577463
+        },
+        {
+          "event": 88,
+          "ok": true,
+          "queue_ms": 2938.0302999634296,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 630.4807000560686,
+          "e2e_ms": 3568.511000019498
+        },
+        {
+          "event": 89,
+          "ok": true,
+          "queue_ms": 2977.9722000239417,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 631.2653999775648,
+          "e2e_ms": 3609.2376000015065
+        },
+        {
+          "event": 90,
+          "ok": true,
+          "queue_ms": 3016.782999970019,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.8561000777408,
+          "e2e_ms": 3651.6391000477597
+        },
+        {
+          "event": 91,
+          "ok": true,
+          "queue_ms": 3056.5677999984473,
+          "category": "FEEDBACK",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.250800030306,
+          "e2e_ms": 3688.8186000287533
+        },
+        {
+          "event": 92,
+          "ok": true,
+          "queue_ms": 3095.272000064142,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 429,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 632.2634998941794,
+          "e2e_ms": 3727.5354999583215
+        },
+        {
+          "event": 93,
+          "ok": true,
+          "queue_ms": 3133.826000033878,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.8060999298468,
+          "e2e_ms": 3768.6320999637246
+        },
+        {
+          "event": 94,
+          "ok": true,
+          "queue_ms": 3172.7260999614373,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 633.5844000568613,
+          "e2e_ms": 3806.3105000182986
+        },
+        {
+          "event": 95,
+          "ok": true,
+          "queue_ms": 3211.990699986927,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.3831999693066,
+          "e2e_ms": 3846.373899956234
+        },
+        {
+          "event": 96,
+          "ok": true,
+          "queue_ms": 3254.177000024356,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 432,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 651.4465999789536,
+          "e2e_ms": 3905.6236000033095
+        },
+        {
+          "event": 97,
+          "ok": true,
+          "queue_ms": 3291.9557000277564,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 650.935799931176,
+          "e2e_ms": 3942.8914999589324
+        },
+        {
+          "event": 98,
+          "ok": true,
+          "queue_ms": 3330.419600009918,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 653.5707999719307,
+          "e2e_ms": 3983.990399981849
+        },
+        {
+          "event": 99,
+          "ok": true,
+          "queue_ms": 3370.7441999576986,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.7549000456929,
+          "e2e_ms": 4023.4991000033915
+        },
+        {
+          "event": 100,
+          "ok": true,
+          "queue_ms": 3411.8147999979556,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.5406000437215,
+          "e2e_ms": 4064.355400041677
+        },
+        {
+          "event": 101,
+          "ok": true,
+          "queue_ms": 3451.0206000413746,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 653.1586999772117,
+          "e2e_ms": 4104.179300018586
+        },
+        {
+          "event": 102,
+          "ok": true,
+          "queue_ms": 3490.2666000416502,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 654.0311999851838,
+          "e2e_ms": 4144.297800026834
+        },
+        {
+          "event": 103,
+          "ok": true,
+          "queue_ms": 3530.246500042267,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 654.0989999193698,
+          "e2e_ms": 4184.345499961637
+        },
+        {
+          "event": 104,
+          "ok": true,
+          "queue_ms": 3568.5155000537634,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 654.6564999734983,
+          "e2e_ms": 4223.172000027262
+        },
+        {
+          "event": 105,
+          "ok": true,
+          "queue_ms": 3609.246200066991,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 653.2217999920249,
+          "e2e_ms": 4262.468000059016
+        },
+        {
+          "event": 106,
+          "ok": true,
+          "queue_ms": 3651.6485000029206,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 649.8867999762297,
+          "e2e_ms": 4301.53529997915
+        },
+        {
+          "event": 107,
+          "ok": true,
+          "queue_ms": 3688.82769998163,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.0407000789419,
+          "e2e_ms": 4340.868400060572
+        },
+        {
+          "event": 108,
+          "ok": true,
+          "queue_ms": 3727.5435000192374,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 654.1350999614224,
+          "e2e_ms": 4381.67859998066
+        },
+        {
+          "event": 109,
+          "ok": true,
+          "queue_ms": 3768.641100032255,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 652.1669999929145,
+          "e2e_ms": 4420.80810002517
+        },
+        {
+          "event": 110,
+          "ok": true,
+          "queue_ms": 3806.317999958992,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 654.675199999474,
+          "e2e_ms": 4460.993199958466
+        },
+        {
+          "event": 111,
+          "ok": true,
+          "queue_ms": 3846.3789999950677,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 656.0059000039473,
+          "e2e_ms": 4502.384899999015
+        },
+        {
+          "event": 112,
+          "ok": true,
+          "queue_ms": 3905.631000059657,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.8828999325633,
+          "e2e_ms": 4540.51389999222
+        },
+        {
+          "event": 113,
+          "ok": true,
+          "queue_ms": 3942.895399988629,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 641.511800000444,
+          "e2e_ms": 4584.407199989073
+        },
+        {
+          "event": 114,
+          "ok": true,
+          "queue_ms": 3983.999800053425,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 635.0695999572054,
+          "e2e_ms": 4619.0694000106305
+        },
+        {
+          "event": 115,
+          "ok": true,
+          "queue_ms": 4023.504600045271,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 635.0744999945164,
+          "e2e_ms": 4658.579100039788
+        },
+        {
+          "event": 116,
+          "ok": true,
+          "queue_ms": 4064.3642999930307,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 633.5662000346929,
+          "e2e_ms": 4697.930500027724
+        },
+        {
+          "event": 117,
+          "ok": true,
+          "queue_ms": 4104.187099961564,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.1437000082806,
+          "e2e_ms": 4738.3307999698445
+        },
+        {
+          "event": 118,
+          "ok": true,
+          "queue_ms": 4144.305599969812,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.3444000231102,
+          "e2e_ms": 4778.649999992922
+        },
+        {
+          "event": 119,
+          "ok": true,
+          "queue_ms": 4184.354500030167,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 634.279299993068,
+          "e2e_ms": 4818.633800023235
+        },
+        {
+          "event": 120,
+          "ok": true,
+          "queue_ms": 4223.176100058481,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 635.4306999128312,
+          "e2e_ms": 4858.606799971312
+        },
+        {
+          "event": 121,
+          "ok": true,
+          "queue_ms": 4262.473699986003,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 638.6538000078872,
+          "e2e_ms": 4901.1274999938905
+        },
+        {
+          "event": 122,
+          "ok": true,
+          "queue_ms": 4301.543700043112,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 638.4949999628589,
+          "e2e_ms": 4940.038700005971
+        },
+        {
+          "event": 123,
+          "ok": true,
+          "queue_ms": 4340.875299996696,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 638.0201999563724,
+          "e2e_ms": 4978.895499953069
+        },
+        {
+          "event": 124,
+          "ok": true,
+          "queue_ms": 4381.684600026347,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 638.2589000277221,
+          "e2e_ms": 5019.943500054069
+        },
+        {
+          "event": 125,
+          "ok": true,
+          "queue_ms": 4420.818799990229,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 637.9282000707462,
+          "e2e_ms": 5058.747000060976
+        },
+        {
+          "event": 126,
+          "ok": true,
+          "queue_ms": 4461.003000033088,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 637.725199921988,
+          "e2e_ms": 5098.728199955076
+        },
+        {
+          "event": 127,
+          "ok": true,
+          "queue_ms": 4502.393300062977,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 420,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 636.6397999227047,
+          "e2e_ms": 5139.0330999856815
+        }
+      ],
+      "route": "systemone",
+      "name": "saturation"
+    }
+  ],
+  "complete": true,
+  "policy": "independent messages; no dedup, answer cache, retries or queue drops",
+  "health_before": {
+    "status": "ok"
+  },
+  "health_after": {
+    "status": "ok"
+  },
+  "passed": true,
+  "finished_unix": 1791584015.8000536
+}

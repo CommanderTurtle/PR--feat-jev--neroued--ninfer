@@ -1,0 +1,3394 @@
+{
+  "build": "bf168605-user-rebuilt",
+  "started_unix": 1791584016.049238,
+  "endpoint": "http://alien.local:8000",
+  "contracts": [],
+  "stages": [
+    {
+      "rate": 0,
+      "concurrency": 1,
+      "received": 16,
+      "completed": 16,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 16,
+      "elapsed_s": 1.0380834999959916,
+      "completed_per_s": 15.413018316986815,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.14979997649788857,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.172866,
+            "scoring_ms": 2.150776999999998,
+            "total_ms": 41.323643,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.323643
+          },
+          "request_ms": 69.85179998446256,
+          "e2e_ms": 70.00159996096045
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 70.01769996713847,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 43.314791,
+            "scoring_ms": 2.322685,
+            "total_ms": 45.637476,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 45.637476
+          },
+          "request_ms": 76.10659999772906,
+          "e2e_ms": 146.12429996486753
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 146.13689994439483,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.181752,
+            "scoring_ms": 2.2068419999999946,
+            "total_ms": 41.388594,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.388594
+          },
+          "request_ms": 59.497399954125285,
+          "e2e_ms": 205.6342998985201
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 205.64389997161925,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.741127,
+            "scoring_ms": 2.5781300000000016,
+            "total_ms": 41.319257,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.319257
+          },
+          "request_ms": 82.88779994472861,
+          "e2e_ms": 288.53169991634786
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 288.5408999864012,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.379966,
+            "scoring_ms": 2.731411999999999,
+            "total_ms": 42.111378,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 42.111378
+          },
+          "request_ms": 63.86699993163347,
+          "e2e_ms": 352.4078999180347
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 352.41699998732656,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.131913,
+            "scoring_ms": 2.2528740000000056,
+            "total_ms": 42.384787,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 42.384787
+          },
+          "request_ms": 67.20769999083132,
+          "e2e_ms": 419.6246999781579
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 419.63399993255734,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 43.811723,
+            "scoring_ms": 2.164011000000002,
+            "total_ms": 45.975734,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 45.975734
+          },
+          "request_ms": 73.97030002903193,
+          "e2e_ms": 493.6042999615893
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 493.61359991598874,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.804689,
+            "scoring_ms": 2.210230999999993,
+            "total_ms": 41.01492,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.01492
+          },
+          "request_ms": 58.15860000438988,
+          "e2e_ms": 551.7721999203786
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 551.7815999919549,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.255381,
+            "scoring_ms": 2.1825529999999986,
+            "total_ms": 41.437934,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.437934
+          },
+          "request_ms": 61.638499959371984,
+          "e2e_ms": 613.4200999513268
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 613.4296999080107,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.975251,
+            "scoring_ms": 2.2000730000000033,
+            "total_ms": 41.175324,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.175324
+          },
+          "request_ms": 54.98540005646646,
+          "e2e_ms": 668.4150999644771
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 668.4190999949351,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.508203,
+            "scoring_ms": 2.1738259999999983,
+            "total_ms": 40.682029,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.682029
+          },
+          "request_ms": 54.818399948999286,
+          "e2e_ms": 723.2374999439344
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 723.2426999835297,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 302,
+            "cached_tokens": 280,
+            "computed_tokens": 22,
+            "context_tokens": 22,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.014781,
+            "scoring_ms": 2.2327820000000003,
+            "total_ms": 41.247563,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.247563
+          },
+          "request_ms": 61.26819993369281,
+          "e2e_ms": 784.5108999172226
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 784.5156999537721,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.30011,
+            "scoring_ms": 2.300126000000006,
+            "total_ms": 41.600236,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.600236
+          },
+          "request_ms": 66.82870001532137,
+          "e2e_ms": 851.3443999690935
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 851.3538999250159,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.761099,
+            "scoring_ms": 2.171065999999996,
+            "total_ms": 40.932165,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.932165
+          },
+          "request_ms": 67.39009998273104,
+          "e2e_ms": 918.7439999077469
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 918.753599980846,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 299,
+            "cached_tokens": 280,
+            "computed_tokens": 19,
+            "context_tokens": 19,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.717811,
+            "scoring_ms": 2.1314820000000054,
+            "total_ms": 40.849293,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.849293
+          },
+          "request_ms": 58.086999924853444,
+          "e2e_ms": 976.8405999056995
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 976.8507999833673,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.257564,
+            "scoring_ms": 2.0650830000000013,
+            "total_ms": 41.322647,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 41.322647
+          },
+          "request_ms": 61.10429996624589,
+          "e2e_ms": 1037.9550999496132
+        }
+      ],
+      "route": "decision",
+      "name": "serial"
+    },
+    {
+      "rate": 0.0,
+      "concurrency": 32,
+      "received": 128,
+      "completed": 28,
+      "errors": 100,
+      "dropped": 0,
+      "peak_pending": 128,
+      "elapsed_s": 1.1442953000077978,
+      "completed_per_s": 24.469208254031276,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.24690001737326384,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.906247,
+            "scoring_ms": 2.076996000000001,
+            "total_ms": 40.983243,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 40.983243
+          },
+          "request_ms": 91.3785999873653,
+          "e2e_ms": 91.62550000473857
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 0.7504000095650554,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.508986,
+            "scoring_ms": 40.938437,
+            "total_ms": 80.447423,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 80.447423
+          },
+          "request_ms": 121.26469996292144,
+          "e2e_ms": 122.0150999724865
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 1.2678999919444323,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.713836,
+            "scoring_ms": 60.114698000000004,
+            "total_ms": 98.828534,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 98.828534
+          },
+          "request_ms": 202.42049999069422,
+          "e2e_ms": 203.68839998263866
+        },
+        {
+          "event": 3,
+          "ok": false,
+          "queue_ms": 1.783599960617721,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 134.78209997992963,
+          "e2e_ms": 136.56569994054735
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 2.326000016182661,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.881355,
+            "scoring_ms": 98.88395799999999,
+            "total_ms": 137.765313,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 137.765313
+          },
+          "request_ms": 237.5318999402225,
+          "e2e_ms": 239.85789995640516
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 2.961199963465333,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.428957,
+            "scoring_ms": 334.34602800000005,
+            "total_ms": 373.774985,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 373.774985
+          },
+          "request_ms": 484.1299999970943,
+          "e2e_ms": 487.0911999605596
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 3.485599998384714,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.844908,
+            "scoring_ms": 373.766226,
+            "total_ms": 412.611134,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 412.611134
+          },
+          "request_ms": 510.55889995768666,
+          "e2e_ms": 514.0444999560714
+        },
+        {
+          "event": 7,
+          "ok": false,
+          "queue_ms": 3.8922999519854784,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 128.26090003363788,
+          "e2e_ms": 132.15319998562336
+        },
+        {
+          "event": 8,
+          "ok": false,
+          "queue_ms": 4.4071999145671725,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 105.85060005541891,
+          "e2e_ms": 110.25779996998608
+        },
+        {
+          "event": 9,
+          "ok": false,
+          "queue_ms": 4.838499939069152,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 116.97610002011061,
+          "e2e_ms": 121.81459995917976
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 5.304699996486306,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.556895,
+            "scoring_ms": 526.5193380000001,
+            "total_ms": 565.076233,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 565.076233
+          },
+          "request_ms": 665.6491999747232,
+          "e2e_ms": 670.9538999712095
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 5.783099913969636,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 302,
+            "cached_tokens": 280,
+            "computed_tokens": 22,
+            "context_tokens": 22,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.623757,
+            "scoring_ms": 256.41619299999996,
+            "total_ms": 295.03995,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 295.03995
+          },
+          "request_ms": 392.0741000911221,
+          "e2e_ms": 397.8572000050917
+        },
+        {
+          "event": 12,
+          "ok": false,
+          "queue_ms": 6.270900019444525,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 104.02249998878688,
+          "e2e_ms": 110.2934000082314
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 6.711800000630319,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.386456,
+            "scoring_ms": 565.70672,
+            "total_ms": 606.093176,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 606.093176
+          },
+          "request_ms": 705.0499999895692,
+          "e2e_ms": 711.7617999901995
+        },
+        {
+          "event": 14,
+          "ok": false,
+          "queue_ms": 7.205299916677177,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 108.70410001371056,
+          "e2e_ms": 115.90939993038774
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 7.644900004379451,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.572985,
+            "scoring_ms": 487.89236800000003,
+            "total_ms": 526.465353,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 526.465353
+          },
+          "request_ms": 623.6292999237776,
+          "e2e_ms": 631.274199928157
+        },
+        {
+          "event": 16,
+          "ok": true,
+          "queue_ms": 8.071599993854761,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.637547,
+            "scoring_ms": 19.470066000000003,
+            "total_ms": 60.107613,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 60.107613
+          },
+          "request_ms": 162.16479998547584,
+          "e2e_ms": 170.2363999793306
+        },
+        {
+          "event": 17,
+          "ok": true,
+          "queue_ms": 8.560299989767373,
+          "category": "INSIGHT",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.248703,
+            "scoring_ms": 137.564869,
+            "total_ms": 176.813572,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 176.813572
+          },
+          "request_ms": 285.0825999630615,
+          "e2e_ms": 293.6428999528289
+        },
+        {
+          "event": 18,
+          "ok": false,
+          "queue_ms": 9.030699962750077,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 114.08329999540001,
+          "e2e_ms": 123.11399995815009
+        },
+        {
+          "event": 19,
+          "ok": false,
+          "queue_ms": 9.418400004506111,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 122.68119992222637,
+          "e2e_ms": 132.09959992673248
+        },
+        {
+          "event": 20,
+          "ok": false,
+          "queue_ms": 9.875299991108477,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 122.26179998833686,
+          "e2e_ms": 132.13709997944534
+        },
+        {
+          "event": 21,
+          "ok": true,
+          "queue_ms": 10.245800018310547,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "prompt_tokens": 309,
+            "cached_tokens": 280,
+            "computed_tokens": 29,
+            "context_tokens": 29,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.524668,
+            "scoring_ms": 412.526217,
+            "total_ms": 452.050885,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 452.050885
+          },
+          "request_ms": 543.8802998978645,
+          "e2e_ms": 554.126099916175
+        },
+        {
+          "event": 22,
+          "ok": true,
+          "queue_ms": 10.81259991042316,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.237667,
+            "scoring_ms": 295.05423,
+            "total_ms": 334.291897,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 334.291897
+          },
+          "request_ms": 428.2731000566855,
+          "e2e_ms": 439.08569996710867
+        },
+        {
+          "event": 23,
+          "ok": false,
+          "queue_ms": 11.248499969951808,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 131.98019994888455,
+          "e2e_ms": 143.22869991883636
+        },
+        {
+          "event": 24,
+          "ok": true,
+          "queue_ms": 11.594199924729764,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.765908,
+            "scoring_ms": 629.1188870000001,
+            "total_ms": 667.884795,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 667.884795
+          },
+          "request_ms": 777.8521000873297,
+          "e2e_ms": 789.4463000120595
+        },
+        {
+          "event": 25,
+          "ok": false,
+          "queue_ms": 12.018500012345612,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 104.57560000941157,
+          "e2e_ms": 116.59410002175719
+        },
+        {
+          "event": 26,
+          "ok": true,
+          "queue_ms": 12.397499987855554,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.694633,
+            "scoring_ms": 605.477466,
+            "total_ms": 645.172099,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 645.172099
+          },
+          "request_ms": 738.1293999496847,
+          "e2e_ms": 750.5268999375403
+        },
+        {
+          "event": 27,
+          "ok": false,
+          "queue_ms": 12.875800020992756,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 102.9841999989003,
+          "e2e_ms": 115.86000001989305
+        },
+        {
+          "event": 28,
+          "ok": true,
+          "queue_ms": 13.335000025108457,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 310,
+            "cached_tokens": 280,
+            "computed_tokens": 30,
+            "context_tokens": 30,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 40.13467,
+            "scoring_ms": 176.854998,
+            "total_ms": 216.989668,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 216.989668
+          },
+          "request_ms": 307.27509991265833,
+          "e2e_ms": 320.6100999377668
+        },
+        {
+          "event": 29,
+          "ok": true,
+          "queue_ms": 13.644399936310947,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 300,
+            "cached_tokens": 280,
+            "computed_tokens": 20,
+            "context_tokens": 20,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.399342,
+            "scoring_ms": 216.905579,
+            "total_ms": 256.304921,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 256.304921
+          },
+          "request_ms": 346.38370003085583,
+          "e2e_ms": 360.0280999671668
+        },
+        {
+          "event": 30,
+          "ok": false,
+          "queue_ms": 13.954399968497455,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 96.3628999888897,
+          "e2e_ms": 110.31729995738715
+        },
+        {
+          "event": 31,
+          "ok": true,
+          "queue_ms": 14.322799979709089,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.301582,
+            "scoring_ms": 448.675458,
+            "total_ms": 487.97704,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 487.97704
+          },
+          "request_ms": 578.0671000247821,
+          "e2e_ms": 592.3899000044912
+        },
+        {
+          "event": 32,
+          "ok": false,
+          "queue_ms": 91.63339994847775,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.68470006901771,
+          "e2e_ms": 143.31810001749545
+        },
+        {
+          "event": 33,
+          "ok": false,
+          "queue_ms": 110.26529991067946,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 33.023200114257634,
+          "e2e_ms": 143.2885000249371
+        },
+        {
+          "event": 34,
+          "ok": false,
+          "queue_ms": 110.29540002346039,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 39.707699907012284,
+          "e2e_ms": 150.00309993047267
+        },
+        {
+          "event": 35,
+          "ok": false,
+          "queue_ms": 110.31889996957034,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 39.64380000252277,
+          "e2e_ms": 149.9626999720931
+        },
+        {
+          "event": 36,
+          "ok": false,
+          "queue_ms": 115.86879997048527,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 34.15189997758716,
+          "e2e_ms": 150.02069994807243
+        },
+        {
+          "event": 37,
+          "ok": false,
+          "queue_ms": 115.91199995018542,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.28430007304996,
+          "e2e_ms": 170.19630002323538
+        },
+        {
+          "event": 38,
+          "ok": false,
+          "queue_ms": 116.59989994950593,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 53.581500076688826,
+          "e2e_ms": 170.18140002619475
+        },
+        {
+          "event": 39,
+          "ok": false,
+          "queue_ms": 121.82020000182092,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 48.326299991458654,
+          "e2e_ms": 170.14649999327958
+        },
+        {
+          "event": 40,
+          "ok": true,
+          "queue_ms": 122.01920000370592,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 298,
+            "cached_tokens": 280,
+            "computed_tokens": 18,
+            "context_tokens": 18,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.841408,
+            "scoring_ms": 597.313489,
+            "total_ms": 636.154897,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 636.154897
+          },
+          "request_ms": 706.3223000150174,
+          "e2e_ms": 828.3415000187233
+        },
+        {
+          "event": 41,
+          "ok": false,
+          "queue_ms": 123.11819999013096,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 68.3827999746427,
+          "e2e_ms": 191.50099996477365
+        },
+        {
+          "event": 42,
+          "ok": false,
+          "queue_ms": 132.1062999777496,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 71.04670000262558,
+          "e2e_ms": 203.15299998037517
+        },
+        {
+          "event": 43,
+          "ok": false,
+          "queue_ms": 132.13879999238998,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 62.36350000835955,
+          "e2e_ms": 194.50230000074953
+        },
+        {
+          "event": 44,
+          "ok": false,
+          "queue_ms": 132.15459999628365,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 75.72750002145767,
+          "e2e_ms": 207.88210001774132
+        },
+        {
+          "event": 45,
+          "ok": false,
+          "queue_ms": 136.57079997938126,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 57.97830002848059,
+          "e2e_ms": 194.54910000786185
+        },
+        {
+          "event": 46,
+          "ok": false,
+          "queue_ms": 143.2370999827981,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.95649995747954,
+          "e2e_ms": 203.19359994027764
+        },
+        {
+          "event": 47,
+          "ok": true,
+          "queue_ms": 143.29209993593395,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 307,
+            "cached_tokens": 280,
+            "computed_tokens": 27,
+            "context_tokens": 27,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.479755,
+            "scoring_ms": 620.306852,
+            "total_ms": 659.786607,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 659.786607
+          },
+          "request_ms": 724.6641999809071,
+          "e2e_ms": 867.9562999168411
+        },
+        {
+          "event": 48,
+          "ok": false,
+          "queue_ms": 143.32069992087781,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.88820001948625,
+          "e2e_ms": 203.20889994036406
+        },
+        {
+          "event": 49,
+          "ok": false,
+          "queue_ms": 149.96880001854151,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.78899989835918,
+          "e2e_ms": 215.7577999169007
+        },
+        {
+          "event": 50,
+          "ok": false,
+          "queue_ms": 150.00509994570166,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 57.894799974747,
+          "e2e_ms": 207.89989992044866
+        },
+        {
+          "event": 51,
+          "ok": false,
+          "queue_ms": 150.02249996177852,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.76569995377213,
+          "e2e_ms": 215.78819991555065
+        },
+        {
+          "event": 52,
+          "ok": false,
+          "queue_ms": 170.15239992178977,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 63.27980000060052,
+          "e2e_ms": 233.43219992239028
+        },
+        {
+          "event": 53,
+          "ok": false,
+          "queue_ms": 170.18299992196262,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 63.21030005346984,
+          "e2e_ms": 233.39329997543246
+        },
+        {
+          "event": 54,
+          "ok": false,
+          "queue_ms": 170.1975999167189,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 43.44660008791834,
+          "e2e_ms": 213.64420000463724
+        },
+        {
+          "event": 55,
+          "ok": false,
+          "queue_ms": 170.23849999532104,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.61160001158714,
+          "e2e_ms": 207.85010000690818
+        },
+        {
+          "event": 56,
+          "ok": false,
+          "queue_ms": 191.5086000226438,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 42.081099934875965,
+          "e2e_ms": 233.58969995751977
+        },
+        {
+          "event": 57,
+          "ok": false,
+          "queue_ms": 194.50969994068146,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.758700067177415,
+          "e2e_ms": 239.26840000785887
+        },
+        {
+          "event": 58,
+          "ok": false,
+          "queue_ms": 194.55719995312393,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.50129996985197,
+          "e2e_ms": 239.0584999229759
+        },
+        {
+          "event": 59,
+          "ok": false,
+          "queue_ms": 203.15909991040826,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 50.32120004761964,
+          "e2e_ms": 253.4802999580279
+        },
+        {
+          "event": 60,
+          "ok": false,
+          "queue_ms": 203.19549995474517,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.65589998289943,
+          "e2e_ms": 247.8513999376446
+        },
+        {
+          "event": 61,
+          "ok": false,
+          "queue_ms": 203.2101999502629,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 36.08600003644824,
+          "e2e_ms": 239.29619998671114
+        },
+        {
+          "event": 62,
+          "ok": false,
+          "queue_ms": 203.69039999786764,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 43.64950000308454,
+          "e2e_ms": 247.33990000095218
+        },
+        {
+          "event": 63,
+          "ok": true,
+          "queue_ms": 207.85489992704242,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 301,
+            "cached_tokens": 280,
+            "computed_tokens": 21,
+            "context_tokens": 21,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.258491,
+            "scoring_ms": 623.365109,
+            "total_ms": 662.6236,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 662.6236
+          },
+          "request_ms": 699.7598999878392,
+          "e2e_ms": 907.6147999148816
+        },
+        {
+          "event": 64,
+          "ok": false,
+          "queue_ms": 207.88479992188513,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 45.556000084616244,
+          "e2e_ms": 253.44080000650138
+        },
+        {
+          "event": 65,
+          "ok": false,
+          "queue_ms": 207.90169993415475,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 39.47419999167323,
+          "e2e_ms": 247.37589992582798
+        },
+        {
+          "event": 66,
+          "ok": false,
+          "queue_ms": 213.65039993543178,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 57.6732000336051,
+          "e2e_ms": 271.3235999690369
+        },
+        {
+          "event": 67,
+          "ok": false,
+          "queue_ms": 215.76279995497316,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 56.14060000516474,
+          "e2e_ms": 271.9033999601379
+        },
+        {
+          "event": 68,
+          "ok": false,
+          "queue_ms": 215.78979992773384,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.70840005017817,
+          "e2e_ms": 253.498199977912
+        },
+        {
+          "event": 69,
+          "ok": false,
+          "queue_ms": 233.39940002188087,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 38.53689995594323,
+          "e2e_ms": 271.9362999778241
+        },
+        {
+          "event": 70,
+          "ok": false,
+          "queue_ms": 233.43409993685782,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.54250000044703,
+          "e2e_ms": 298.97659993730485
+        },
+        {
+          "event": 71,
+          "ok": true,
+          "queue_ms": 233.5937999887392,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "prompt_tokens": 305,
+            "cached_tokens": 280,
+            "computed_tokens": 25,
+            "context_tokens": 25,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.136016,
+            "scoring_ms": 610.9052389999999,
+            "total_ms": 650.041255,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 650.041255
+          },
+          "request_ms": 714.7576999850571,
+          "e2e_ms": 948.3514999737963
+        },
+        {
+          "event": 72,
+          "ok": false,
+          "queue_ms": 239.0643999679014,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 63.60270001459867,
+          "e2e_ms": 302.6670999825001
+        },
+        {
+          "event": 73,
+          "ok": false,
+          "queue_ms": 239.27269992418587,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 68.37930006440729,
+          "e2e_ms": 307.65199998859316
+        },
+        {
+          "event": 74,
+          "ok": false,
+          "queue_ms": 239.29820000194013,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.64310001581907,
+          "e2e_ms": 298.9413000177592
+        },
+        {
+          "event": 75,
+          "ok": false,
+          "queue_ms": 239.8615999845788,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 72.51229998655617,
+          "e2e_ms": 312.37389997113496
+        },
+        {
+          "event": 76,
+          "ok": false,
+          "queue_ms": 247.34609993174672,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.43710001278669,
+          "e2e_ms": 312.7831999445334
+        },
+        {
+          "event": 77,
+          "ok": false,
+          "queue_ms": 247.37769993953407,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 70.45710005331784,
+          "e2e_ms": 317.8347999928519
+        },
+        {
+          "event": 78,
+          "ok": false,
+          "queue_ms": 247.85589997190982,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 66.41600001603365,
+          "e2e_ms": 314.27189998794347
+        },
+        {
+          "event": 79,
+          "ok": false,
+          "queue_ms": 253.44599992968142,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 64.41900006029755,
+          "e2e_ms": 317.86499998997897
+        },
+        {
+          "event": 80,
+          "ok": false,
+          "queue_ms": 253.48219997249544,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 77.72890001069754,
+          "e2e_ms": 331.211099983193
+        },
+        {
+          "event": 81,
+          "ok": false,
+          "queue_ms": 253.50130000151694,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.02349996380508,
+          "e2e_ms": 322.524799965322
+        },
+        {
+          "event": 82,
+          "ok": false,
+          "queue_ms": 271.32900001015514,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.980299905873835,
+          "e2e_ms": 331.309299916029
+        },
+        {
+          "event": 83,
+          "ok": true,
+          "queue_ms": 271.9076999928802,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 308,
+            "cached_tokens": 280,
+            "computed_tokens": 28,
+            "context_tokens": 28,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.063457,
+            "scoring_ms": 626.600585,
+            "total_ms": 665.664042,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 665.664042
+          },
+          "request_ms": 715.6118999700993,
+          "e2e_ms": 987.5195999629796
+        },
+        {
+          "event": 84,
+          "ok": false,
+          "queue_ms": 271.9383999938145,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 50.5534999538213,
+          "e2e_ms": 322.49189994763583
+        },
+        {
+          "event": 85,
+          "ok": false,
+          "queue_ms": 293.6581999529153,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.11830006353557,
+          "e2e_ms": 344.7765000164509
+        },
+        {
+          "event": 86,
+          "ok": false,
+          "queue_ms": 298.94629993941635,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 45.86720000952482,
+          "e2e_ms": 344.81349994894117
+        },
+        {
+          "event": 87,
+          "ok": false,
+          "queue_ms": 298.9782999502495,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 32.26810006890446,
+          "e2e_ms": 331.24640001915395
+        },
+        {
+          "event": 88,
+          "ok": false,
+          "queue_ms": 302.67339991405606,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 53.7768000504002,
+          "e2e_ms": 356.45019996445626
+        },
+        {
+          "event": 89,
+          "ok": false,
+          "queue_ms": 307.65600001905113,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.97089995350689,
+          "e2e_ms": 345.626899972558
+        },
+        {
+          "event": 90,
+          "ok": true,
+          "queue_ms": 312.3789000092074,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "prompt_tokens": 303,
+            "cached_tokens": 280,
+            "computed_tokens": 23,
+            "context_tokens": 23,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.555466,
+            "scoring_ms": 624.1184069999999,
+            "total_ms": 662.673873,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 662.673873
+          },
+          "request_ms": 713.1500999676064,
+          "e2e_ms": 1025.5289999768138
+        },
+        {
+          "event": 91,
+          "ok": false,
+          "queue_ms": 312.7863999688998,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.07329997047782,
+          "e2e_ms": 356.8596999393776
+        },
+        {
+          "event": 92,
+          "ok": false,
+          "queue_ms": 314.2768000252545,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 42.1339999884367,
+          "e2e_ms": 356.4108000136912
+        },
+        {
+          "event": 93,
+          "ok": false,
+          "queue_ms": 317.83870002254844,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 74.1401999257505,
+          "e2e_ms": 391.97889994829893
+        },
+        {
+          "event": 94,
+          "ok": false,
+          "queue_ms": 317.8667000029236,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 57.21759994048625,
+          "e2e_ms": 375.08429994340986
+        },
+        {
+          "event": 95,
+          "ok": false,
+          "queue_ms": 320.6135999644175,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.233400034718215,
+          "e2e_ms": 374.84699999913573
+        },
+        {
+          "event": 96,
+          "ok": false,
+          "queue_ms": 322.49719998799264,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 72.93489994481206,
+          "e2e_ms": 395.4320999328047
+        },
+        {
+          "event": 97,
+          "ok": false,
+          "queue_ms": 322.5263999775052,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 72.94039998669177,
+          "e2e_ms": 395.466799964197
+        },
+        {
+          "event": 98,
+          "ok": false,
+          "queue_ms": 331.2158000189811,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 70.15259994659573,
+          "e2e_ms": 401.3683999655768
+        },
+        {
+          "event": 99,
+          "ok": true,
+          "queue_ms": 331.24809991568327,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.986404,
+            "scoring_ms": 624.77641,
+            "total_ms": 663.762814,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 663.762814
+          },
+          "request_ms": 732.962500071153,
+          "e2e_ms": 1064.2105999868363
+        },
+        {
+          "event": 100,
+          "ok": false,
+          "queue_ms": 331.31109992973506,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 70.09190006647259,
+          "e2e_ms": 401.40299999620765
+        },
+        {
+          "event": 101,
+          "ok": false,
+          "queue_ms": 344.78109993506223,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 58.873599977232516,
+          "e2e_ms": 403.65469991229475
+        },
+        {
+          "event": 102,
+          "ok": false,
+          "queue_ms": 344.81529996264726,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 62.327399966306984,
+          "e2e_ms": 407.14269992895424
+        },
+        {
+          "event": 103,
+          "ok": false,
+          "queue_ms": 345.6317000091076,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 61.54469994362444,
+          "e2e_ms": 407.176399952732
+        },
+        {
+          "event": 104,
+          "ok": false,
+          "queue_ms": 356.41619993839413,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.45250007323921,
+          "e2e_ms": 410.86870001163334
+        },
+        {
+          "event": 105,
+          "ok": false,
+          "queue_ms": 356.45199997816235,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.69749997369945,
+          "e2e_ms": 426.1494999518618
+        },
+        {
+          "event": 106,
+          "ok": false,
+          "queue_ms": 356.8651999812573,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 57.74850002489984,
+          "e2e_ms": 414.61370000615716
+        },
+        {
+          "event": 107,
+          "ok": false,
+          "queue_ms": 360.03229999914765,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.61489991284907,
+          "e2e_ms": 414.6471999119967
+        },
+        {
+          "event": 108,
+          "ok": false,
+          "queue_ms": 374.8525999253616,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.314700045622885,
+          "e2e_ms": 426.16729997098446
+        },
+        {
+          "event": 109,
+          "ok": false,
+          "queue_ms": 375.08749996777624,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.02340003941208,
+          "e2e_ms": 426.1109000071883
+        },
+        {
+          "event": 110,
+          "ok": false,
+          "queue_ms": 391.9852999970317,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 47.11179994046688,
+          "e2e_ms": 439.09709993749857
+        },
+        {
+          "event": 111,
+          "ok": false,
+          "queue_ms": 395.43769997544587,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 38.017199956811965,
+          "e2e_ms": 433.45489993225783
+        },
+        {
+          "event": 112,
+          "ok": false,
+          "queue_ms": 395.4682999756187,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 38.17309997975826,
+          "e2e_ms": 433.641399955377
+        },
+        {
+          "event": 113,
+          "ok": true,
+          "queue_ms": 397.8613999206573,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "prompt_tokens": 304,
+            "cached_tokens": 280,
+            "computed_tokens": 24,
+            "context_tokens": 24,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 38.949707,
+            "scoring_ms": 624.330249,
+            "total_ms": 663.279956,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 663.279956
+          },
+          "request_ms": 707.1740000974387,
+          "e2e_ms": 1105.035400018096
+        },
+        {
+          "event": 114,
+          "ok": false,
+          "queue_ms": 401.37269999831915,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 47.57139994762838,
+          "e2e_ms": 448.9440999459475
+        },
+        {
+          "event": 115,
+          "ok": false,
+          "queue_ms": 401.40480000991374,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.65059995930642,
+          "e2e_ms": 439.05539996922016
+        },
+        {
+          "event": 116,
+          "ok": false,
+          "queue_ms": 403.6584999412298,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 45.27910007163882,
+          "e2e_ms": 448.93760001286864
+        },
+        {
+          "event": 117,
+          "ok": false,
+          "queue_ms": 407.14719996321946,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 46.816400019451976,
+          "e2e_ms": 453.96359998267144
+        },
+        {
+          "event": 118,
+          "ok": false,
+          "queue_ms": 407.17809996567667,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 46.79219995159656,
+          "e2e_ms": 453.9702999172732
+        },
+        {
+          "event": 119,
+          "ok": false,
+          "queue_ms": 410.87299992796034,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.91140008252114,
+          "e2e_ms": 448.7844000104815
+        },
+        {
+          "event": 120,
+          "ok": false,
+          "queue_ms": 414.6182999247685,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 39.334500092081726,
+          "e2e_ms": 453.95280001685023
+        },
+        {
+          "event": 121,
+          "ok": false,
+          "queue_ms": 414.6487999241799,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 43.41540008317679,
+          "e2e_ms": 458.0642000073567
+        },
+        {
+          "event": 122,
+          "ok": false,
+          "queue_ms": 426.11609993036836,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 31.84140007942915,
+          "e2e_ms": 457.9575000097975
+        },
+        {
+          "event": 123,
+          "ok": false,
+          "queue_ms": 426.1547999922186,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 43.19619992747903,
+          "e2e_ms": 469.35099991969764
+        },
+        {
+          "event": 124,
+          "ok": false,
+          "queue_ms": 426.1699999915436,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 38.18249993491918,
+          "e2e_ms": 464.35249992646277
+        },
+        {
+          "event": 125,
+          "ok": false,
+          "queue_ms": 433.4608999779448,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 30.88089998345822,
+          "e2e_ms": 464.341799961403
+        },
+        {
+          "event": 126,
+          "ok": true,
+          "queue_ms": 433.64499998278916,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "prompt_tokens": 306,
+            "cached_tokens": 280,
+            "computed_tokens": 26,
+            "context_tokens": 26,
+            "scored_rows": 1
+          },
+          "timings": {
+            "prefill_ms": 39.701585,
+            "scoring_ms": 611.11574,
+            "total_ms": 650.817325,
+            "rounds": 1,
+            "forward_batches": 2,
+            "largest_batch": 1,
+            "per_decision_ms": 650.817325
+          },
+          "request_ms": 710.1125000044703,
+          "e2e_ms": 1143.7574999872595
+        },
+        {
+          "event": 127,
+          "ok": false,
+          "queue_ms": 439.0592999989167,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.39349994715303,
+          "e2e_ms": 490.4527999460697
+        }
+      ],
+      "route": "decision",
+      "name": "saturation"
+    },
+    {
+      "rate": 0,
+      "concurrency": 1,
+      "received": 16,
+      "completed": 16,
+      "errors": 0,
+      "dropped": 0,
+      "peak_pending": 16,
+      "elapsed_s": 1.1331340000033379,
+      "completed_per_s": 14.120130540565254,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.10740000288933516,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 79.82199999969453,
+          "e2e_ms": 79.92940000258386
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 79.93850007187575,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 85.25379991624504,
+          "e2e_ms": 165.1922999881208
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 165.20110005512834,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 84.90799996070564,
+          "e2e_ms": 250.10910001583397
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 250.11770008131862,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 83.03380000870675,
+          "e2e_ms": 333.15150009002537
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 333.16060004290193,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 83.72420002706349,
+          "e2e_ms": 416.8848000699654
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 416.8923000106588,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 60.95230008941144,
+          "e2e_ms": 477.84460010007024
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 477.85360005218536,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 58.28510003630072,
+          "e2e_ms": 536.1387000884861
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 536.1473000375554,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 64.77719999384135,
+          "e2e_ms": 600.9245000313967
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 600.9429000550881,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 66.31190003827214,
+          "e2e_ms": 667.2548000933602
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 667.2641000477597,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 61.726000043563545,
+          "e2e_ms": 728.9901000913233
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 728.998800041154,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 70.26439998298883,
+          "e2e_ms": 799.2632000241429
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 799.2721000919119,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 59.854499995708466,
+          "e2e_ms": 859.1266000876203
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 859.1357000404969,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 63.355399994179606,
+          "e2e_ms": 922.4911000346765
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 922.4995000986382,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 78.47809989470989,
+          "e2e_ms": 1000.9775999933481
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 1000.9863000595942,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 63.09509999118745,
+          "e2e_ms": 1064.0814000507817
+        },
+        {
+          "event": 15,
+          "ok": true,
+          "queue_ms": 1064.0895999968052,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 68.92950006294996,
+          "e2e_ms": 1133.0191000597551
+        }
+      ],
+      "route": "systemone",
+      "name": "serial"
+    },
+    {
+      "rate": 0.0,
+      "concurrency": 32,
+      "received": 128,
+      "completed": 28,
+      "errors": 100,
+      "dropped": 0,
+      "peak_pending": 128,
+      "elapsed_s": 1.1690774000016972,
+      "completed_per_s": 23.95051003463017,
+      "records": [
+        {
+          "event": 0,
+          "ok": true,
+          "queue_ms": 0.15569990500807762,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 223.65290008019656,
+          "e2e_ms": 223.80859998520464
+        },
+        {
+          "event": 1,
+          "ok": true,
+          "queue_ms": 0.5805999971926212,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 104.30030000861734,
+          "e2e_ms": 104.88090000580996
+        },
+        {
+          "event": 2,
+          "ok": true,
+          "queue_ms": 1.0041999630630016,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 164.55250000581145,
+          "e2e_ms": 165.55669996887445
+        },
+        {
+          "event": 3,
+          "ok": true,
+          "queue_ms": 1.348199904896319,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 179.0923000080511,
+          "e2e_ms": 180.44049991294742
+        },
+        {
+          "event": 4,
+          "ok": true,
+          "queue_ms": 1.6944999806582928,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 298.00449998583645,
+          "e2e_ms": 299.69899996649474
+        },
+        {
+          "event": 5,
+          "ok": true,
+          "queue_ms": 2.064200001768768,
+          "category": "FEEDBACK",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 336.1041999887675,
+          "e2e_ms": 338.1683999905363
+        },
+        {
+          "event": 6,
+          "ok": true,
+          "queue_ms": 2.465499914251268,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 375.5137000698596,
+          "e2e_ms": 377.9791999841109
+        },
+        {
+          "event": 7,
+          "ok": true,
+          "queue_ms": 3.0201999470591545,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 264.38820001203567,
+          "e2e_ms": 267.4083999590948
+        },
+        {
+          "event": 8,
+          "ok": true,
+          "queue_ms": 3.386999946087599,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 570.9374999860302,
+          "e2e_ms": 574.3244999321178
+        },
+        {
+          "event": 9,
+          "ok": true,
+          "queue_ms": 3.7765000015497208,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 531.6205999115482,
+          "e2e_ms": 535.3970999130979
+        },
+        {
+          "event": 10,
+          "ok": true,
+          "queue_ms": 4.117399919778109,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 497.3719000117853,
+          "e2e_ms": 501.48929993156344
+        },
+        {
+          "event": 11,
+          "ok": true,
+          "queue_ms": 4.466300015337765,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 459.4234999967739,
+          "e2e_ms": 463.88980001211166
+        },
+        {
+          "event": 12,
+          "ok": true,
+          "queue_ms": 4.834599909372628,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 424,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 414.9238000391051,
+          "e2e_ms": 419.75839994847775
+        },
+        {
+          "event": 13,
+          "ok": true,
+          "queue_ms": 5.198300001211464,
+          "category": "FEEDBACK",
+          "expected": "FEEDBACK",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 726.2770999222994,
+          "e2e_ms": 731.4753999235108
+        },
+        {
+          "event": 14,
+          "ok": true,
+          "queue_ms": 5.553699913434684,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 607.7126000309363,
+          "e2e_ms": 613.266299944371
+        },
+        {
+          "event": 15,
+          "ok": false,
+          "queue_ms": 5.89219992980361,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 83.51230004336685,
+          "e2e_ms": 89.40449997317046
+        },
+        {
+          "event": 16,
+          "ok": false,
+          "queue_ms": 6.277999957092106,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 94.86289997585118,
+          "e2e_ms": 101.14089993294328
+        },
+        {
+          "event": 17,
+          "ok": true,
+          "queue_ms": 6.629199953749776,
+          "category": "FEEDBACK",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 647.0961000304669,
+          "e2e_ms": 653.7252999842167
+        },
+        {
+          "event": 18,
+          "ok": true,
+          "queue_ms": 6.986899999901652,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 685.1353999227285,
+          "e2e_ms": 692.1222999226302
+        },
+        {
+          "event": 19,
+          "ok": true,
+          "queue_ms": 7.372499909251928,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 763.9757000142708,
+          "e2e_ms": 771.3481999235228
+        },
+        {
+          "event": 20,
+          "ok": false,
+          "queue_ms": 7.728899945504963,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 119.27100003231317,
+          "e2e_ms": 126.99989997781813
+        },
+        {
+          "event": 21,
+          "ok": false,
+          "queue_ms": 8.073800010606647,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 110.60589994303882,
+          "e2e_ms": 118.67969995364547
+        },
+        {
+          "event": 22,
+          "ok": false,
+          "queue_ms": 8.453599992208183,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 106.64839996024966,
+          "e2e_ms": 115.10199995245785
+        },
+        {
+          "event": 23,
+          "ok": false,
+          "queue_ms": 8.799899951554835,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 132.50499998684973,
+          "e2e_ms": 141.30489993840456
+        },
+        {
+          "event": 24,
+          "ok": false,
+          "queue_ms": 9.140499983914196,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 117.14039999060333,
+          "e2e_ms": 126.28089997451752
+        },
+        {
+          "event": 25,
+          "ok": true,
+          "queue_ms": 9.473499958403409,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 800.3362000454217,
+          "e2e_ms": 809.8097000038251
+        },
+        {
+          "event": 26,
+          "ok": false,
+          "queue_ms": 9.810299961827695,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 105.23620003368706,
+          "e2e_ms": 115.04649999551475
+        },
+        {
+          "event": 27,
+          "ok": false,
+          "queue_ms": 10.095099918544292,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 131.262700073421,
+          "e2e_ms": 141.3577999919653
+        },
+        {
+          "event": 28,
+          "ok": false,
+          "queue_ms": 10.377599974162877,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 94.46759999264032,
+          "e2e_ms": 104.8451999668032
+        },
+        {
+          "event": 29,
+          "ok": false,
+          "queue_ms": 10.640099993906915,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 115.67620001733303,
+          "e2e_ms": 126.31630001123995
+        },
+        {
+          "event": 30,
+          "ok": false,
+          "queue_ms": 10.9770999988541,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 132.13449995964766,
+          "e2e_ms": 143.11159995850176
+        },
+        {
+          "event": 31,
+          "ok": false,
+          "queue_ms": 11.249399976804852,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 157.39920001942664,
+          "e2e_ms": 168.6485999962315
+        },
+        {
+          "event": 32,
+          "ok": false,
+          "queue_ms": 89.41000001505017,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 79.27309989463538,
+          "e2e_ms": 168.68309990968555
+        },
+        {
+          "event": 33,
+          "ok": false,
+          "queue_ms": 101.14629997406155,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 77.0516999764368,
+          "e2e_ms": 178.19799995049834
+        },
+        {
+          "event": 34,
+          "ok": false,
+          "queue_ms": 104.84949999954551,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 73.40709993150085,
+          "e2e_ms": 178.25659993104637
+        },
+        {
+          "event": 35,
+          "ok": false,
+          "queue_ms": 104.88250001799315,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 74.05199995264411,
+          "e2e_ms": 178.93449997063726
+        },
+        {
+          "event": 36,
+          "ok": false,
+          "queue_ms": 115.05259992554784,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 79.5719000743702,
+          "e2e_ms": 194.62449999991804
+        },
+        {
+          "event": 37,
+          "ok": false,
+          "queue_ms": 115.10409996844828,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 79.55609995406121,
+          "e2e_ms": 194.6601999225095
+        },
+        {
+          "event": 38,
+          "ok": true,
+          "queue_ms": 118.68429998867214,
+          "category": "QUESTION",
+          "expected": "QUESTION",
+          "usage": {
+            "input_tokens": 423,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 730.8754000114277,
+          "e2e_ms": 849.5597000000998
+        },
+        {
+          "event": 39,
+          "ok": false,
+          "queue_ms": 126.28500000573695,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.17039991822094,
+          "e2e_ms": 195.45539992395788
+        },
+        {
+          "event": 40,
+          "ok": false,
+          "queue_ms": 126.31809990853071,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 74.80300008319318,
+          "e2e_ms": 201.1210999917239
+        },
+        {
+          "event": 41,
+          "ok": false,
+          "queue_ms": 127.00480001512915,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 74.07839992083609,
+          "e2e_ms": 201.08319993596524
+        },
+        {
+          "event": 42,
+          "ok": false,
+          "queue_ms": 141.31129998713732,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.826500015333295,
+          "e2e_ms": 201.1378000024706
+        },
+        {
+          "event": 43,
+          "ok": false,
+          "queue_ms": 141.35950000490993,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 66.98749994393438,
+          "e2e_ms": 208.3469999488443
+        },
+        {
+          "event": 44,
+          "ok": false,
+          "queue_ms": 143.11619999352843,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.21609995979816,
+          "e2e_ms": 208.33229995332658
+        },
+        {
+          "event": 45,
+          "ok": false,
+          "queue_ms": 165.56090000085533,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 42.73669992107898,
+          "e2e_ms": 208.2975999219343
+        },
+        {
+          "event": 46,
+          "ok": true,
+          "queue_ms": 168.6530999140814,
+          "category": "INSIGHT",
+          "expected": "INSIGHT",
+          "usage": {
+            "input_tokens": 427,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 720.3979000914842,
+          "e2e_ms": 889.0510000055656
+        },
+        {
+          "event": 47,
+          "ok": false,
+          "queue_ms": 168.68469992186874,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 46.37090000323951,
+          "e2e_ms": 215.05559992510825
+        },
+        {
+          "event": 48,
+          "ok": false,
+          "queue_ms": 178.20369999390095,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 36.8167000124231,
+          "e2e_ms": 215.02040000632405
+        },
+        {
+          "event": 49,
+          "ok": false,
+          "queue_ms": 178.2594999531284,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 36.80989996064454,
+          "e2e_ms": 215.06939991377294
+        },
+        {
+          "event": 50,
+          "ok": false,
+          "queue_ms": 178.93920000642538,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.90599990822375,
+          "e2e_ms": 223.84519991464913
+        },
+        {
+          "event": 51,
+          "ok": false,
+          "queue_ms": 180.44499994721264,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 43.4188999934122,
+          "e2e_ms": 223.86389994062483
+        },
+        {
+          "event": 52,
+          "ok": false,
+          "queue_ms": 194.6288999170065,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.37730007339269,
+          "e2e_ms": 239.00619999039918
+        },
+        {
+          "event": 53,
+          "ok": false,
+          "queue_ms": 194.66199993621558,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 45.075700036250055,
+          "e2e_ms": 239.73769997246563
+        },
+        {
+          "event": 54,
+          "ok": false,
+          "queue_ms": 195.46119996812195,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.30760000832379,
+          "e2e_ms": 239.76879997644573
+        },
+        {
+          "event": 55,
+          "ok": true,
+          "queue_ms": 201.0885999770835,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 428,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 729.1327000129968,
+          "e2e_ms": 930.2212999900803
+        },
+        {
+          "event": 56,
+          "ok": false,
+          "queue_ms": 201.12300000619143,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 70.553999976255,
+          "e2e_ms": 271.67699998244643
+        },
+        {
+          "event": 57,
+          "ok": false,
+          "queue_ms": 201.139000011608,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 70.95839991234243,
+          "e2e_ms": 272.09739992395043
+        },
+        {
+          "event": 58,
+          "ok": false,
+          "queue_ms": 208.30259996000677,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.03050001710653,
+          "e2e_ms": 277.3330999771133
+        },
+        {
+          "event": 59,
+          "ok": false,
+          "queue_ms": 208.33379996474832,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 75.42400003876537,
+          "e2e_ms": 283.7578000035137
+        },
+        {
+          "event": 60,
+          "ok": false,
+          "queue_ms": 208.34809995722026,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.4223000165075,
+          "e2e_ms": 273.77039997372776
+        },
+        {
+          "event": 61,
+          "ok": false,
+          "queue_ms": 215.0253999279812,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 60.573199996724725,
+          "e2e_ms": 275.5985999247059
+        },
+        {
+          "event": 62,
+          "ok": false,
+          "queue_ms": 215.05719993729144,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 84.01440002489835,
+          "e2e_ms": 299.0715999621898
+        },
+        {
+          "event": 63,
+          "ok": false,
+          "queue_ms": 215.07099992595613,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.02619998436421,
+          "e2e_ms": 284.09719991032034
+        },
+        {
+          "event": 64,
+          "ok": false,
+          "queue_ms": 223.81270001642406,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 60.89829991105944,
+          "e2e_ms": 284.7109999274835
+        },
+        {
+          "event": 65,
+          "ok": false,
+          "queue_ms": 223.84749993216246,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 75.24120004381984,
+          "e2e_ms": 299.0886999759823
+        },
+        {
+          "event": 66,
+          "ok": false,
+          "queue_ms": 223.86509994976223,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 83.1589000299573,
+          "e2e_ms": 307.0239999797195
+        },
+        {
+          "event": 67,
+          "ok": true,
+          "queue_ms": 239.01179991662502,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 419,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 730.7892000535503,
+          "e2e_ms": 969.8009999701753
+        },
+        {
+          "event": 68,
+          "ok": false,
+          "queue_ms": 239.7421000059694,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 67.3275999724865,
+          "e2e_ms": 307.0696999784559
+        },
+        {
+          "event": 69,
+          "ok": false,
+          "queue_ms": 239.77029998786747,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.26150002051145,
+          "e2e_ms": 299.0318000083789
+        },
+        {
+          "event": 70,
+          "ok": false,
+          "queue_ms": 267.41269999183714,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 39.6383999614045,
+          "e2e_ms": 307.05109995324165
+        },
+        {
+          "event": 71,
+          "ok": false,
+          "queue_ms": 271.6817999025807,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 53.45310003031045,
+          "e2e_ms": 325.13489993289113
+        },
+        {
+          "event": 72,
+          "ok": false,
+          "queue_ms": 272.10129995364696,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 53.07310004718602,
+          "e2e_ms": 325.174400000833
+        },
+        {
+          "event": 73,
+          "ok": false,
+          "queue_ms": 273.7734999973327,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 62.157099950127304,
+          "e2e_ms": 335.93059994746
+        },
+        {
+          "event": 74,
+          "ok": false,
+          "queue_ms": 275.60369996353984,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 49.87700004130602,
+          "e2e_ms": 325.48070000484586
+        },
+        {
+          "event": 75,
+          "ok": false,
+          "queue_ms": 277.33909990638494,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 58.60950006172061,
+          "e2e_ms": 335.94859996810555
+        },
+        {
+          "event": 76,
+          "ok": false,
+          "queue_ms": 283.76339992973953,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 52.093900041654706,
+          "e2e_ms": 335.85729997139424
+        },
+        {
+          "event": 77,
+          "ok": false,
+          "queue_ms": 284.10069993697107,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 84.14609997998923,
+          "e2e_ms": 368.2467999169603
+        },
+        {
+          "event": 78,
+          "ok": true,
+          "queue_ms": 284.7146999556571,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 724.7525999555364,
+          "e2e_ms": 1009.4672999111935
+        },
+        {
+          "event": 79,
+          "ok": true,
+          "queue_ms": 299.0364999277517,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 749.3203000631183,
+          "e2e_ms": 1048.35679999087
+        },
+        {
+          "event": 80,
+          "ok": false,
+          "queue_ms": 299.07329997513443,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 88.01489998586476,
+          "e2e_ms": 387.0881999609992
+        },
+        {
+          "event": 81,
+          "ok": false,
+          "queue_ms": 299.08999998588115,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 69.85959992744029,
+          "e2e_ms": 368.94959991332144
+        },
+        {
+          "event": 82,
+          "ok": false,
+          "queue_ms": 299.70249999314547,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 78.49480002187192,
+          "e2e_ms": 378.1973000150174
+        },
+        {
+          "event": 83,
+          "ok": false,
+          "queue_ms": 307.02790000941604,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 62.34579998999834,
+          "e2e_ms": 369.3736999994144
+        },
+        {
+          "event": 84,
+          "ok": false,
+          "queue_ms": 307.0529999677092,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 68.06510000023991,
+          "e2e_ms": 375.1180999679491
+        },
+        {
+          "event": 85,
+          "ok": false,
+          "queue_ms": 307.07119998987764,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 80.05250000860542,
+          "e2e_ms": 387.12369999848306
+        },
+        {
+          "event": 86,
+          "ok": false,
+          "queue_ms": 325.14079997781664,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 84.34019994456321,
+          "e2e_ms": 409.48099992237985
+        },
+        {
+          "event": 87,
+          "ok": false,
+          "queue_ms": 325.1761000137776,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 79.77229997050017,
+          "e2e_ms": 404.9483999842778
+        },
+        {
+          "event": 88,
+          "ok": false,
+          "queue_ms": 325.48319990746677,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 79.38340003602207,
+          "e2e_ms": 404.86659994348884
+        },
+        {
+          "event": 89,
+          "ok": false,
+          "queue_ms": 335.86280001327395,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 73.56739998795092,
+          "e2e_ms": 409.4302000012249
+        },
+        {
+          "event": 90,
+          "ok": false,
+          "queue_ms": 335.93269996345043,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 68.9901999430731,
+          "e2e_ms": 404.9228999065235
+        },
+        {
+          "event": 91,
+          "ok": false,
+          "queue_ms": 335.9500999795273,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 73.51649994961917,
+          "e2e_ms": 409.46659992914647
+        },
+        {
+          "event": 92,
+          "ok": false,
+          "queue_ms": 338.1722999038175,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 49.44190010428429,
+          "e2e_ms": 387.61420000810176
+        },
+        {
+          "event": 93,
+          "ok": false,
+          "queue_ms": 368.2534999679774,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 56.009699939750135,
+          "e2e_ms": 424.26319990772754
+        },
+        {
+          "event": 94,
+          "ok": true,
+          "queue_ms": 368.9567999681458,
+          "category": "SPAM",
+          "expected": "SPAM",
+          "usage": {
+            "input_tokens": 422,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 721.0030000424013,
+          "e2e_ms": 1089.959800010547
+        },
+        {
+          "event": 95,
+          "ok": false,
+          "queue_ms": 369.3769999081269,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 55.10390002746135,
+          "e2e_ms": 424.48089993558824
+        },
+        {
+          "event": 96,
+          "ok": false,
+          "queue_ms": 375.1224000006914,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 51.53890000656247,
+          "e2e_ms": 426.6613000072539
+        },
+        {
+          "event": 97,
+          "ok": false,
+          "queue_ms": 377.9825000092387,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.65889989864081,
+          "e2e_ms": 432.64139990787953
+        },
+        {
+          "event": 98,
+          "ok": false,
+          "queue_ms": 378.200399922207,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 54.45679998956621,
+          "e2e_ms": 432.6571999117732
+        },
+        {
+          "event": 99,
+          "ok": false,
+          "queue_ms": 387.09239999298006,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 48.32419997546822,
+          "e2e_ms": 435.4165999684483
+        },
+        {
+          "event": 100,
+          "ok": false,
+          "queue_ms": 387.12530001066625,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 52.54979990422726,
+          "e2e_ms": 439.6750999148935
+        },
+        {
+          "event": 101,
+          "ok": false,
+          "queue_ms": 387.6185999251902,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 44.9831000296399,
+          "e2e_ms": 432.6016999548301
+        },
+        {
+          "event": 102,
+          "ok": false,
+          "queue_ms": 404.89249990787357,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 68.77190002705902,
+          "e2e_ms": 473.6643999349326
+        },
+        {
+          "event": 103,
+          "ok": false,
+          "queue_ms": 404.9252999247983,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 34.926900058053434,
+          "e2e_ms": 439.85219998285174
+        },
+        {
+          "event": 104,
+          "ok": true,
+          "queue_ms": 404.949999996461,
+          "category": "NOISE",
+          "expected": "NOISE",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 721.1802999954671,
+          "e2e_ms": 1126.130299991928
+        },
+        {
+          "event": 105,
+          "ok": false,
+          "queue_ms": 409.43529992364347,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 41.12479998730123,
+          "e2e_ms": 450.5600999109447
+        },
+        {
+          "event": 106,
+          "ok": false,
+          "queue_ms": 409.4680999405682,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 64.12690004799515,
+          "e2e_ms": 473.59499998856336
+        },
+        {
+          "event": 107,
+          "ok": false,
+          "queue_ms": 409.48219993151724,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 63.29900003038347,
+          "e2e_ms": 472.7811999619007
+        },
+        {
+          "event": 108,
+          "ok": false,
+          "queue_ms": 419.76409999188036,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 60.934699955396354,
+          "e2e_ms": 480.6987999472767
+        },
+        {
+          "event": 109,
+          "ok": false,
+          "queue_ms": 424.26769994199276,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 56.94849998690188,
+          "e2e_ms": 481.21619992889464
+        },
+        {
+          "event": 110,
+          "ok": false,
+          "queue_ms": 424.4848999660462,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 56.7544000223279,
+          "e2e_ms": 481.2392999883741
+        },
+        {
+          "event": 111,
+          "ok": false,
+          "queue_ms": 426.66469991672784,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 65.13280002400279,
+          "e2e_ms": 491.79749994073063
+        },
+        {
+          "event": 112,
+          "ok": false,
+          "queue_ms": 432.6072999974713,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 59.94690000079572,
+          "e2e_ms": 492.554199998267
+        },
+        {
+          "event": 113,
+          "ok": false,
+          "queue_ms": 432.6429999200627,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 73.60560004599392,
+          "e2e_ms": 506.24859996605664
+        },
+        {
+          "event": 114,
+          "ok": false,
+          "queue_ms": 432.6583999209106,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 73.59949999954551,
+          "e2e_ms": 506.2578999204561
+        },
+        {
+          "event": 115,
+          "ok": true,
+          "queue_ms": 435.4204999981448,
+          "category": "FUNNY",
+          "expected": "FUNNY",
+          "usage": {
+            "input_tokens": 426,
+            "output_tokens": 0
+          },
+          "timings": null,
+          "request_ms": 733.1595999421552,
+          "e2e_ms": 1168.5800999403
+        },
+        {
+          "event": 116,
+          "ok": false,
+          "queue_ms": 439.6786999423057,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 61.79810001049191,
+          "e2e_ms": 501.4767999527976
+        },
+        {
+          "event": 117,
+          "ok": false,
+          "queue_ms": 439.85610001254827,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 62.097499961964786,
+          "e2e_ms": 501.95359997451305
+        },
+        {
+          "event": 118,
+          "ok": false,
+          "queue_ms": 450.5641999421641,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 41.296900017187,
+          "e2e_ms": 491.8610999593511
+        },
+        {
+          "event": 119,
+          "ok": false,
+          "queue_ms": 463.89429992996156,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 45.15800008084625,
+          "e2e_ms": 509.0523000108078
+        },
+        {
+          "event": 120,
+          "ok": false,
+          "queue_ms": 472.7869000053033,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.80759999062866,
+          "e2e_ms": 510.594499995932
+        },
+        {
+          "event": 121,
+          "ok": false,
+          "queue_ms": 473.60089991707355,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 37.00630005914718,
+          "e2e_ms": 510.6071999762207
+        },
+        {
+          "event": 122,
+          "ok": false,
+          "queue_ms": 473.66719995625317,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 40.177499991841614,
+          "e2e_ms": 513.8446999480948
+        },
+        {
+          "event": 123,
+          "ok": false,
+          "queue_ms": 480.7035999838263,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 35.236199968494475,
+          "e2e_ms": 515.9397999523208
+        },
+        {
+          "event": 124,
+          "ok": false,
+          "queue_ms": 481.21989995706826,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 36.28859994933009,
+          "e2e_ms": 517.5084999063984
+        },
+        {
+          "event": 125,
+          "ok": false,
+          "queue_ms": 481.2409000005573,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 34.68859998974949,
+          "e2e_ms": 515.9294999903068
+        },
+        {
+          "event": 126,
+          "ok": false,
+          "queue_ms": 491.80199997499585,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 27.422499959357083,
+          "e2e_ms": 519.2244999343529
+        },
+        {
+          "event": 127,
+          "ok": false,
+          "queue_ms": 491.8630999745801,
+          "error": "HTTP 429: {'error': {'code': 'server_overloaded', 'message': 'inference request queue is full', 'param': None, 'type': 'rate_limit_error'}}",
+          "request_ms": 27.367300004698336,
+          "e2e_ms": 519.2303999792784
+        }
+      ],
+      "route": "systemone",
+      "name": "saturation"
+    }
+  ],
+  "complete": true,
+  "policy": "independent messages; no dedup, answer cache, retries or queue drops",
+  "health_before": {
+    "status": "ok"
+  },
+  "health_after": {
+    "status": "ok"
+  },
+  "passed": false,
+  "finished_unix": 1791584021.0024767
+}

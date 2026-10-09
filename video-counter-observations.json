@@ -1,0 +1,20 @@
+{
+  "source": "https://tg.me/chatgpt_by_openai/9760",
+  "original_post": "https://www.reddit.com/r/vibecoding/comments/1wk8jco/using_jev_for_realtime_live_chat_moderation/",
+  "observed_on": "2026-10-09",
+  "method": "Browser video playback and paused on-screen counter readings; HTML video duration/currentTime. No backend access or original arrival trace.",
+  "video_duration_seconds": 33.933333,
+  "scenario_seconds_displayed": 72,
+  "scenario_playback_speed_displayed": 2,
+  "checkpoints": [
+    {"video_seconds": 0, "received": 44, "admitted": 28, "jev_calls": 5},
+    {"video_seconds": 5.089963, "received": 131, "admitted": 85, "jev_calls": 12},
+    {"video_seconds": 10.179913, "received": 230, "admitted": 136, "jev_calls": 19},
+    {"video_seconds": 15.269433, "received": 456, "admitted": 213, "jev_calls": 26},
+    {"video_seconds": 20.358933, "received": 558, "admitted": 266, "jev_calls": 32},
+    {"video_seconds": 25.448433, "received": 748, "admitted": 340, "jev_calls": 39},
+    {"video_seconds": 30.537933, "received": 826, "admitted": 386, "jev_calls": 46},
+    {"video_seconds": 33.933333, "received": 848, "admitted": 410, "jev_calls": 50}
+  ],
+  "limitations": "Approximate counter observations at selected frames, not exact per-message timestamps. Input text for the NInfer replay is synthetic, not copied from the demo. UI counters distinguish raw received from admitted and API calls; these do not prove the unseen backend's batching implementation. Matching the average does not establish burst responsiveness."
+}
