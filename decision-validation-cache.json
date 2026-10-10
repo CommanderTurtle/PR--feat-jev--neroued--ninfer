@@ -1,0 +1,481 @@
+{
+  "complete": true,
+  "records": [
+    {
+      "route": "decision",
+      "case": "readme:auto",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": true
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 268,
+          "computed_tokens": 142,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 299.888697,
+          "scoring_ms": 2.5776730000000043,
+          "total_ms": 302.46637,
+          "rounds": 1,
+          "forward_batches": 5,
+          "largest_batch": 2,
+          "per_decision_ms": 302.46637
+        }
+      },
+      "wall_ms": 317.83770001493394
+    },
+    {
+      "route": "decision",
+      "case": "readme:auto:repeat",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": true
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 383,
+          "computed_tokens": 27,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 77.255801,
+          "scoring_ms": 2.6171799999999905,
+          "total_ms": 79.872981,
+          "rounds": 1,
+          "forward_batches": 4,
+          "largest_batch": 2,
+          "per_decision_ms": 79.872981
+        }
+      },
+      "wall_ms": 100.6558999652043
+    },
+    {
+      "route": "decision",
+      "case": "readme:tree",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": true
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 383,
+          "computed_tokens": 27,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 77.146718,
+          "scoring_ms": 2.820836,
+          "total_ms": 79.967554,
+          "rounds": 1,
+          "forward_batches": 4,
+          "largest_batch": 2,
+          "per_decision_ms": 79.967554
+        }
+      },
+      "wall_ms": 185.11030008085072
+    },
+    {
+      "route": "decision",
+      "case": "readme:tree:repeat",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": true
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": true
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 383,
+          "computed_tokens": 27,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 76.96108,
+          "scoring_ms": 2.4835860000000025,
+          "total_ms": 79.444666,
+          "rounds": 1,
+          "forward_batches": 4,
+          "largest_batch": 2,
+          "per_decision_ms": 79.444666
+        }
+      },
+      "wall_ms": 112.6333000138402
+    },
+    {
+      "route": "decision",
+      "case": "readme:greedy",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": false
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 383,
+          "computed_tokens": 27,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 77.365901,
+          "scoring_ms": 2.5076620000000105,
+          "total_ms": 79.873563,
+          "rounds": 1,
+          "forward_batches": 4,
+          "largest_batch": 2,
+          "per_decision_ms": 79.873563
+        }
+      },
+      "wall_ms": 92.16820006258786
+    },
+    {
+      "route": "decision",
+      "case": "readme:greedy:repeat",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": false
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 383,
+          "computed_tokens": 27,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 77.694604,
+          "scoring_ms": 2.9349710000000044,
+          "total_ms": 80.629575,
+          "rounds": 1,
+          "forward_batches": 4,
+          "largest_batch": 2,
+          "per_decision_ms": 80.629575
+        }
+      },
+      "wall_ms": 102.43189998436719
+    },
+    {
+      "route": "systemone",
+      "case": "cache:interleave",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "model": "qwen3.8-27b",
+        "answers": {
+          "shape": {
+            "type": "choice",
+            "probabilities": {
+              "circle": 0.9706877692486436,
+              "square": 0.029312230751356316
+            },
+            "confidence": 0.9413755384972873,
+            "choice": "circle"
+          }
+        },
+        "usage": {
+          "input_tokens": 99,
+          "output_tokens": 0
+        }
+      },
+      "wall_ms": 98.60610007308424
+    },
+    {
+      "route": "decision",
+      "case": "readme:greedy:recovered",
+      "ok": true,
+      "status": 200,
+      "response": {
+        "object": "decision",
+        "results": [
+          {
+            "decision": {
+              "category": "billing",
+              "urgent": true,
+              "priority": "high"
+            },
+            "fields": {
+              "category": {
+                "value": "billing",
+                "probability": 0.9999915006792486,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "urgent": {
+                "value": true,
+                "probability": 0.9964063974185798,
+                "scored_nodes": 1,
+                "tree": false
+              },
+              "priority": {
+                "value": "high",
+                "probability": 0.5245363988555346,
+                "scored_nodes": 1,
+                "tree": false
+              }
+            },
+            "usage": {
+              "context_tokens": 19,
+              "scored_rows": 3
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 410,
+          "cached_tokens": 268,
+          "computed_tokens": 142,
+          "context_tokens": 19,
+          "scored_rows": 3
+        },
+        "timings": {
+          "prefill_ms": 99.077975,
+          "scoring_ms": 3.048259999999999,
+          "total_ms": 102.126235,
+          "rounds": 1,
+          "forward_batches": 5,
+          "largest_batch": 2,
+          "per_decision_ms": 102.126235
+        }
+      },
+      "wall_ms": 241.9895000057295
+    }
+  ],
+  "comparisons": [
+    {
+      "case": "readme:auto:repeat",
+      "max_probability_delta": 0,
+      "tolerance": 0.02,
+      "required": true,
+      "ok": true,
+      "changed_values": []
+    },
+    {
+      "case": "readme:tree:repeat",
+      "max_probability_delta": 0,
+      "tolerance": 0.02,
+      "required": true,
+      "ok": true,
+      "changed_values": []
+    },
+    {
+      "case": "readme:greedy:repeat",
+      "max_probability_delta": 0,
+      "tolerance": 0.02,
+      "required": true,
+      "ok": true,
+      "changed_values": []
+    },
+    {
+      "case": "readme:cache-invalidation",
+      "max_probability_delta": 0,
+      "tolerance": 0.02,
+      "required": true,
+      "ok": true,
+      "changed_values": []
+    }
+  ],
+  "quality": [],
+  "base_url": "http://alien.local:8000",
+  "section": "cache",
+  "repeats": 3
+}
