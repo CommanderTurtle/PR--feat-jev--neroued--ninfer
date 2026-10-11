@@ -93,6 +93,9 @@ and `/v1/systemone`. The normal build/Docker image contains these routes; no sep
 service or model is needed. Without the flag the routes are absent. Authentication,
 CORS, request IDs, payload bounds and disconnect handling follow the existing server.
 Responses use `Cache-Control: no-store`. These endpoints accept text, not images.
+Startup requires at least three total Device StateImages: `max-concurrency` plus extra
+`device-state-slots`. With one lane, explicitly pass `--device-state-slots 2`; `--jev`
+does not enlarge the configured capacity automatically.
 
 ```bash
 curl http://127.0.0.1:8080/v1/decision \

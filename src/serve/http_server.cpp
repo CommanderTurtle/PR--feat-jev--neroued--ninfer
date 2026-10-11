@@ -29,7 +29,7 @@ void write_exception(httplib::Response& res, const std::exception& ex) {
 bool is_anthropic_path(std::string_view path) { return path.starts_with("/v1/messages"); }
 
 bool is_openai_path(std::string_view path) {
-    return path.starts_with("/v1/") && !is_anthropic_path(path);
+    return path == "/decision" || (path.starts_with("/v1/") && !is_anthropic_path(path));
 }
 
 void ensure_http_request_id(const httplib::Request& request, httplib::Response& response) {

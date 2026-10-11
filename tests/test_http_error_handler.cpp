@@ -108,6 +108,24 @@ int main() {
                               "1234 bytes") != std::string::npos,
                       "empty OpenAI 413 did not become a payload-limit error");
 
+    for (const auto* path : {"/decision", "/v1/decision"}) {
+        for (const int status : {200, 400, 413, 429}) {
+            httplib::Request request;
+            request.path = path;
+            httplib::Response response;
+            response.status = status;
+            (void)ninfer::serve::handle_unrendered_http_error(options, request, response);
+            const auto id = response.get_header_value("x-request-id");
+            failures += check(id.starts_with("req_") &&
+                                  response.get_header_value_count("x-request-id") == 1,
+                              "decision route omitted or duplicated its request ID");
+            (void)ninfer::serve::handle_unrendered_http_error(options, request, response);
+            failures += check(response.get_header_value("x-request-id") == id &&
+                                  response.get_header_value_count("x-request-id") == 1,
+                              "decision route replaced an existing request ID");
+        }
+    }
+
     httplib::Request missing_messages_request;
     missing_messages_request.path = "/v1/messages/missing";
     httplib::Response missing_messages_response;

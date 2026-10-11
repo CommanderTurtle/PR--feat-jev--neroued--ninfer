@@ -134,6 +134,7 @@ std::string serve_usage_text(const char* argv0) {
            "       [--log-level trace|debug|info|warning|error|critical|off]\n"
            "       serves OpenAI Responses/Chat Completions and Anthropic Messages endpoints\n"
            "       --jev enables native /v1/decision and /v1/systemone decisions\n"
+           "       --jev requires max-concurrency + extra device-state-slots >= 3\n"
            "       --default-max-tokens defaults to " +
            std::to_string(kDefaultMaxTokens) +
            " when omitted\n"
@@ -364,6 +365,14 @@ ServeOptions parse_serve_options(int argc, char** argv) {
     }
     if (options.max_concurrency == 0 || options.max_concurrency > kMaximumConcurrency) {
         throw std::invalid_argument("--max-concurrency must be in [1,8]");
+    }
+    if (options.jev && static_cast<std::uint64_t>(options.max_concurrency) +
+                               options.context_cache.device_state_slots.value_or(
+                                   options.max_concurrency) < 3) {
+        throw std::invalid_argument(
+            "--jev requires at least three total Device state slots; set "
+            "--device-state-slots so max-concurrency + extra slots >= 3 "
+            "(for one lane, use --device-state-slots 2)");
     }
     if (options.max_pending_requests == 0) {
         throw std::invalid_argument("--max-pending-requests must be positive");
