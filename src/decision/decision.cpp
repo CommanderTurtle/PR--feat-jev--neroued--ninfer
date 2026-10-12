@@ -71,16 +71,37 @@ double number(const Json& object, const char* key) {
     return value;
 }
 
+std::string fixed_decimal(double value, int digits) {
+    std::ostringstream encoded;
+    encoded.imbue(std::locale::classic());
+    encoded << std::fixed << std::setprecision(digits) << value;
+    return encoded.str();
+}
+
 int decimal_places(double value) {
     for (int digits = 0; digits <= 9; ++digits) {
-        const auto scaled = value * std::pow(10.0, digits);
-        const auto tolerance =
-            8 * std::numeric_limits<double>::epsilon() * std::max(1.0, std::abs(scaled));
-        if (std::isfinite(scaled) && std::abs(scaled - std::round(scaled)) <= tolerance) {
+        // Relative epsilon can exceed a whole unit for large fractional bounds.
+        // Choose a decimal spelling only when it preserves the represented value.
+        if (Json::parse(fixed_decimal(value, digits)).get<double>() == value) {
             return digits;
         }
     }
     throw std::invalid_argument("number grids support at most nine decimal places");
+}
+
+double ulp_size(double value) {
+    return value == 0 ? std::numeric_limits<double>::denorm_min()
+                      : std::abs(value - std::nextafter(value, 0.0));
+}
+
+bool grid_endpoint(double expected, double reconstructed, int digits, double input_roundoff) {
+    if (!std::isfinite(reconstructed)) { return false; }
+    if (expected == reconstructed) { return true; }
+    // Allow arithmetic rounding, not a fixed fraction of a potentially huge step.
+    // Include operand precision: cancellation may reconstruct zero as a tiny residual.
+    const auto tolerance = 2 * std::max(ulp_size(expected), input_roundoff);
+    return std::abs(expected - reconstructed) <= tolerance &&
+           Json::parse(fixed_decimal(reconstructed, digits)).get<double>() == expected;
 }
 
 std::size_t common_size(std::span<const TokenId> a, std::span<const TokenId> b) {
@@ -143,23 +164,26 @@ Field compile_field(const std::string& name, const Json& spec, bool json_schema)
         const auto lo = number(spec, "minimum"), hi = number(spec, "maximum");
         const auto step = number(spec, json_schema ? "multipleOf" : "step");
         require(step > 0 && hi >= lo, "number grid needs ordered bounds and a positive step");
-        const auto count = (hi - lo) / step;
-        require(std::isfinite(count) && count >= 0 && std::round(count) <= 254 &&
-                    std::abs(count - std::round(count)) < 1e-7,
+        const auto count = std::round((hi - lo) / step);
+        const int digits = std::max({decimal_places(lo), decimal_places(hi), decimal_places(step)});
+        require(std::isfinite(count) && count >= 0 && count <= 254 && (hi == lo || count > 0) &&
+                    grid_endpoint(hi, std::fma(count, step, lo), digits,
+                                  ulp_size(lo) + count * ulp_size(step)),
                 "number grid must include both bounds and define 1-255 values");
         if (json_schema) {
-            const auto multiples = lo / step;
-            require(std::isfinite(multiples) && std::abs(multiples - std::round(multiples)) < 1e-7,
+            const auto multiples = std::round(lo / step);
+            require(std::isfinite(multiples) &&
+                        grid_endpoint(lo, multiples * step, digits,
+                                      std::abs(multiples) * ulp_size(step)),
                     "minimum must be on the multipleOf grid");
         }
-        const int digits = std::max({decimal_places(lo), decimal_places(hi), decimal_places(step)});
-        for (int index = 0; index <= static_cast<int>(std::round(count)); ++index) {
-            std::ostringstream encoded;
-            encoded.imbue(std::locale::classic());
-            encoded << std::fixed << std::setprecision(digits) << lo + index * step;
-            const auto value = Json::parse(encoded.str());
+        for (int index = 0; index <= static_cast<int>(count); ++index) {
+            const auto encoded = fixed_decimal(std::fma(index, step, lo), digits);
+            const auto value   = Json::parse(encoded);
+            require(value.get<double>() >= lo && value.get<double>() <= hi,
+                    "number grid values must remain within the declared bounds");
             field.values.push_back(value);
-            field.encoded.push_back(encoded.str());
+            field.encoded.push_back(encoded);
             field.numbers.push_back(value.get<long double>());
         }
     } else {

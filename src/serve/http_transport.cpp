@@ -28,6 +28,15 @@ void set_socket_option(socket_t socket, int level, int option, const T& value) n
 
 } // namespace
 
+httplib::TaskQueue* make_http_task_queue(const ServeOptions& options) {
+    const std::size_t outstanding =
+        static_cast<std::size_t>(options.max_concurrency) + options.max_pending_requests +
+        (options.jev ? kDecisionRequestCapacity : 0);
+    // Admitted requests may hold their workers through response delivery. Keep one
+    // more worker for health/admission errors instead of stranding them behind inference.
+    return new httplib::ThreadPool(outstanding + 1, outstanding + 1, outstanding);
+}
+
 RequestJson parse_json_body(const httplib::Request& request) {
     text::ParsedJsonNumbers parsed;
     try {

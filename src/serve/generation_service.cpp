@@ -41,9 +41,10 @@ struct RequestLifetime {
 
 ApiError request_error_to_api_error(const ninfer::RequestError& exception,
                                     std::string_view constraint_param,
-                                    std::span<const std::string> tool_schema_params) {
+                                    std::span<const std::string> tool_schema_params,
+                                    std::string_view input_param) {
     ApiError error;
-    error.param   = "messages";
+    error.param   = input_param;
     error.message = exception.what();
     const auto tool_param = [&] {
         const std::string_view pointer = exception.pointer();
@@ -327,8 +328,7 @@ GenerationService::GenerationService(ServeOptions options, StartupObserver start
     engine_           = std::make_unique<ninfer::Engine>(std::move(engine_options));
     if (options_.jev) {
         decision_engine_ = std::make_unique<decision::DecisionEngine>(*engine_);
-        // Independent admission for one executing and sixteen waiting decision requests.
-        decision_capacity_ = std::make_shared<RequestCapacity>(17);
+        decision_capacity_ = std::make_shared<RequestCapacity>(kDecisionRequestCapacity);
     }
     request_capacity_ = std::make_shared<RequestCapacity>(
         static_cast<std::size_t>(options_.max_concurrency) + options_.max_pending_requests);

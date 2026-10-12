@@ -162,6 +162,8 @@ than three free state slots, or insufficient shared KV capacity returns `429 ser
 HTTP decision admission permits 17 outstanding requests including response delivery; the GPU
 queue permits 16 waiting scoring transactions. Decisions do not consume chat's admission
 budget or lanes, but an admitted scoring transaction is nonpreemptive and can delay chat.
+With `--jev`, the bounded HTTP transport queue covers both admission budgets, with one
+additional worker for health checks and admission errors. Without it, transport sizing is unchanged.
 `--pending-timeout-ms` bounds each preparation/admission, not total admitted GPU runtime.
 Disconnect cancellation is checked between bounded prefix/branch units.
 

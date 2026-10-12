@@ -96,7 +96,8 @@ enum class GenerationConsumerMode : std::uint8_t {
 ApiError
 request_error_to_api_error(const ninfer::RequestError& exception,
                            std::string_view constraint_param = "structured_outputs.grammar",
-                           std::span<const std::string> tool_schema_params = {});
+                           std::span<const std::string> tool_schema_params = {},
+                           std::string_view input_param = "messages");
 
 // Preparation ends by synchronously submitting the owning prompt to the Engine FIFO. The returned
 // request keeps its ingress/response lifetime reservation until the HTTP response is released and

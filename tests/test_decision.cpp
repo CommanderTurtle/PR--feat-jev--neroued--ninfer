@@ -150,6 +150,62 @@ int main() {
         small_grid["schema"]["n"]["step"]    = .1;
         expect(parse_request(small_grid).fields[0].values.size() == 255, "maximum decimal grid");
 
+        for (const bool wrapped : {false, true}) {
+            auto grid = Json::parse(R"({"contexts":[""],"schema":{
+                "n":{"type":"number","description":"Grid","minimum":0,
+                     "maximum":254000000001,"step":1000000000}}})");
+            if (wrapped) {
+                grid["schema"]["n"]["multipleOf"] = grid["schema"]["n"]["step"];
+                grid["schema"]["n"].erase("step");
+                grid["schema"] = Json{{"properties", grid["schema"]}};
+            }
+            auto& spec = wrapped ? grid["schema"]["properties"]["n"] : grid["schema"]["n"];
+            rejects([&] { (void)parse_request(grid); }, "large off-grid maximum rejects");
+            spec["maximum"] = 254000000000ULL;
+            const auto exact = parse_request(grid).fields[0];
+            expect(exact.values.size() == 255 && exact.values.back() == spec["maximum"],
+                   "large aligned maximum remains included");
+            spec["maximum"] = 1.000000001;
+            spec[wrapped ? "multipleOf" : "step"] = 1;
+            rejects([&] { (void)parse_request(grid); }, "small off-grid maximum rejects");
+        }
+        auto decimal_grid = Json::parse(R"({"contexts":[""],"schema":{
+            "n":{"type":"number","description":"Decimal","minimum":1000000000000000.1,
+                 "maximum":1000000000000001.1,"step":1}}})");
+        for (const double sign : {1.0, -1.0}) {
+            auto& spec = decimal_grid["schema"]["n"];
+            spec["minimum"] = sign > 0 ? 1000000000000000.1 : -1000000000000001.1;
+            spec["maximum"] = sign > 0 ? 1000000000000001.1 : -1000000000000000.1;
+            const auto field = parse_request(decimal_grid).fields[0];
+            expect(field.values.size() == 2 && field.values.front() == spec["minimum"] &&
+                       field.values.back() == spec["maximum"],
+                   "large fractional bounds round trip without becoming integers");
+        }
+        auto& decimal_spec = decimal_grid["schema"]["n"];
+        decimal_spec["minimum"] = 10000000000.1;
+        decimal_spec["maximum"] = 10000000000.3;
+        decimal_spec["step"] = .1;
+        expect(parse_request(decimal_grid).fields[0].encoded ==
+                   std::vector<std::string>({"10000000000.1", "10000000000.2", "10000000000.3"}),
+               "decimal endpoints tolerate subtraction cancellation without losing values");
+        decimal_spec["minimum"] = -.3;
+        decimal_spec["maximum"] = 0;
+        expect(parse_request(decimal_grid).fields[0].values == std::vector<Json>({-.3, -.2, -.1, 0}),
+               "decimal cancellation at zero preserves the inclusive grid");
+        decimal_spec["minimum"] = 1.0000000001;
+        decimal_spec["maximum"] = 1.0000000001;
+        rejects([&] { (void)parse_request(decimal_grid); }, "tenth decimal place is not rounded away");
+        auto aligned = schema;
+        auto& aligned_spec = aligned["schema"]["properties"]["n"];
+        aligned_spec["minimum"] = 254000000001ULL;
+        aligned_spec["maximum"] = 255000000001ULL;
+        aligned_spec["multipleOf"] = 1000000000;
+        rejects([&] { (void)parse_request(aligned); }, "large off-grid multipleOf minimum rejects");
+        aligned_spec["minimum"] = 1000000000000000.1;
+        aligned_spec["maximum"] = 1000000000000001.1;
+        aligned_spec["multipleOf"] = 1;
+        rejects([&] { (void)parse_request(aligned); }, "fractional minimum is not an integer multiple");
+
         CandidateTrie trie;
         trie.add({90, 80, 10, 30, 99});
         trie.add({90, 80, 10, 40, 99});

@@ -39,9 +39,7 @@ void HttpServer::handle_systemone(const httplib::Request& req, httplib::Response
     } catch (const ApiException& error) {
         write_openai_error(res, error.error());
     } catch (const RequestError& error) {
-        auto translated  = request_error_to_api_error(error);
-        translated.param = "state";
-        write_openai_error(res, translated);
+        write_openai_error(res, request_error_to_api_error(error, {}, {}, "state"));
     }
 }
 
@@ -55,9 +53,7 @@ void HttpServer::handle_decision(const httplib::Request& req, httplib::Response&
     } catch (const ApiException& error) {
         write_openai_error(res, error.error());
     } catch (const RequestError& error) {
-        auto translated  = request_error_to_api_error(error);
-        translated.param = "contexts";
-        write_openai_error(res, translated);
+        write_openai_error(res, request_error_to_api_error(error, {}, {}, "contexts"));
     } catch (const std::invalid_argument& error) {
         ApiError translated;
         translated.status  = 400;
