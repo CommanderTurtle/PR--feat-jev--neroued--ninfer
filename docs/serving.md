@@ -123,7 +123,7 @@ to 4096 bytes; the compiled catalogue is limited to 1 MiB.
 | `boolean` | true / false |
 | `enum` (`choice`, `selection`) | `choices` or `enum`, 1–255 distinct strings; JSON Schema string enums also work |
 | `integer` | Inclusive signed-64-bit minimum/maximum, at most 255 values |
-| `number` | Inclusive minimum/maximum and positive step, both endpoints on the grid, at most 255 values and nine decimal places |
+| `number` | Inclusive minimum/maximum and positive step, both endpoints on the grid, at most 255 values and nine decimal places; integer inputs must convert to double without loss |
 
 JSON Schema `multipleOf` additionally requires a zero-aligned grid. Numeric fields accept
 `aggregate` (or `x-aggregate`): mode, median or mean. Mean is projected to the nearest

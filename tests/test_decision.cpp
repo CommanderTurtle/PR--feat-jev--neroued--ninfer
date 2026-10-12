@@ -45,6 +45,58 @@ int main() {
         expect(numeric.fields[0].encoded == std::vector<std::string>({"0.1", "0.2", "0.3"}),
                "fixed decimal grid");
         expect(numeric.fields[1].values[2] == "雪", "unicode enum");
+        auto named        = Json::parse(R"({"contexts":[""],"schema":{
+            "properties":{"type":"boolean","description":"Has properties?"},
+            "type":{"type":"enum","choices":["a","b"],"description":"Which type?"}}})");
+        auto named_fields = parse_request(named);
+        expect(named_fields.fields.size() == 2 && named_fields.fields[0].name == "properties" &&
+                   named_fields.fields[0].values == std::vector<Json>({true, false}),
+               "properties is a compact field name, not a wrapper");
+        named["schema"]["properties"] = {{"enum", {"x", "y"}}, {"description", "Which property?"}};
+        expect(parse_request(named).fields[0].values == std::vector<Json>({"x", "y"}),
+               "compact properties enum may omit type");
+        named["schema"] = Json{{"properties", named["schema"]}};
+        expect(parse_request(named).fields[0].name == "properties",
+               "wrapper without type may contain properties and type fields");
+        named["schema"]["type"] = "object";
+        expect(parse_request(named).fields.size() == 2,
+               "explicit object wrapper preserves reserved-looking property names");
+
+        auto large_grid = Json::parse(R"({"contexts":[""],"schema":{
+            "n":{"type":"number","description":"Large values","minimum":9007199254740992,
+                 "maximum":9007199254740993,"step":1}}})");
+        rejects([&] { (void)parse_request(large_grid); },
+                "distinct integer bounds must not collapse");
+        auto large_schema = large_grid;
+        large_schema["schema"]["n"].erase("step");
+        large_schema["schema"]["n"]["multipleOf"] = 1;
+        large_schema["schema"]                    = Json{{"properties", large_schema["schema"]}};
+        rejects([&] { (void)parse_request(large_schema); }, "JSON Schema bounds must not collapse");
+        for (const auto& value :
+             Json::parse("[9007199254740993,-9007199254740993,9223372036854775807,"
+                         "18446744073709551615,-9223372036854775807]")) {
+            large_grid["schema"]["n"]["minimum"] = value;
+            large_grid["schema"]["n"]["maximum"] = value;
+            rejects([&] { (void)parse_request(large_grid); }, "lossy singleton bound rejects");
+        }
+        large_grid["schema"]["n"]["minimum"] = 0;
+        large_grid["schema"]["n"]["maximum"] = 9007199254740992ULL;
+        large_grid["schema"]["n"]["step"]    = 9007199254740993ULL;
+        rejects([&] { (void)parse_request(large_grid); }, "lossy integer step rejects");
+        large_grid["schema"]["n"]["minimum"] = 9007199254740992ULL;
+        large_grid["schema"]["n"]["maximum"] = 9007199254740996ULL;
+        large_grid["schema"]["n"]["step"]    = 2;
+        expect(parse_request(large_grid).fields[0].encoded ==
+                   std::vector<std::string>(
+                       {"9007199254740992", "9007199254740994", "9007199254740996"}),
+               "exactly representable large number grids remain supported");
+        for (const auto& value : Json::parse("[-9223372036854775808,9223372036854775808]")) {
+            large_grid["schema"]["n"]["minimum"] = value;
+            large_grid["schema"]["n"]["maximum"] = value;
+            expect(parse_request(large_grid).fields[0].encoded ==
+                       std::vector<std::string>({value.dump()}),
+                   "exact signed and unsigned limits remain supported");
+        }
         auto invalid                     = example();
         invalid["schema"]["yes"]["type"] = "array";
         rejects([&] { (void)parse_request(invalid); }, "unsupported schema type");

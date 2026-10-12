@@ -54,8 +54,20 @@ std::int64_t integer(const Json& object, const char* key) {
 double number(const Json& object, const char* key) {
     require(object.contains(key) && object.at(key).is_number(),
             std::string(key) + " must be a finite number");
-    const auto value = object.at(key).get<double>();
+    const auto& source = object.at(key);
+    const auto value   = source.get<double>();
     require(std::isfinite(value), std::string(key) + " must be finite");
+    // Check the integer round trip before grid arithmetic can collapse bounds or
+    // change a step. Range guards keep the casts defined at int64/uint64 limits.
+    if (source.is_number_unsigned()) {
+        require(value < std::ldexp(1.0, 64) &&
+                    static_cast<std::uint64_t>(value) == source.get<std::uint64_t>(),
+                std::string(key) + " must be exactly representable as a double");
+    } else if (source.is_number_integer()) {
+        require(value >= -std::ldexp(1.0, 63) && value < std::ldexp(1.0, 63) &&
+                    static_cast<std::int64_t>(value) == source.get<std::int64_t>(),
+                std::string(key) + " must be exactly representable as a double");
+    }
     return value;
 }
 
@@ -195,8 +207,14 @@ Request parse_request(const Json& body) {
         require(bytes <= kMaximumTextBytes, "contexts exceed 1 MiB in aggregate");
     }
     require(body.contains("schema") && body.at("schema").is_object(), "schema must be an object");
-    const auto& schema     = body.at("schema");
-    const bool json_schema = schema.contains("properties");
+    const auto& schema    = body.at("schema");
+    const auto properties = schema.find("properties");
+    // A wrapper contains a map of field objects; a compact field contains scalar
+    // metadata such as type/description or an enum array, even when named properties.
+    const bool json_schema = properties != schema.end() &&
+                             (!properties->is_object() ||
+                              std::all_of(properties->begin(), properties->end(),
+                                          [](const Json& field) { return field.is_object(); }));
     if (json_schema) {
         keys(schema,
              {"$schema", "type", "properties", "required", "additionalProperties", "title",
