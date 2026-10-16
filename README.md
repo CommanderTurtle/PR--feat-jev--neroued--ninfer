@@ -2,9 +2,9 @@
 
 > Selected checkpoints. Maximum single-GPU inference performance.
 
-NInfer is a from-scratch C++/CUDA inference engine for Qwen3.5 Dense and MoE architectures on a
-single NVIDIA GeForce RTX 5090. It runs text, image, and video prompts through a local CLI or
-OpenAI-/Anthropic-compatible HTTP APIs. The runtime is deliberately specialized: one GPU, one
+NInfer is a from-scratch C++/CUDA inference engine for a single NVIDIA GeForce RTX 5090.
+Qwen3.5 Dense/MoE and Qwen4Exp (Qwen3.8-Flash-Next) support text, image/video prompts and native MTP.
+They use the local CLI or OpenAI-/Anthropic-compatible HTTP APIs. The runtime uses one GPU, one
 resident model, and one to eight execution lanes fixed at startup.
 
 Five official artifacts are available. The quick-start commands use Qwen3.8-27B NVFP4.
@@ -28,10 +28,11 @@ the weights again.
 
 ## Quick start
 
-NInfer requires 64-bit Linux, an NVIDIA GeForce RTX 5090, a CUDA toolkit supporting `sm_120a`,
+NInfer requires x86-64 Linux, an NVIDIA GeForce RTX 5090, a CUDA toolkit supporting `sm_120a`,
 CMake 3.28 or newer, a C++20 host compiler, Ninja, `pkg-config`, FFmpeg development libraries
-(`libavformat`, `libavcodec`, `libavutil`, and `libswscale`), and `libcurl >= 7.85`.
-CUDA 13.1 is the validated development toolkit; CMake does not impose a CUDA version floor.
+(`libavformat`, `libavcodec`, `libavutil`, and `libswscale`), `hwloc >= 2.5`, `liburing >= 2.5`,
+and `libcurl >= 7.85`.
+CUDA 13.4 is the validated development toolkit; CMake does not impose a CUDA version floor.
 The build rejects CUDA architectures other than `sm_120a`.
 
 Build the product binaries:
@@ -233,25 +234,32 @@ The official artifacts provide the following capabilities, with optional compone
   tools, local response state, token counting, and usage accounting.
 
 The 35B-A3B target additionally supports DFlash with draft windows from one to fifteen for Text and
-image/video Vision prompts. Qwen3.8-27B artifacts with the DFlash2 companion weights support
+image/video Vision prompts, plus CPU/GPU MoE expert offload with CUDA Graph decode under a
+[GPU memory budget](docs/cli.md). Qwen3.8-27B artifacts with the DFlash2 companion weights support
 `--spec dflash2 --draft-tokens 7` for the same Text/Vision Engine path, with draft counts 1..15
 and either full or optimized proposal heads.
+
+Qwen3.8-Flash-Next uses CPU/GPU Main experts, disk-backed NF4 PLE and segmented CUDA Graph.
+Its native MTP uses the full shared head; DFlash/DFlash2 and optimized proposal heads are not
+supported for this architecture. See the [CLI commands](docs/cli.md),
+[conversion recipe](docs/weight-conversion.md) and
+[current support reference](docs/maintainer/qwen4_exp-execution.md).
 
 The product boundary remains intentionally small:
 
 - one RTX 5090 and one resident model per Engine;
 - one to eight resident execution lanes with bounded FIFO ingress;
 - resource-pressure preemption with snapshot or token-replay recovery;
-- no priority/QoS, weight offload, multi-GPU, or distributed serving;
-- one shared startup-fixed KV pool across active requests and retained prefixes;
+- no priority/QoS, multi-GPU, or distributed serving;
+- startup-fixed typed KV pools shared by active requests and retained prefixes;
 - model architectures and format/shape combinations use explicitly implemented native paths;
 - parsed tool calls are returned to the client; NInfer does not execute tools;
 - the in-tree C++ headers are not distributed as an installed SDK.
 
 `--max-context` is each sequence's logical limit. `--kv-capacity` sizes the shared Main Text KV pool
 used by active requests and retained prefixes; `auto` resolves the largest legal capacity at
-startup from the memory remaining after weights while keeping 1 GiB of sizing headroom. Explicit
-capacities remain fixed for the process lifetime.
+startup from the memory remaining after weights. Both explicit and automatic modes use 1 GiB of
+startup planning headroom. Explicit capacities remain fixed for the process lifetime.
 
 ## Documentation
 

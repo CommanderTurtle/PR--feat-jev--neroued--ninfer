@@ -11,13 +11,12 @@
 
 namespace ninfer::models::qwen3_5::detail {
 
-BranchStorage::BranchStorage(DeviceSpan backing, const BranchLayout& layout,
-                             qwen3_5::PagedKVCache& shared_kv, LogicalKVPageStore& pages,
-                             qwen3_5::StateImageDevicePool& images, StateImageStore& store,
-                             std::int32_t batch, cudaStream_t stream)
+BranchStorage::BranchStorage(MemorySpan backing, const BranchLayout& layout,
+                             qwen3_5::PagedKVCache& shared_kv, context::LogicalKVPageStore& pages,
+                             qwen3_5::StateImageViews& images, StateImageStore& store,
+                             std::int32_t batch, CudaExecutionView execution)
     : kv(backing, layout.tables, shared_kv), batch_capacity(batch), states(images.linear()),
-      records(backing, layout.records),
-      fold(records, states.all_layers_view()),
+      records(backing, layout.records), fold(records, states.all_layers_view()),
       addresses(pages, kv.execution_tables(), 1 + 2 * batch_capacity,
                 kv.execution_tables().logical_page_capacity()),
       ids(layout.ids.bind(backing)), positions(layout.positions.bind(backing)),
@@ -31,12 +30,14 @@ BranchStorage::BranchStorage(DeviceSpan backing, const BranchLayout& layout,
     state_handles.reserve(1 + 2 * batch_capacity);
     try {
         for (std::int32_t i = 0; i < 1 + 2 * batch_capacity; ++i) {
-            auto state = state_store.reserve_reset(stream);
+            auto state = state_store.reserve_destination();
             if (!state) {
                 throw RequestError(RequestErrorKind::Overloaded,
                                    "decision branches need available state slots");
             }
             state_handles.push_back(*state);
+            images.storage().clear(state_store.physical_slot(*state), execution);
+            state_store.complete_initialization(*state);
         }
     } catch (...) {
         for (auto state : state_handles) {
@@ -47,16 +48,15 @@ BranchStorage::BranchStorage(DeviceSpan backing, const BranchLayout& layout,
 }
 
 BranchStorage::~BranchStorage() {
-    if (cached_address) { (void)addresses.release_after_deactivate(*cached_address); }
+    if (cached_address) { addresses.deactivate(cached_address->handle()); }
+    cached_address.reset();
     for (auto state : state_handles) {
         if (!state_store.release(state)) { std::terminate(); }
     }
 }
 
 void BranchStorage::release_cache() {
-    if (cached_address && !addresses.release_after_deactivate(*cached_address)) {
-        throw std::logic_error("branch root cache release failed");
-    }
+    if (cached_address) { addresses.deactivate(cached_address->handle()); }
     cached_address.reset();
     cached_prefix.clear();
 }
@@ -69,8 +69,9 @@ bool ProgramImpl::release_branch_cache() {
 }
 
 BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> rows,
-                                              const PreparationControl& control, bool reuse_prefix) {
-    if (!decision_scoring || has_context_transaction() || pending_transaction_) {
+                                              const PreparationControl& control,
+                                              bool reuse_prefix) {
+    if (!decision_scoring || has_context_operation() || pending_transaction_) {
         throw std::logic_error("branch scoring requires its enabled, stable Program boundary");
     }
     if (!workspace_plan.branches) {
@@ -86,11 +87,11 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
                                "decision branches need three available state slots");
         }
         const auto batch = std::min(workspace_plan.branches->batch_capacity,
-                                   static_cast<std::int32_t>((free_states - 1) / 2));
-        branches = std::make_unique<BranchStorage>(
-            DeviceSpan{workspace_storage.base(), workspace_plan.general_capacity},
-            *workspace_plan.branches, decoder->text_kv, *text_kv_pages, *state_images,
-            *state_store, batch, device.stream);
+                                    static_cast<std::int32_t>((free_states - 1) / 2));
+        branches         = std::make_unique<BranchStorage>(
+            workspace_storage.span().subspan(0, workspace_plan.general_capacity),
+            *workspace_plan.branches, decoder->text_kv, *text_kv_pages, *state_images, *state_store,
+            batch, device.execution_view());
     }
     auto& b                 = *branches;
     auto& work              = b.work;
@@ -112,64 +113,77 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
     };
 
     struct Point {
-        KVAddressSpaceHandle address;
+        context::KVHistoryHandle address;
         std::uint32_t frontier = 0;
         std::int32_t slot      = 0;
     };
 
-    std::vector<KVAddressSpaceHandle> owned;
+    std::vector<context::KVHistory> owned;
     owned.reserve(1 + 2 * b.batch_capacity);
+    const auto owner = [&](context::KVHistoryHandle handle) -> context::KVHistory& {
+        auto it = std::find_if(owned.begin(), owned.end(),
+                               [&](const auto& history) { return history.handle() == handle; });
+        if (it == owned.end()) { throw std::logic_error("decision KV owner is missing"); }
+        return *it;
+    };
     const auto release = [&](Point& point) {
         if (!point.address.valid()) { return; }
-        if (!b.addresses.release_after_deactivate(point.address)) {
-            throw std::logic_error("branch KV release failed");
-        }
-        std::erase(owned, point.address);
+        b.addresses.deactivate(point.address);
+        std::erase_if(owned,
+                      [&](const auto& history) { return history.handle() == point.address; });
         point.address = {};
     };
     const auto cleanup = [&] {
-        for (auto address : owned) {
-            if (!b.addresses.release_after_deactivate(address)) {
-                throw std::logic_error("branch transaction leaked KV ownership");
-            }
-        }
+        for (auto& history : owned) { b.addresses.deactivate(history.handle()); }
         owned.clear();
         work.reset();
+    };
+    const auto bind = [&](const context::KVPrefixRef* prefix, std::uint32_t frontier,
+                          std::uint32_t length, std::int32_t row) {
+        auto binding = b.addresses.prepare_binding(prefix, frontier, length, row);
+        binding.prepare_tail_copy();
+        if (binding.needs_tail_copy()) {
+            (void)kv.page_pool().copy_page(binding.tail_source(), binding.tail_destination(),
+                                           device.stream());
+        }
+        binding.publish_restores();
+        binding.enqueue_mapping(device.stream());
+        // The native binding retires copy dependencies before publishing its owner.
+        device.synchronize();
+        auto history      = binding.commit();
+        const auto handle = history.handle();
+        owned.push_back(std::move(history));
+        return handle;
     };
     const auto copy_tail = [&](std::int32_t from, std::int32_t to) {
         auto src = b.tails.slice(1, from, 1), dst = b.tails.slice(1, to, 1);
         CUDA_CHECK(cudaMemcpyAsync(dst.data, src.data, src.bytes(), cudaMemcpyDeviceToDevice,
-                                   device.stream));
+                                   device.stream()));
     };
     const auto create = [&](std::uint32_t length, std::int32_t row, std::int32_t slot) {
         if (pages_for(length) > kv.page_pool().available_pages()) {
             throw RequestError(RequestErrorKind::Overloaded,
                                "decision request exceeds available shared KV capacity");
         }
-        auto address = b.addresses.create_active(pages_for(length), row, device.stream);
-        if (!address) { throw std::logic_error("branch address capacity exhausted"); }
-        owned.push_back(*address);
-        b.states.zero_slot(b.state_slot(slot), device.stream);
-        return Point{*address, 0, slot};
+        const auto address = bind(nullptr, 0, length, row);
+        const auto handle  = b.state_handles.at(slot);
+        (void)state_store->selectors(handle, handle);
+        state_images->storage().clear(b.state_slot(slot), device.execution_view());
+        state_store->complete_write(handle, handle);
+        return Point{address, 0, slot};
     };
     const auto fork = [&](const Point& source, std::uint32_t length, std::int32_t row,
                           std::int32_t slot) {
         if (!source.frontier) { return create(length, row, slot); }
-        auto address = b.addresses.create_inactive();
-        if (!address) { throw std::logic_error("branch address capacity exhausted"); }
-        owned.push_back(*address);
-        auto reservation =
-            b.addresses.prepare_prefix_fork(source.address, *address, source.frontier,
-                                            pages_for(length) - pages_for(source.frontier), row);
-        if (reservation.needs_tail_copy()) {
-            (void)kv.page_pool().copy_page(b.addresses.prefix_fork_tail_source(reservation),
-                                           b.addresses.prefix_fork_tail_destination(reservation),
-                                           device.stream);
-        }
-        b.addresses.commit_prefix_fork(std::move(reservation), device.stream);
-        b.states.copy_slot(b.state_slot(source.slot), b.state_slot(slot), device.stream);
+        auto prefix        = b.addresses.retain_prefix(source.address, source.frontier);
+        const auto address = bind(&prefix, source.frontier, length, row);
+        const auto handle  = b.state_handles.at(slot);
+        (void)state_store->selectors(handle, handle);
+        state_images->storage().copy(b.state_slot(source.slot), b.state_slot(slot),
+                                     device.execution_view());
+        state_store->complete_write(handle, handle);
         copy_tail(source.slot, slot);
-        return Point{*address, source.frontier, slot};
+        return Point{address, source.frontier, slot};
     };
     BranchScoreResult result;
     result.logits.resize(rows.size());
@@ -205,11 +219,13 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
                 auto& p          = points[index];
                 lengths[r]       = static_cast<std::int32_t>(
                     std::min<std::uint32_t>(kBranchWidth, ends[index] - p.frontier));
-                table_rows[r]  = b.addresses.bound_row(p.address);
                 state_slots[r] = b.state_slot(p.slot);
                 folds[r]       = {state_slots[r], state_slots[r], lengths[r]};
-                b.addresses.ensure_mapped_to_tokens(p.address, p.frontier + lengths[r],
-                                                    device.stream);
+                auto& history  = owner(p.address);
+                b.addresses.prepare_write(history, p.frontier, p.frontier + lengths[r],
+                                          device.stream());
+                p.address     = history.handle();
+                table_rows[r] = b.addresses.bound_row(p.address);
                 for (std::int32_t t = 0; t < kBranchWidth; ++t) {
                     // Invalid columns use an in-range token and position, and are masked by Ops.
                     const auto offset = p.frontier + std::min(t, std::max(0, lengths[r] - 1));
@@ -220,25 +236,27 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
             }
             const auto upload = [&](Tensor& dst, const auto& src) {
                 CUDA_CHECK(cudaMemcpyAsync(dst.data, src.data(), dst.bytes(),
-                                           cudaMemcpyHostToDevice, device.stream));
+                                           cudaMemcpyHostToDevice, device.stream()));
             };
             upload(id_view, ids);
             upload(pos_view, positions);
             upload(count_view, lengths);
             upload(row_view, table_rows);
             upload(slot_view, state_slots);
-            execution::TextContext card(device, parameters, work, {}, b.states, io, prefill_hidden,
-                                        branch_chunk, 0, {}, &kv);
+            execution::TextContext card(device, parameters, work, kv, b.states, io, prefill_hidden,
+                                        branch_chunk, 0, {}, nullptr, moe.get());
             card.set_gdn_state_action(execution::GdnStateAction::RecordForReplay, &b.records);
             card.branch_forward_batch(id_view, pos_view, count_view, row_view, slot_view,
                                       {1, capacity}, hidden_view);
-            b.fold.execute(std::span(folds).first(count), device.stream);
+            b.fold.execute(std::span(folds).first(count), device.execution_view());
             for (std::int32_t r = 0; r < count; ++r) {
                 auto source = hidden_view.slice(2, r, 1).slice(1, lengths[r] - 1, 1);
                 auto& point = points[live[r]];
                 auto tail   = b.tails.slice(1, point.slot, 1);
                 CUDA_CHECK(cudaMemcpyAsync(tail.data, source.data, tail.bytes(),
-                                           cudaMemcpyDeviceToDevice, device.stream));
+                                           cudaMemcpyDeviceToDevice, device.stream()));
+                const auto handle = b.state_handles.at(point.slot);
+                state_store->complete_write(handle, handle);
                 point.frontier += lengths[r];
                 b.addresses.commit_frontier(point.address, point.frontier);
                 result.computed_tokens += lengths[r];
@@ -312,8 +330,8 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
         }
         Point root;
         if (b.cached_address && std::ranges::equal(root_tokens, b.cached_prefix)) {
-            root = {*b.cached_address, static_cast<std::uint32_t>(root_tokens.size()), 0};
-            owned.push_back(root.address);
+            root = {b.cached_address->handle(), static_cast<std::uint32_t>(root_tokens.size()), 0};
+            owned.push_back(std::move(*b.cached_address));
             b.cached_address.reset();
         } else {
             b.release_cache();
@@ -324,36 +342,35 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
             check();
             const auto length =
                 std::min<std::uint32_t>(branch_chunk, root_tokens.size() - root.frontier);
-            b.addresses.ensure_mapped_to_tokens(root.address, root.frontier + length,
-                                                device.stream);
+            auto& history = owner(root.address);
+            b.addresses.prepare_write(history, root.frontier, root.frontier + length,
+                                      device.stream());
+            root.address = history.handle();
             set_device_i32(io.text_kv_table_row, b.addresses.bound_row(root.address));
-            execution::PrefillContext state{
-                {device, parameters, work, b.states, nullptr, io, prefill_hidden, branch_chunk,
-                 ProposalHead::Full},
-                kv.execution_view(b.addresses.execution_row(root.address)),
-                {},
-                kv,
-                nullptr,
-                nullptr,
-                root.frontier,
-                nullptr,
-                nullptr,
-                b.state_slot(0),
-                b.state_slot(0),
-                0,
-                0,
-                nullptr};
+            execution::PrefillContext state{.execution = {device, parameters, work, b.states,
+                                                          nullptr, io, prefill_hidden, branch_chunk,
+                                                          ProposalHead::Full, moe.get()},
+                                            .mtp_kv    = {},
+                                            .text_cache                = kv,
+                                            .mtp_cache                 = nullptr,
+                                            .dflash                    = nullptr,
+                                            .text_kv_base              = root.frontier,
+                                            .sampling                  = nullptr,
+                                            .rewrite_checkpoint_hidden = nullptr,
+                                            .state_source_slot         = b.state_slot(0),
+                                            .state_destination_slot    = b.state_slot(0)};
             const auto step =
                 execution::prefill_text_chunk(state, root_tokens, length, std::nullopt, false);
             if (!step.processed_tokens) {
                 throw std::logic_error("branch prefix made no progress");
             }
+            state_store->complete_write(b.state_handles[0], b.state_handles[0]);
             root.frontier += step.processed_tokens;
             b.addresses.commit_frontier(root.address, root.frontier);
             auto tail   = b.tails.slice(1, 0, 1);
             auto hidden = prefill_hidden.slice(1, step.processed_tokens - 1, 1);
             CUDA_CHECK(cudaMemcpyAsync(tail.data, hidden.data, tail.bytes(),
-                                       cudaMemcpyDeviceToDevice, device.stream));
+                                       cudaMemcpyDeviceToDevice, device.stream()));
             result.computed_tokens += step.processed_tokens;
             ++result.forward_batches;
             result.largest_batch = std::max(result.largest_batch, 1U);
@@ -446,11 +463,11 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
                     auto tail = b.tails.slice(1, leaves[i].slot, 1);
                     auto dst  = hidden.slice(1, i, 1);
                     CUDA_CHECK(cudaMemcpyAsync(dst.data, tail.data, tail.bytes(),
-                                               cudaMemcpyDeviceToDevice, device.stream));
+                                               cudaMemcpyDeviceToDevice, device.stream()));
                 }
                 auto logits = b.logits.slice(1, 0, leaves.size());
                 execution::project(hidden, parameters.text.output_head, logits, work,
-                                   device.stream);
+                                   device.execution_view());
                 std::vector<std::vector<std::uint16_t>> readback(leaves.size());
                 std::vector<TokenId> lows;
                 for (std::size_t i = 0; i < leaves.size(); ++i) {
@@ -460,7 +477,7 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
                     readback[i].resize(*hi - *lo + 1);
                     auto source = logits.slice(1, i, 1).slice(0, *lo, readback[i].size());
                     CUDA_CHECK(cudaMemcpyAsync(readback[i].data(), source.data, source.bytes(),
-                                               cudaMemcpyDeviceToHost, device.stream));
+                                               cudaMemcpyDeviceToHost, device.stream()));
                 }
                 device.synchronize();
                 check();
@@ -478,8 +495,11 @@ BranchScoreResult ProgramImpl::score_branches(std::span<const BranchScoreRow> ro
         }
         if (!root_tokens.empty()) {
             b.cached_prefix.assign(root_tokens.begin(), root_tokens.end());
-            b.cached_address = root.address;
-            std::erase(owned, root.address);
+            auto it = std::find_if(owned.begin(), owned.end(), [&](const auto& history) {
+                return history.handle() == root.address;
+            });
+            b.cached_address.emplace(std::move(*it));
+            owned.erase(it);
         } else {
             release(root);
         }

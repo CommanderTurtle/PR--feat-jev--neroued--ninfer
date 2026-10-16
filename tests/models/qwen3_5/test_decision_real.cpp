@@ -120,8 +120,10 @@ int main() {
                            native_memory.sequence.capacity_bytes &&
                        enabled_memory.workspace.capacity_bytes ==
                            native_memory.workspace.capacity_bytes &&
-                       enabled_memory.cuda_graph_allowance_bytes ==
-                           native_memory.cuda_graph_allowance_bytes,
+                       enabled_memory.cuda_graph.has_value() == native_memory.cuda_graph.has_value() &&
+                       (!enabled_memory.cuda_graph ||
+                        enabled_memory.cuda_graph->rebuild_estimate_bytes ==
+                            native_memory.cuda_graph->rebuild_estimate_bytes),
                    "enabling decisions changed the native startup resource plan");
             const auto baseline = engine.generate(engine.prepare(chat()), generation);
             expect(!baseline.generated_token_ids.empty(), "empty ordinary generation");

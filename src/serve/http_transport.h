@@ -7,6 +7,7 @@
 
 #include <atomic>
 #include <chrono>
+#include <cstddef>
 #include <exception>
 #include <memory>
 #include <stdexcept>
@@ -69,11 +70,13 @@ void render_and_write(SseTransport& transport, Render&& render) {
 }
 
 RequestJson parse_json_body(const httplib::Request& request);
-[[nodiscard]] httplib::TaskQueue* make_http_task_queue(const ServeOptions& options);
+[[nodiscard]] std::unique_ptr<httplib::TaskQueue> make_http_task_queue(const ServeOptions& options);
 [[nodiscard]] bool client_disconnected(const httplib::Request& request);
 
 void prepare_sse_response(httplib::Response& response);
 void configure_http_server_socket(socket_t socket) noexcept;
+[[nodiscard]] std::unique_ptr<httplib::TaskQueue> make_http_task_queue(std::size_t workers,
+                                                                       std::size_t queued_requests);
 void set_owned_json_content(httplib::Response& response, std::string body,
                             std::shared_ptr<RequestLifetime> lifetime);
 

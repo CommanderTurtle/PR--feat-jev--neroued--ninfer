@@ -86,7 +86,7 @@ GBNF 是直接的 grammar 输入，适合作为底层机制的最小完整使用
 | Sampling / Speculative Ops | 合法候选筛选、概率归一化、p/q 接受、残差与采样结果 |
 | Gateway / CLI | 文件获取、协议字段翻译、协议错误和响应编码 |
 
-通用适配位于 `src/text/`；Qwen 输出语义位于 `src/models/qwen3_5/frontend/`。执行数据合同属于 `src/runtime/contract/`，物理消费者由 Program/Ops 拥有。
+通用适配位于 `src/text/`；Qwen 输出语义位于 `src/models/common/qwen/frontend/`。执行数据合同属于 `src/runtime/contract/`，物理消费者由 Program/Ops 拥有。
 
 ## 3. 请求输入与编译
 
@@ -216,6 +216,8 @@ oneOf 在合并共同断言后，以类型域、有限值集合或共同必填 d
 - 不启用会丢失 required/重复 key 语义的 `any_order` 选项。生成语言可以使用确定的属性顺序，输出值仍必须满足 schema。
 
 `pattern` 的 schema 语义是对字符串值的匹配，不能直接套用全文 regex 入口的匹配方式。长度按解码后的 Unicode 字符计数，转义形式不改变值的长度；JSON 字符串的控制字符、引号和反斜杠必须合法转义。Finite const/enum 候选筛选后为空、递归定义明显无生成分支等，在编译或初始 mask 检查处返回不可满足，而不是移除该约束。
+
+纯字符串长度约束使用 JSON 标量的计数重复，结束引号与重复体在同一规则中。编译器将可确定单元边界的重复体规整为字节 DFA，按 token 所需的重复额度预计算稠密位图或稀疏集合，包含 UTF-8 和转义的中间状态；动态计数仍由 parser 历史拥有，参与同一套回退。不同长度上限共享重复体，规则数和位图桶数不按上限展开。跨出字符串并消费后续语法的 token 保留精确匹配。Pattern、长度和工具结束标记排除的组合继续使用约束交集自动机。
 
 JSON 使用紧凑的 `,` / `:` 分隔符及声明字段顺序。字符串长度与 pattern grammar 使用规范的 JSON 转义；continuation 须属于这一生成语言的前缀。`pattern` 按字符串值做搜索，支持字符类、分组、分支、重复以及顶层分支两端的 `^` / `$`。点号和空白类遵循 ECMAScript 字符集合；反向引用、零宽断言、Unicode 属性类、surrogate escape 和未识别转义返回不支持，Unicode 字符可以直接书写。
 

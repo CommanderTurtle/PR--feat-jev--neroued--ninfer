@@ -1,13 +1,13 @@
+#include "models/common/qwen/vision/prefill.h"
 #include "models/qwen3_5/program/program_impl.h"
-#include "models/qwen3_5/program/context_work.h"
+#include "models/common/context/work.h"
 #include "models/qwen3_5/program/execution_context.h"
 #include "models/qwen3_5/execution/linear.h"
 #include "core/device.h"
 #include "ninfer/ops/gdn_replay.h"
 #include "ninfer/ops/sampling.h"
 #include "ninfer/ops/scalar.h"
-#include "ninfer/ops/scatter.h"
-#include "ninfer/ops/speculative_round.h"
+#include "ninfer/ops/indexing.h"
 
 #include <algorithm>
 #include <array>
@@ -39,7 +39,7 @@ DFlashFeatureSink make_dflash_prefill_sink(PrefillContext& state) {
             };
             CUDA_CHECK(cudaMemcpyAsync(frame.ingress.data, state.dflash_prefill_host_ingress,
                                        sizeof(qwen3_5::DFlashPrefillIngress),
-                                       cudaMemcpyHostToDevice, state.execution.device.stream));
+                                       cudaMemcpyHostToDevice, state.execution.cuda.stream()));
             const auto exact = static_cast<std::uint32_t>(features.ne[1]);
             dflash_append_context(state, features, positions, frame.append_count,
                                   frame.state_destination_slot, frame.full_kv_table_row,
@@ -71,9 +71,9 @@ PrefillChunkResult prefill_text_chunk(PrefillContext& state, std::span<const Tok
                                       std::optional<std::uint32_t> split_frontier,
                                       bool finalize_at_end) {
     TextContext card(state.execution.device, state.execution.parameters, state.execution.work,
-                     state.text_kv, state.execution.linear_attention, state.execution.io,
+                     state.text_cache, state.execution.linear_attention, state.execution.io,
                      state.execution.prefill_hidden, state.execution.prefill_chunk,
-                     state.text_kv_base, state.mtp_kv, &state.text_cache, state.mtp_cache);
+                     state.text_kv_base, state.mtp_kv, state.mtp_cache, state.execution.moe);
     configure_text_card(card, state.execution, state.sampling, state.state_source_slot,
                         state.state_destination_slot, state.mtp_proposal_extent);
     card.set_prefill_gpu_timer(state.prefill_gpu_timer);
@@ -90,15 +90,14 @@ PrefillChunkResult prefill_text_chunk(PrefillContext& state, std::span<const Tok
     return card.prefill_chunk(prompt, state.text_kv_base, nominal_length, finalize_at_end);
 }
 
-PrefillChunkResult prefill_multimodal_chunk(PrefillContext& state, const PreparedPromptData& prompt,
-                                            VisionPrefillSession& vision,
-                                            std::uint32_t nominal_length,
-                                            std::optional<std::uint32_t> split_frontier,
-                                            bool finalize_at_end) {
+PrefillChunkResult
+prefill_multimodal_chunk(PrefillContext& state, const qwen::PreparedPromptData& prompt,
+                         qwen::VisionPrefillSession& vision, std::uint32_t nominal_length,
+                         std::optional<std::uint32_t> split_frontier, bool finalize_at_end) {
     TextContext card(state.execution.device, state.execution.parameters, state.execution.work,
-                     state.text_kv, state.execution.linear_attention, state.execution.io,
+                     state.text_cache, state.execution.linear_attention, state.execution.io,
                      state.execution.prefill_hidden, state.execution.prefill_chunk,
-                     state.text_kv_base, state.mtp_kv, &state.text_cache, state.mtp_cache);
+                     state.text_kv_base, state.mtp_kv, state.mtp_cache, state.execution.moe);
     configure_text_card(card, state.execution, state.sampling, state.state_source_slot,
                         state.state_destination_slot, state.mtp_proposal_extent);
     card.set_prefill_gpu_timer(state.prefill_gpu_timer);
@@ -114,8 +113,8 @@ PrefillChunkResult prefill_multimodal_chunk(PrefillContext& state, const Prepare
     return card.prefill_chunk(prompt, state.text_kv_base, nominal_length, vision, finalize_at_end);
 }
 
-void mtp_bridge_multimodal(PrefillContext& state, const PreparedPromptData& prompt,
-                           VisionPrefillSession& vision, const MtpBridgeInput& bridge) {
+void mtp_bridge_multimodal(PrefillContext& state, const qwen::PreparedPromptData& prompt,
+                           qwen::VisionPrefillSession& vision, const MtpBridgeInput& bridge) {
     if (!state.mtp_kv.valid() || bridge.previous_hidden == nullptr || state.text_kv_base == 0 ||
         bridge.position < 0 ||
         static_cast<std::uint32_t>(bridge.position) + 1 != state.text_kv_base) {
@@ -125,12 +124,12 @@ void mtp_bridge_multimodal(PrefillContext& state, const PreparedPromptData& prom
     Tensor bridge_token = state.execution.io.mtp->target_input_ids.slice(0, 0, 1);
     const TokenId token = prompt.token_ids[state.text_kv_base];
     CUDA_CHECK(cudaMemcpyAsync(bridge_token.data, &token, sizeof(token), cudaMemcpyHostToDevice,
-                               state.execution.device.stream));
+                               state.execution.cuda.stream()));
 
     Tensor visual_embedding;
     const Tensor* composed_embedding = nullptr;
     if (prompt.token_types[state.text_kv_base] != 0) {
-        const VisionChunk chunk = vision.prepare_chunk(state.text_kv_base, 1);
+        const qwen::VisionChunk chunk = vision.prepare_chunk(state.text_kv_base, 1);
         if (chunk.control == nullptr) {
             throw std::logic_error("visual MTP bridge has no encoded Vision item");
         }
@@ -161,14 +160,14 @@ void sample_from_hidden(PrefillContext& state, const Tensor& hidden, std::int32_
     state.execution.work.reset();
     Tensor logits = state.execution.io.logits.slice(1, 0, 1);
     project(hidden, state.execution.parameters.text.output_head, logits, state.execution.work,
-            state.execution.device.stream);
+            state.execution.cuda);
     CUDA_CHECK(cudaMemcpyAsync(state.execution.io.pos.data, &absolute_position,
                                sizeof(absolute_position), cudaMemcpyHostToDevice,
-                               state.execution.device.stream));
+                               state.execution.cuda.stream()));
     ops::sample(logits, state.execution.io.token,
                 dimension(state.execution.parameters.model.resources().public_token_count),
                 state.sampling, state.execution.io.pos, purpose, state.execution.work,
-                state.execution.device.stream);
+                state.execution.cuda);
     state.execution.work.reset();
 }
 
@@ -178,10 +177,10 @@ namespace ninfer::models::qwen3_5::detail {
 
 namespace {
 
-std::array<std::int32_t, 3> prompt_rope_position(const PreparedPromptData& prompt,
+std::array<std::int32_t, 3> prompt_rope_position(const qwen::PreparedPromptData& prompt,
                                                  std::uint32_t token);
 
-std::array<std::int32_t, 3> prompt_rope_position(const PreparedPromptData& prompt,
+std::array<std::int32_t, 3> prompt_rope_position(const qwen::PreparedPromptData& prompt,
                                                  std::uint32_t token) {
     const std::size_t tokens = prompt.token_ids.size();
     if (token >= tokens || prompt.positions.size() != 3 * tokens) {
@@ -203,10 +202,10 @@ PrefillProgress ProgramImpl::advance_prefill(SequenceHandle handle,
     prepare_capture_boundary(lane);
     const auto permit = *requests[lane].permit;
     ensure_sequence_kv_mapped(state, permit.main_frontier, permit.backend_frontier);
-    set_device_i32(io.text_kv_table_row, text_kv_addresses->bound_row(state.kv->text));
+    set_device_i32(io.text_kv_table_row, text_kv_histories->bound_row(state.kv->text.handle()));
     if (state.kv->backend) {
         set_device_i32(io.backend_kv_table_row,
-                       backend_kv_addresses->bound_row(*state.kv->backend));
+                       backend_kv_histories->bound_row(state.kv->backend->handle()));
     }
     grammar_dead_positions[0] = 0;
     if (requests[lane].prefill && permit.main_frontier >= requests[lane].prefill->prompt_tokens &&
@@ -216,7 +215,7 @@ PrefillProgress ProgramImpl::advance_prefill(SequenceHandle handle,
         config.mask        = fill_grammar_mask(masks, 0, {});
         Tensor config_lane = sampling_config.slice(1, static_cast<std::int32_t>(lane), 1);
         CUDA_CHECK(cudaMemcpyAsync(config_lane.data, &config, sizeof(config),
-                                   cudaMemcpyHostToDevice, device.stream));
+                                   cudaMemcpyHostToDevice, device.stream()));
     }
     auto progress = wrap_prefill(lane, advance_prefill_raw(lane, timing));
     if (!progress.complete) { settle_unit(lane); }
@@ -227,16 +226,6 @@ runtime::PrefillStepResult
 ProgramImpl::advance_prefill_raw(std::uint32_t lane, runtime::ExecutionTiming* failed_timing) {
     if (lane >= max_concurrency) { throw std::out_of_range("request lane is out of range"); }
     return advance_prefill(active_sequence(lane), requests[lane], failed_timing);
-}
-
-runtime::ExecutionTiming ProgramImpl::resolve_prefill_raw(std::uint32_t lane, bool terminal,
-                                                          runtime::ExecutionTiming* failed_timing) {
-    if (lane >= max_concurrency) { throw std::out_of_range("request lane is out of range"); }
-    if (requests[lane].pending.kind != PendingKind::Begin) {
-        throw std::logic_error("prefill resolution requires a pending prefill token");
-    }
-    return resolve_non_speculative_pending(active_sequence(lane), requests[lane], 1, terminal,
-                                           std::nullopt, failed_timing);
 }
 
 runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
@@ -307,16 +296,20 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
         }
         const PendingCandidate& pending = requests[lane].pending;
         const SequenceState& sequence   = active_sequence(lane);
-        if (sequence.execution_frontier != pending.base_E ||
+        if (sequence.continuation.metadata.execution_frontier !=
+                pending.base.metadata.execution_frontier ||
             sequence.ledger_frontier != pending.base_S ||
             sequence.ledger.size() != pending.base_S ||
             sequence.prefix_identity.size() != pending.base_S ||
             sequence.prefix_digests.size() != pending.base_S ||
-            sequence.text_kv_valid != pending.base_E ||
+            sequence.continuation.metadata.text_kv_valid !=
+                pending.base.metadata.execution_frontier ||
             (speculative_backend == SpeculativeBackend::Mtp &&
-             sequence.mtp_kv_valid != pending.base_E) ||
+             sequence.continuation.metadata.backend_kv_valid !=
+                 pending.base.metadata.execution_frontier) ||
             (is_masked_draft_backend(speculative_backend) &&
-             sequence.dflash_context_frontier != pending.base_E)) {
+             sequence.continuation.metadata.dflash_context_frontier !=
+                 pending.base.metadata.execution_frontier)) {
             throw std::logic_error("speculative pending row is not at its recorded base");
         }
         const std::uint32_t committed = discarded[row] ? 0U : accepted_tokens[row];
@@ -325,7 +318,7 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
                                  (!terminal[row] && committed != pending.produced)))) {
             throw std::logic_error("speculative pending row has an invalid committed prefix");
         }
-        const StateImageSelectors selectors = state_selectors(sequence);
+        const context::StateImageSelectors selectors = state_selectors(sequence);
         fold_rows[row] =
             ops::GdnReplayFoldRow{.source_state_slot      = selectors.source,
                                   .destination_state_slot = selectors.destination,
@@ -337,13 +330,13 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
         needs_hidden_correction = needs_hidden_correction || partial_terminal;
     }
 
-    const auto tail_started = Clock::now();
+    const auto tail_started = context::Clock::now();
     try {
         timing.resume_submit();
         replay_fold->execute(std::span<const ops::GdnReplayFoldRow>(fold_rows.data(), lanes.size()),
-                             device.stream);
+                             device.execution_view());
 
-        // Sparse acceptance reads counts. Publish only the prefix licensed by the Frontend.
+        // Sparse acceptance reads counts. Publish only the prefix licensed by the qwen::Frontend.
         if (speculative_backend == SpeculativeBackend::DFlash2) {
             for (std::size_t row = 0; row < lanes.size(); ++row) {
                 if (discarded[row] || !requests[lanes[row]].sampling_host.token_counts) {
@@ -357,7 +350,7 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
                 Tensor counts =
                     token_counts.slice(1, static_cast<std::int32_t>(lanes[row]), 1)
                         .view({dimension(parameters.model.resources().public_token_count)});
-                ops::increment_token_counts(ids, counts, device.stream);
+                ops::increment_token_counts(ids, counts, device.execution_view());
             }
         }
 
@@ -384,11 +377,11 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
             }
             CUDA_CHECK(cudaMemcpyAsync(selector_tensor.data, hidden_selectors.data(),
                                        lanes.size() * sizeof(std::int32_t), cudaMemcpyHostToDevice,
-                                       device.stream));
-            ops::speculative_select_accepted_hidden(hidden, selector_tensor, selected,
-                                                    device.stream);
+                                       device.stream()));
+            ops::gather_bf16_batch_columns(hidden, selector_tensor, selected,
+                                           device.execution_view());
             ops::scatter(selected, destinations, state_images->continuation_hidden_store(),
-                         device.stream);
+                         device.execution_view());
         }
 
         if (is_masked_draft_backend(speculative_backend)) {
@@ -398,8 +391,9 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
             std::size_t append_size = 0;
             for (std::size_t row = 0; row < lanes.size(); ++row) {
                 if (!discarded[row] && terminal[row]) {
-                    append_lanes[append_size]  = lanes[row];
-                    append_starts[append_size] = requests[lanes[row]].pending.base_E;
+                    append_lanes[append_size] = lanes[row];
+                    append_starts[append_size] =
+                        requests[lanes[row]].pending.base.metadata.execution_frontier;
                     append_counts[append_size] = accepted_tokens[row];
                     ++append_size;
                 }
@@ -425,7 +419,8 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
         throw;
     }
 
-    const double tail_seconds = std::chrono::duration<double>(Clock::now() - tail_started).count();
+    const double tail_seconds =
+        std::chrono::duration<double>(context::Clock::now() - tail_started).count();
     const std::uint32_t width = draft_window + 1U;
     try {
         for (std::size_t row = 0; row < lanes.size(); ++row) {
@@ -438,7 +433,7 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
 
             const PendingCandidate pending = request.pending;
             const std::uint32_t committed  = accepted_tokens[row];
-            settle_state_fork(sequence);
+            complete_state_write(sequence);
             const TokenId* token_base =
                 speculative_backend == SpeculativeBackend::Mtp
                     ? mtp_host_egress->licensed_tokens.data() + row * width
@@ -447,13 +442,16 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
             commit_generated_prefix_identity(sequence, pending.base_S,
                                              std::span<const TokenId>(token_base, committed),
                                              prefix_execution_splits[row]);
-            sequence.execution_frontier = pending.base_E + committed;
-            sequence.ledger_frontier    = pending.base_S + committed;
-            sequence.text_kv_valid      = sequence.execution_frontier;
-            sequence.tail_hidden_valid  = true;
+            sequence.continuation.metadata.execution_frontier =
+                pending.base.metadata.execution_frontier + committed;
+            sequence.ledger_frontier = pending.base_S + committed;
+            sequence.continuation.metadata.text_kv_valid =
+                sequence.continuation.metadata.execution_frontier;
+            sequence.continuation.metadata.tail_hidden_valid = true;
 
             if (speculative_backend == SpeculativeBackend::Mtp) {
-                sequence.mtp_kv_valid = sequence.execution_frontier;
+                sequence.continuation.metadata.backend_kv_valid =
+                    sequence.continuation.metadata.execution_frontier;
                 if (terminal[row]) {
                     sequence.mtp_draft_count = 0;
                 } else {
@@ -465,12 +463,15 @@ runtime::ExecutionTiming ProgramImpl::resolve_pending_raw(
                     }
                 }
             } else {
-                sequence.dflash_context_frontier =
-                    terminal[row] ? sequence.execution_frontier : pending.base_E;
+                sequence.continuation.metadata.dflash_context_frontier =
+                    terminal[row] ? sequence.continuation.metadata.execution_frontier
+                                  : pending.base.metadata.execution_frontier;
             }
 
-            commit_sequence_kv(sequence, sequence.text_kv_valid, backend_kv_valid(sequence));
-            trim_sequence_kv(sequence, sequence.text_kv_valid, backend_kv_valid(sequence));
+            commit_sequence_kv(sequence, sequence.continuation.metadata.text_kv_valid,
+                               backend_kv_valid(sequence));
+            trim_sequence_kv(sequence, sequence.continuation.metadata.text_kv_valid,
+                             backend_kv_valid(sequence));
             if (terminal[row]) {
                 request.lifecycle = Lifecycle::Finishable;
             } else {
@@ -502,9 +503,9 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                                         .reused_prompt_tokens = staged.base,
                                         .prefix_reuse_path    = staged.reuse};
     std::uint32_t processed_prompt_tokens = 0;
-    const auto started                    = Clock::now();
+    const auto started                    = context::Clock::now();
     try {
-        StateImageSelectors selectors = state_selectors(sequence);
+        context::StateImageSelectors selectors = state_selectors(sequence);
         Tensor rewrite_capture_hidden;
         Tensor* rewrite_capture_hidden_ptr = nullptr;
         if (request.next_capture < request.capture_groups.size()) {
@@ -514,8 +515,7 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
         execution::PrefillContext schedule_state{
             {device, parameters, work, state_images->linear(),
              replay_records ? &*replay_records : nullptr, io, prefill_hidden, prefill_chunk,
-             proposal_head},
-            text_kv_view(sequence),
+             proposal_head, moe.get()},
             mtp_kv_view(sequence),
             decoder->text_kv,
             decoder->mtp_cache(),
@@ -529,7 +529,7 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
             staged.initial_mtp_extent,
             0,
             dflash_prefill_host_ingress,
-            sequence.rope_delta};
+            sequence.continuation.metadata.rope_delta};
         schedule_state.prefill_gpu_timer = &prefill_gpu_timer_;
 
         if (staged.mtp_bridge == MtpBridgeMode::BeforeSuffix) {
@@ -538,10 +538,10 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                 throw std::logic_error("staged MTP bridge is outside the reusable suffix");
             }
             mark_workspace_usage(workspace_plan.mtp_prefill);
-            const Tensor& previous_hidden = sequence.tail_hidden;
+            const Tensor& previous_hidden = tail_hidden(sequence);
             const execution::MtpBridgeInput bridge{
                 .previous_hidden = &previous_hidden,
-                .position        = checked_i32(staged.base - 1, "MTP bridge position"),
+                .position        = context::checked_i32(staged.base - 1, "MTP bridge position"),
                 .rope_position   = prompt_rope_position(staged.prompt, staged.base - 1),
             };
             if (staged.vision) {
@@ -551,12 +551,13 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                 Tensor bridge_token = io.mtp->target_input_ids.slice(0, 0, 1);
                 const TokenId token = staged.prompt.token_ids[staged.base];
                 CUDA_CHECK(cudaMemcpyAsync(bridge_token.data, &token, sizeof(token),
-                                           cudaMemcpyHostToDevice, device.stream));
+                                           cudaMemcpyHostToDevice, device.stream()));
                 execution::mtp_bridge_and_propose(schedule_state, bridge_token, previous_hidden,
                                                   bridge.position, bridge.rope_position, false);
             }
-            sequence.mtp_kv_valid = staged.base;
-            commit_sequence_kv(sequence, sequence.text_kv_valid, sequence.mtp_kv_valid);
+            sequence.continuation.metadata.backend_kv_valid = staged.base;
+            commit_sequence_kv(sequence, sequence.continuation.metadata.text_kv_valid,
+                               sequence.continuation.metadata.backend_kv_valid);
             staged.mtp_bridge = MtpBridgeMode::None;
         }
 
@@ -577,8 +578,9 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                 schedule_state.state_source_slot      = selectors.source;
                 schedule_state.state_destination_slot = selectors.destination;
                 schedule_state.dflash_kv_table_row =
-                    sequence.kv->backend ? backend_kv_addresses->bound_row(*sequence.kv->backend)
-                                         : 0;
+                    sequence.kv->backend
+                        ? backend_kv_histories->bound_row(sequence.kv->backend->handle())
+                        : 0;
                 if (request.next_capture < request.capture_groups.size()) {
                     rewrite_capture_hidden =
                         state_images->continuation_hidden_slot(selectors.destination);
@@ -624,21 +626,24 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                 staged.cursor += result.processed_tokens;
                 processed_prompt_tokens += result.processed_tokens;
                 remaining -= result.processed_tokens;
-                final_chunk_tokens     = result.processed_tokens;
-                sequence.text_kv_valid = staged.cursor;
-                if (staged.prepare_mtp) { sequence.mtp_kv_valid = staged.cursor; }
-                if (is_masked_draft_backend(speculative_backend)) {
-                    sequence.dflash_context_frontier = staged.cursor;
+                final_chunk_tokens                           = result.processed_tokens;
+                sequence.continuation.metadata.text_kv_valid = staged.cursor;
+                if (staged.prepare_mtp) {
+                    sequence.continuation.metadata.backend_kv_valid = staged.cursor;
                 }
-                commit_sequence_kv(sequence, sequence.text_kv_valid, backend_kv_valid(sequence));
+                if (is_masked_draft_backend(speculative_backend)) {
+                    sequence.continuation.metadata.dflash_context_frontier = staged.cursor;
+                }
+                commit_sequence_kv(sequence, sequence.continuation.metadata.text_kv_valid,
+                                   backend_kv_valid(sequence));
 
                 // Prompt transitions are canonical immediately. If this was the first write after
                 // an immutable source, close the Fork before potentially freezing a new rewrite.
-                settle_state_fork(sequence);
+                complete_state_write(sequence);
                 copy_tail(sequence,
                           prefill_hidden.slice(
                               1, static_cast<std::int32_t>(result.processed_tokens) - 1, 1));
-                sequence.tail_hidden_valid = true;
+                sequence.continuation.metadata.tail_hidden_valid = true;
                 const bool reached_capture = capture_frontier && staged.cursor == *capture_frontier;
                 if (reached_capture) {
                     if (result.finalized) {
@@ -646,7 +651,7 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                         // Begin token is committed. commit() marks this capture group ready.
                     } else {
                         staged.elapsed_seconds +=
-                            std::chrono::duration<double>(Clock::now() - started).count();
+                            std::chrono::duration<double>(context::Clock::now() - started).count();
 
                         request.capture_pending = true;
                         return runtime::PrefillStepResult{
@@ -666,7 +671,7 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                     throw std::logic_error("staged prefill reached the prompt without sampling");
                 }
                 staged.elapsed_seconds +=
-                    std::chrono::duration<double>(Clock::now() - started).count();
+                    std::chrono::duration<double>(context::Clock::now() - started).count();
                 return runtime::PrefillStepResult{
                     .summary                 = summary,
                     .processed_prompt_tokens = processed_prompt_tokens,
@@ -681,14 +686,16 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                                     1, static_cast<std::int32_t>(final_chunk_tokens) - 1, 1));
         } else {
             mark_workspace_usage(workspace_plan.ordinary_round);
-            if (!sequence.tail_hidden_valid) {
+            if (!sequence.continuation.metadata.tail_hidden_valid) {
                 throw std::logic_error("zero-suffix reuse has no target tail hidden");
             }
-            execution::sample_from_hidden(schedule_state, sequence.tail_hidden,
-                                          checked_i32(staged.prompt_tokens, "sample position"),
-                                          ops::kSamplePurposePrefill);
-            set_device_i32(io.rope_pos, checked_i32(staged.prompt_tokens, "rope position") +
-                                            sequence.rope_delta);
+            execution::sample_from_hidden(
+                schedule_state, tail_hidden(sequence),
+                context::checked_i32(staged.prompt_tokens, "sample position"),
+                ops::kSamplePurposePrefill);
+            set_device_i32(io.rope_pos,
+                           context::checked_i32(staged.prompt_tokens, "rope position") +
+                               sequence.continuation.metadata.rope_delta);
             if (staged.prepare_mtp) {
                 if (staged.mtp_bridge != MtpBridgeMode::AfterExactHit) {
                     throw std::logic_error("zero-suffix MTP reuse has no exact-hit bridge");
@@ -697,11 +704,13 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
                 const auto bridge_rope =
                     prompt_rope_position(staged.prompt, staged.prompt_tokens - 1);
                 execution::mtp_bridge_and_propose(
-                    schedule_state, io.token, sequence.tail_hidden,
-                    checked_i32(staged.prompt_tokens - 1, "MTP full-prefix bridge position"),
+                    schedule_state, io.token, tail_hidden(sequence),
+                    context::checked_i32(staged.prompt_tokens - 1,
+                                         "MTP full-prefix bridge position"),
                     bridge_rope, staged.initial_mtp_extent != 0);
-                sequence.mtp_kv_valid = staged.prompt_tokens;
-                commit_sequence_kv(sequence, sequence.text_kv_valid, sequence.mtp_kv_valid);
+                sequence.continuation.metadata.backend_kv_valid = staged.prompt_tokens;
+                commit_sequence_kv(sequence, sequence.continuation.metadata.text_kv_valid,
+                                   sequence.continuation.metadata.backend_kv_valid);
                 staged.mtp_bridge = MtpBridgeMode::None;
             }
         }
@@ -711,12 +720,13 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
         if (staged.prepare_mtp && staged.initial_mtp_extent != 0) {
             CUDA_CHECK(cudaMemcpyAsync(initial_drafts.data(), io.mtp->draft_tokens.data,
                                        staged.initial_mtp_extent * sizeof(TokenId),
-                                       cudaMemcpyDeviceToHost, device.stream));
+                                       cudaMemcpyDeviceToHost, device.stream()));
         }
         timing.begin_wait();
         device.synchronize();
         timing.end_wait();
-        staged.elapsed_seconds += std::chrono::duration<double>(Clock::now() - started).count();
+        staged.elapsed_seconds +=
+            std::chrono::duration<double>(context::Clock::now() - started).count();
         const double vision_seconds = staged.retired_vision_seconds +
                                       (staged.vision ? staged.vision->elapsed_seconds() : 0.0);
         const std::uint32_t prompt_tokens = staged.prompt_tokens;
@@ -726,22 +736,22 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
             throw std::logic_error("candidate token ledger does not match prompt length");
         }
         sequence.ledger.push_back(host_tokens[0]);
-        sequence.prefix_identity.append_generated(1, sequence.rope_delta);
+        sequence.prefix_identity.append_generated(1, sequence.continuation.metadata.rope_delta);
         sequence.prefix_digests.append_generated(std::span<const TokenId>(host_tokens, 1),
-                                                 sequence.rope_delta);
-        sequence.text_kv_valid = prompt_tokens;
+                                                 sequence.continuation.metadata.rope_delta);
+        sequence.continuation.metadata.text_kv_valid = prompt_tokens;
         if (staged.prepare_mtp) {
-            if (sequence.mtp_kv_valid != prompt_tokens) {
+            if (sequence.continuation.metadata.backend_kv_valid != prompt_tokens) {
                 throw std::logic_error("staged MTP prefill did not reach the prompt frontier");
             }
             sequence.mtp_draft_count = staged.initial_mtp_extent;
             std::copy_n(initial_drafts.begin(), staged.initial_mtp_extent,
                         sequence.mtp_drafts.begin());
         } else if (is_masked_draft_backend(speculative_backend) &&
-                   sequence.dflash_context_frontier != prompt_tokens) {
+                   sequence.continuation.metadata.dflash_context_frontier != prompt_tokens) {
             throw std::logic_error("staged DFlash prefill did not reach the prompt frontier");
         }
-        sequence.tail_hidden_valid = true;
+        sequence.continuation.metadata.tail_hidden_valid = true;
         request.timings.vision_seconds += vision_seconds;
         request.timings.prefill_seconds = std::max(0.0, staged.elapsed_seconds - vision_seconds);
         if (staged.vision) { staged.vision->retire_handoff(); }
@@ -751,7 +761,7 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
             request.capture_groups[request.next_capture].frontier == prompt_tokens;
         if (!prompt_frontier_capture) { request.prefill.reset(); }
         request.pending   = PendingCandidate{.kind          = PendingKind::Begin,
-                                             .base_E        = 0,
+                                             .base          = sequence.continuation,
                                              .base_S        = 0,
                                              .prompt_tokens = prompt_tokens,
                                              .produced      = 1};
@@ -774,6 +784,5 @@ runtime::PrefillStepResult ProgramImpl::advance_prefill(SequenceState& sequence,
         throw;
     }
 }
-
 
 } // namespace ninfer::models::qwen3_5::detail

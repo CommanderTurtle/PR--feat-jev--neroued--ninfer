@@ -6,9 +6,9 @@ template <class Instance>
 BranchScoreResult EngineCore<Instance>::score_branches(std::span<const BranchScoreRow> rows,
                                                        const PreparationControl& control,
                                                        bool reuse_prefix) {
-    auto job = std::make_shared<BranchJob>();
+    auto job = std::make_shared<BranchScoreQueue::Job>();
     job->rows.assign(rows.begin(), rows.end());
-    job->reuse_prefix      = reuse_prefix;
+    job->reuse_prefix     = reuse_prefix;
     job->control          = control;
     job->pending_deadline = Clock::now() + pending_timeout_;
     if (control.deadline != Clock::time_point{}) {
@@ -22,10 +22,10 @@ BranchScoreResult EngineCore<Instance>::score_branches(std::span<const BranchSco
         }
         // Decision batches do not occupy generation lanes or its outstanding-request budget.
         constexpr std::size_t kMaximumPendingDecisions = 16;
-        if (branch_pending_.size() >= kMaximumPendingDecisions) {
+        if (decisions_.pending.size() >= kMaximumPendingDecisions) {
             throw RequestError(RequestErrorKind::Overloaded, "decision request queue is full");
         }
-        branch_pending_.push_back(job);
+        decisions_.pending.push_back(job);
     }
     queue_cv_.notify_one();
     // Wait through cancellation cleanup: queued GPU work borrows these token spans.
@@ -34,55 +34,71 @@ BranchScoreResult EngineCore<Instance>::score_branches(std::span<const BranchSco
 
 template <class Instance>
 bool EngineCore<Instance>::progress_branch_job() {
-    if (instance_.program->has_context_transaction()) { return false; }
-    std::shared_ptr<BranchJob> job;
-    {
-        std::lock_guard lock(queue_mutex_);
-        if (branch_pending_.empty()) { return false; }
-        job = std::move(branch_pending_.front());
-        branch_pending_.pop_front();
-    }
-    try {
-        if (Clock::now() >= job->pending_deadline) {
-            throw RequestError(RequestErrorKind::QueueTimeout, "decision queue deadline exceeded");
-        }
-        auto control         = job->control;
-        control.cancellation = CancellationView([&, original = control.cancellation] {
-            if (original.requested()) { return true; }
+    if constexpr (!requires(typename ModelContract::Program& program,
+                            std::span<const BranchScoreRow> rows,
+                            const PreparationControl& control) {
+                      program.score_branches(rows, control, true);
+                  }) {
+        return false;
+    } else {
+        if (instance_.program->has_context_operation()) { return false; }
+        std::shared_ptr<BranchScoreQueue::Job> job;
+        {
             std::lock_guard lock(queue_mutex_);
-            return stopping_;
-        });
-        auto scored = instance_.program->score_branches(
-            job->rows, control, job->reuse_prefix && branch_cache_enabled_);
-        if (!branch_cache_enabled_) { (void)instance_.program->release_branch_cache(); }
-        job->result.set_value(std::move(scored));
-    } catch (const RequestError&) {
-        job->result.set_exception(std::current_exception());
-    } catch (...) {
-        job->result.set_exception(std::current_exception());
-        throw;
+            if (decisions_.pending.empty()) { return false; }
+            job = std::move(decisions_.pending.front());
+            decisions_.pending.pop_front();
+        }
+        try {
+            if (Clock::now() >= job->pending_deadline) {
+                throw RequestError(RequestErrorKind::QueueTimeout,
+                                   "decision queue deadline exceeded");
+            }
+            auto control         = job->control;
+            control.cancellation = CancellationView([&, original = control.cancellation] {
+                if (original.requested()) { return true; }
+                std::lock_guard lock(queue_mutex_);
+                return stopping_;
+            });
+            auto scored          = instance_.program->score_branches(
+                job->rows, control, job->reuse_prefix && decisions_.cache_enabled);
+            if (!decisions_.cache_enabled) { (void)instance_.program->release_branch_cache(); }
+            job->result.set_value(std::move(scored));
+        } catch (const RequestError&) {
+            job->result.set_exception(std::current_exception());
+        } catch (...) {
+            job->result.set_exception(std::current_exception());
+            throw;
+        }
+        return true;
     }
-    return true;
 }
 
 template <class Instance>
 bool EngineCore<Instance>::release_branch_workspace_before_chat() {
-    bool chat_pending;
-    {
-        std::lock_guard lock(queue_mutex_);
-        chat_pending = !pending_.empty();
-    }
-    if (chat_pending || !resident_empty() || !paused_.empty() || materializing_ || context_owner_) {
-        // Return decision-owned KV pages and StateImage leases; chat cache policy is unchanged.
-        if (instance_.program->release_branch_cache()) {
-            request_admission_check();
-            scheduler_.capacity_released();
-        }
+    if constexpr (!requires(typename ModelContract::Program& program) {
+                      program.release_branch_cache();
+                  }) {
         return true;
+    } else {
+        bool chat_pending;
+        {
+            std::lock_guard lock(queue_mutex_);
+            chat_pending = !pending_.empty();
+        }
+        if (chat_pending || !resident_empty() || !paused_.empty() || materializing_ ||
+            context_owner_) {
+            // Return decision-owned KV pages and StateImage leases; chat cache policy is unchanged.
+            if (instance_.program->release_branch_cache()) {
+                request_admission_check();
+                scheduler_.capacity_released();
+            }
+            return true;
+        }
+        // End this decision-only cycle. A chat arriving after the queue check must start a
+        // new cycle and release the overlay before admission can use general workspace.
+        return false;
     }
-    // End this decision-only cycle. A chat arriving after the queue check must start a
-    // new cycle and release the overlay before admission can use general workspace.
-    return false;
 }
 
 } // namespace ninfer::runtime

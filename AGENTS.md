@@ -6,7 +6,8 @@ NInfer is a C++/CUDA inference engine for maximum single-GPU performance, target
 on NVIDIA GeForce RTX 5090. Choose designs for functional and numerical correctness, clear
 ownership, and the performance goal within the requested scope.
 
-It implements `Qwen3_5ForCausalLM` and `Qwen3_5MoeForCausalLM`. Checkpoints and recipe combinations
+It implements `Qwen3_5ForCausalLM`, `Qwen3_5MoeForCausalLM`, and Text/Vision/MTP for
+`Qwen4ExpForCausalLM`. Checkpoints and recipe combinations
 of existing representations use the same architecture, binding and execution path; do not add
 checkpoint-specific execution registration. Generation uses one GPU, one resident model, and
 one to eight resident execution lanes fixed at startup.
@@ -68,3 +69,10 @@ after selecting the maintainer environment or checking its version.
 The usual local model is `out/qwen3_8_27b_nvfp4.ninfer`. Select artifacts by explicit path, never glob order,
 modification time, or unqualified “latest”. Source checkpoints and large artifacts are prerequisites;
 download or regenerate them only when that work is in scope.
+
+Store all agent-generated temporary files under the repository-root `.agent-tmp/<task>/`,
+including temporary plans, experimental code and binaries, test data, logs, profiling captures,
+performance reports, and intermediate artifacts. This directory is ignored by Git; do not commit
+its contents. Remove temporary files that are no longer needed when the task ends.
+Reserve `out/` for model weights, their companion files, and explicitly retained important artifacts.
+Do not use `out/` for temporary experiments or task output.

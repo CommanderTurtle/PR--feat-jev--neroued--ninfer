@@ -23,10 +23,6 @@ PagedKVCacheLayout plan_cache(LayoutBuilder& builder, std::uint32_t layers, std:
     const PagedKVStorageLayout layer_storage = paged_kv_storage_layout(storage, head_dim);
 
     const std::uint32_t logical_pages = page_count(capacity);
-    if (physical_page_groups < logical_pages) {
-        throw std::invalid_argument("Paged KV physical pages are below logical capacity");
-    }
-
     KVPageGeometry geometry;
     geometry.planes.reserve(static_cast<std::size_t>(layers) * layer_storage.planes_per_layer());
     for (std::uint32_t layer = 0; layer < layers; ++layer) {
@@ -72,7 +68,7 @@ DecoderStateLayout plan_decoder_state(LayoutBuilder& builder, const DecoderState
     return layout;
 }
 
-PagedKVCache::PagedKVCache(DeviceSpan backing, const PagedKVCacheLayout& layout)
+PagedKVCache::PagedKVCache(MemorySpan backing, const PagedKVCacheLayout& layout)
     : owned_pages_(std::in_place, backing, layout.pages), pages_(*owned_pages_),
       execution_tables_(backing, layout.execution_tables, pages_),
       layers_(layout.layers), max_context_(layout.max_context), kv_heads_(layout.kv_heads),
@@ -83,7 +79,7 @@ PagedKVCache::PagedKVCache(DeviceSpan backing, const PagedKVCacheLayout& layout)
     }
 }
 
-PagedKVCache::PagedKVCache(DeviceSpan backing, const KVExecutionTableLayout& tables,
+PagedKVCache::PagedKVCache(MemorySpan backing, const KVExecutionTableLayout& tables,
                            PagedKVCache& shared)
     : pages_(shared.page_pool()), execution_tables_(backing, tables, pages_),
       layers_(shared.layers_), max_context_(shared.max_context_), kv_heads_(shared.kv_heads_),
@@ -145,7 +141,7 @@ std::size_t DecoderStateLayout::kv_payload_bytes() const noexcept {
     return text_kv.payload_bytes() + (mtp_kv ? mtp_kv->payload_bytes() : 0);
 }
 
-DecoderState::DecoderState(DeviceSpan backing, const DecoderStateLayout& layout)
+DecoderState::DecoderState(MemorySpan backing, const DecoderStateLayout& layout)
     : text_kv(backing, layout.text_kv) {
     if (layout.mtp_kv) { mtp_kv.emplace(backing, *layout.mtp_kv); }
 }

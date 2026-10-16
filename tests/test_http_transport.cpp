@@ -98,6 +98,27 @@ int test_decision_transport_capacity() {
     return failures;
 }
 
+int test_task_queue() {
+    std::atomic<unsigned> executed{0};
+    auto queue = ninfer::serve::make_http_task_queue(1, 1);
+    std::promise<void> started, release;
+    const auto gate = release.get_future().share();
+    int failures    = check(queue->enqueue([&, gate] {
+        started.set_value();
+        gate.wait();
+        ++executed;
+    }),
+                            "HTTP queue rejected first request");
+    started.get_future().get();
+    failures += check(queue->enqueue([&] { ++executed; }), "HTTP queue rejected pending request");
+    failures += check(!queue->enqueue([&] { ++executed; }), "HTTP queue failed to reject overflow");
+    release.set_value();
+    queue->shutdown();
+    failures += check(executed == 2, "HTTP shutdown did not drain accepted requests");
+    failures += check(!queue->enqueue([] {}), "HTTP queue accepted after shutdown");
+    return failures;
+}
+
 int test_sse_transport() {
     using namespace std::chrono_literals;
     int failures = 0;
@@ -305,7 +326,7 @@ int test_inherited_socket_liveness() {
 int main() {
     int failures = test_sse_transport() + test_sse_response_headers() +
                    test_prompt_json_member_order() + test_schema_number_precision() +
-                   test_decision_transport_capacity();
+                   test_decision_transport_capacity() + test_task_queue();
 #if defined(__linux__)
     failures += test_inherited_socket_liveness();
 #endif
